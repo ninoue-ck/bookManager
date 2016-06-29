@@ -24,6 +24,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+//モーダルを閉じる
 - (IBAction)account_close:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

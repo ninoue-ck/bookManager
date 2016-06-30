@@ -31,6 +31,10 @@
     UIDatePicker* datePicker = [[UIDatePicker alloc]init];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
     
+    
+
+    self.book_title.delegate = self;
+    
     // DatePickerを編集したら、updateTextFieldを呼び出す
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     
@@ -87,8 +91,19 @@
 
 
 - (IBAction)add_close:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+ [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+///キーボードを消す？
+//- (BOOL)textFieldShouldReturn:(UITextField *)book_title{
+//    [book_title resignFirstResponder];
+//    return YES;
+//}
+
+
+
+
+
 
 
 
@@ -105,6 +120,16 @@
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
 }
+
+
+
+- (IBAction)book_title_end:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
+
+
+
+
 
 /*
 #pragma mark - Navigation

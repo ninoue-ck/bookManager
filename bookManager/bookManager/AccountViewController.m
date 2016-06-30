@@ -28,6 +28,23 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+
+//キーボードを閉じる処理まとめ
+- (IBAction)mail_end:(UITextField *)sender {
+     [sender resignFirstResponder];
+}
+- (IBAction)passward_end:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
+- (IBAction)passward_confirm:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
+
+
+
+
+
 /*
 #pragma mark - Navigation
 

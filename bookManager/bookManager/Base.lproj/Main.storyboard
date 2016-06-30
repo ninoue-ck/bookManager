@@ -403,6 +403,11 @@
                             <constraint firstItem="Ht2-ot-ptR" firstAttribute="leading" secondItem="Cf3-3i-qUC" secondAttribute="leadingMargin" constant="30" id="za6-kk-fce"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="book_date" destination="k7r-wG-Rkb" id="Yxk-cL-wPc"/>
+                        <outlet property="book_price" destination="F67-ih-gJW" id="k1d-2K-eWC"/>
+                        <outlet property="book_title" destination="yzs-7u-B8j" id="vhR-A9-i9d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVF-HV-AcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

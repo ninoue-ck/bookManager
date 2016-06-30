@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface AddViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate>
+
+
 
 @end

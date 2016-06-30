@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6327A9271D24D5FE005AD3DA /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6327A9251D24D5FE005AD3DA /* TableViewCell.m */; };
 		6327A9281D24D5FE005AD3DA /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6327A9261D24D5FE005AD3DA /* TableViewCell.xib */; };
+		6327A9701D251338005AD3DA /* TableViewCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6327A96F1D251338005AD3DA /* TableViewCustomCell.xib */; };
 		63AFF2111D226A380049AE8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AFF2101D226A380049AE8D /* main.m */; };
 		63AFF2141D226A380049AE8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AFF2131D226A380049AE8D /* AppDelegate.m */; };
 		63AFF21A1D226A380049AE8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AFF2181D226A380049AE8D /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		6327A9241D24D5FE005AD3DA /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		6327A9251D24D5FE005AD3DA /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		6327A9261D24D5FE005AD3DA /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		6327A96F1D251338005AD3DA /* TableViewCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCustomCell.xib; sourceTree = "<group>"; };
 		63AFF20C1D226A380049AE8D /* bookManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AFF2101D226A380049AE8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		63AFF2121D226A380049AE8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				63AFF2131D226A380049AE8D /* AppDelegate.m */,
 				63AFF2181D226A380049AE8D /* Main.storyboard */,
 				6327A9241D24D5FE005AD3DA /* TableViewCell.h */,
+				6327A96F1D251338005AD3DA /* TableViewCustomCell.xib */,
 				6327A9251D24D5FE005AD3DA /* TableViewCell.m */,
 				6327A9261D24D5FE005AD3DA /* TableViewCell.xib */,
 				63AFF2421D226A670049AE8D /* ListViewController.h */,
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63AFF21F1D226A380049AE8D /* LaunchScreen.storyboard in Resources */,
+				6327A9701D251338005AD3DA /* TableViewCustomCell.xib in Resources */,
 				6327A9281D24D5FE005AD3DA /* TableViewCell.xib in Resources */,
 				63AFF21C1D226A380049AE8D /* Assets.xcassets in Resources */,
 				63AFF21A1D226A380049AE8D /* Main.storyboard in Resources */,

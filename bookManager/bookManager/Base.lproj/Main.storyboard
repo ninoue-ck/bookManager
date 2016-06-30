@@ -86,20 +86,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="say-dI-O7p">
-                                <rect key="frame" x="50" y="145" width="500" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="mail_end:" destination="AJM-O4-5Ng" eventType="editingDidEndOnExit" id="8Jn-wL-yOv"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZW-ll-DKu">
                                 <rect key="frame" x="50" y="226" width="500" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="passward_end:" destination="AJM-O4-5Ng" eventType="editingDidEndOnExit" id="dJe-V0-87q"/>
+                                    <action selector="passward_return:" destination="AJM-O4-5Ng" eventType="editingDidEndOnExit" id="FWI-rf-ZEw"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="071-cx-Gzp">
@@ -107,7 +99,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="passward_confirm:" destination="AJM-O4-5Ng" eventType="editingDidEndOnExit" id="0H6-G0-sJE"/>
+                                    <action selector="passconfi_return:" destination="AJM-O4-5Ng" eventType="editingDidEndOnExit" id="Lqq-Ud-R9o"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5X-XM-vnP">
@@ -116,6 +108,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="say-dI-O7p">
+                                <rect key="frame" x="50" y="143" width="500" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="mail_return:" destination="AJM-O4-5Ng" eventType="editingDidEndOnExit" id="xHJ-wN-QvU"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -355,10 +355,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="book_title_Tapped:" destination="5cz-sU-YMt" eventType="editingDidEnd" id="rID-XY-avG"/>
-                                    <action selector="book_title__end:" destination="5cz-sU-YMt" eventType="editingDidEndOnExit" id="egp-Jr-bwZ"/>
-                                    <action selector="book_title_end:" destination="5cz-sU-YMt" eventType="editingDidEnd" id="kx0-A8-0xx"/>
-                                    <action selector="book_title_end:" destination="5cz-sU-YMt" eventType="editingDidEndOnExit" id="mT1-3E-FWG"/>
+                                    <action selector="booktitle_return:" destination="5cz-sU-YMt" eventType="editingDidEndOnExit" id="3Pe-Yd-mnY"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k7r-wG-Rkb">
@@ -370,6 +367,9 @@
                                 <rect key="frame" x="50" y="366" width="500" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="bookprice_return:" destination="5cz-sU-YMt" eventType="editingDidEndOnExit" id="lX3-j6-UMK"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5q-3t-Dcl">
                                 <rect key="frame" x="50" y="335" width="34" height="21"/>
@@ -419,9 +419,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="book_date" destination="k7r-wG-Rkb" id="Yxk-cL-wPc"/>
-                        <outlet property="book_price" destination="F67-ih-gJW" id="k1d-2K-eWC"/>
-                        <outlet property="book_title" destination="yzs-7u-B8j" id="vhR-A9-i9d"/>
+                        <outlet property="book_date" destination="k7r-wG-Rkb" id="bHC-5j-CDo"/>
+                        <outlet property="book_price" destination="F67-ih-gJW" id="JVN-DL-lSO"/>
+                        <outlet property="book_title" destination="yzs-7u-B8j" id="UBw-5E-7mB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVF-HV-AcO" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,6 +15,8 @@
 
 @implementation AccountViewController
 
+- (IBAction)ga:(id)sender {
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -30,17 +32,17 @@
 
 
 
-//キーボードを閉じる処理まとめ
-- (IBAction)mail_end:(UITextField *)sender {
-     [sender resignFirstResponder];
-}
-- (IBAction)passward_end:(UITextField *)sender {
+///リターンでキーボードを閉じる処理
+- (IBAction)mail_return:(UITextField *)sender {
     [sender resignFirstResponder];
 }
-- (IBAction)passward_confirm:(UITextField *)sender {
+- (IBAction)passward_return:(UITextField *)sender {
     [sender resignFirstResponder];
 }
 
+- (IBAction)passconfi_return:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
 
 
 

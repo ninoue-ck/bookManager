@@ -28,6 +28,19 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+//画像貼付ボタンが押された時にアルバムを開く
+- (IBAction)imagebutton_Tapped:(id)sender {
+    
+    if([UIImagePickerController
+        isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.allowsEditing = YES;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+}
+
 /*
 #pragma mark - Navigation
 

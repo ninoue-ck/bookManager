@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6327A9271D24D5FE005AD3DA /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6327A9251D24D5FE005AD3DA /* TableViewCell.m */; };
+		6327A9281D24D5FE005AD3DA /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6327A9261D24D5FE005AD3DA /* TableViewCell.xib */; };
 		63AFF2111D226A380049AE8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AFF2101D226A380049AE8D /* main.m */; };
 		63AFF2141D226A380049AE8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AFF2131D226A380049AE8D /* AppDelegate.m */; };
 		63AFF21A1D226A380049AE8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AFF2181D226A380049AE8D /* Main.storyboard */; };
@@ -39,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6327A9241D24D5FE005AD3DA /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		6327A9251D24D5FE005AD3DA /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		6327A9261D24D5FE005AD3DA /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		63AFF20C1D226A380049AE8D /* bookManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AFF2101D226A380049AE8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		63AFF2121D226A380049AE8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,6 +121,9 @@
 				63AFF2121D226A380049AE8D /* AppDelegate.h */,
 				63AFF2131D226A380049AE8D /* AppDelegate.m */,
 				63AFF2181D226A380049AE8D /* Main.storyboard */,
+				6327A9241D24D5FE005AD3DA /* TableViewCell.h */,
+				6327A9251D24D5FE005AD3DA /* TableViewCell.m */,
+				6327A9261D24D5FE005AD3DA /* TableViewCell.xib */,
 				63AFF2421D226A670049AE8D /* ListViewController.h */,
 				63AFF2431D226A670049AE8D /* ListViewController.m */,
 				63AFF2451D226A6B0049AE8D /* AddViewController.h */,
@@ -264,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63AFF21F1D226A380049AE8D /* LaunchScreen.storyboard in Resources */,
+				6327A9281D24D5FE005AD3DA /* TableViewCell.xib in Resources */,
 				63AFF21C1D226A380049AE8D /* Assets.xcassets in Resources */,
 				63AFF21A1D226A380049AE8D /* Main.storyboard in Resources */,
 			);
@@ -295,6 +304,7 @@
 				63AFF2501D226A800049AE8D /* AccountViewController.m in Sources */,
 				63AFF2471D226A6B0049AE8D /* AddViewController.m in Sources */,
 				63AFF2441D226A670049AE8D /* ListViewController.m in Sources */,
+				6327A9271D24D5FE005AD3DA /* TableViewCell.m in Sources */,
 				63AFF24A1D226A710049AE8D /* EditViewController.m in Sources */,
 				63AFF24D1D226A7A0049AE8D /* SettingViewController.m in Sources */,
 			);
@@ -522,6 +532,7 @@
 				63AFF23B1D226A380049AE8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		63AFF23C1D226A380049AE8D /* Build configuration list for PBXNativeTarget "bookManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +541,7 @@
 				63AFF23E1D226A380049AE8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		63AFF23F1D226A380049AE8D /* Build configuration list for PBXNativeTarget "bookManagerUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +550,7 @@
 				63AFF2411D226A380049AE8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

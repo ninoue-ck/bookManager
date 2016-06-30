@@ -372,6 +372,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgF-6b-jsK">
                                 <rect key="frame" x="290" y="144" width="105" height="30"/>
                                 <state key="normal" title="画像添付ボタン"/>
+                                <connections>
+                                    <action selector="imagebutton_Tapped:" destination="5cz-sU-YMt" eventType="touchUpInside" id="Eym-7M-c6f"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

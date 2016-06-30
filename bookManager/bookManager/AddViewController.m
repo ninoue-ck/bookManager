@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *book_title;
 @property (weak, nonatomic) IBOutlet UITextField *book_price;
 @property (weak, nonatomic) IBOutlet UITextField *book_date;
+@property (weak, nonatomic) IBOutlet UIImageView *book_image;
 
 @end
 
@@ -90,9 +91,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+//閉じるボタン
 - (IBAction)add_close:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 //画像貼付ボタンが押された時にアルバムを開く
 - (IBAction)imagebutton_Tapped:(id)sender {
@@ -106,6 +111,22 @@
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
 }
+
+//画像の反映
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    self.book_image.image = image;
+
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
+
+
 
 
 

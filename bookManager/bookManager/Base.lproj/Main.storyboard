@@ -331,7 +331,7 @@
                                     <navigationItem title="書籍追加" id="s1V-pN-0Ee">
                                         <barButtonItem key="leftBarButtonItem" title="閉じる" id="WPG-xS-qIX">
                                             <connections>
-                                                <action selector="add_close:" destination="5cz-sU-YMt" id="vI0-5d-kFT"/>
+                                                <action selector="add_close:" destination="5cz-sU-YMt" id="pN4-YP-MhY"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="保存" id="PDr-pV-rkz"/>
@@ -420,6 +420,7 @@
                     </view>
                     <connections>
                         <outlet property="book_date" destination="k7r-wG-Rkb" id="bHC-5j-CDo"/>
+                        <outlet property="book_image" destination="zki-6p-QP2" id="xvD-oo-uAN"/>
                         <outlet property="book_price" destination="F67-ih-gJW" id="JVN-DL-lSO"/>
                         <outlet property="book_title" destination="yzs-7u-B8j" id="UBw-5E-7mB"/>
                     </connections>

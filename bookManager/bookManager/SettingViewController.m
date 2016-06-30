@@ -5,7 +5,7 @@
 //  Created by inouenaoto on 2016/06/28.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
-
+//
 #import "SettingViewController.h"
 
 @interface SettingViewController ()

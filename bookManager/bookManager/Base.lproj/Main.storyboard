@@ -359,6 +359,7 @@
                                     <action selector="book_title__end:" destination="5cz-sU-YMt" eventType="editingDidEndOnExit" id="egp-Jr-bwZ"/>
                                     <action selector="book_title_end:" destination="5cz-sU-YMt" eventType="editingDidEnd" id="kx0-A8-0xx"/>
                                     <action selector="book_title_end:" destination="5cz-sU-YMt" eventType="editingDidEndOnExit" id="mT1-3E-FWG"/>
+                                    <action selector="book_title_return:" destination="5cz-sU-YMt" eventType="editingDidEndOnExit" id="n0f-xS-nh8"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k7r-wG-Rkb">
@@ -370,6 +371,9 @@
                                 <rect key="frame" x="50" y="366" width="500" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="bool_price_end:" destination="5cz-sU-YMt" eventType="editingDidEndOnExit" id="qu1-Wz-udD"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5q-3t-Dcl">
                                 <rect key="frame" x="50" y="335" width="34" height="21"/>

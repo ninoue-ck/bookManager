@@ -103,6 +103,17 @@
 
 
 
+///キーボードを閉じる処理まとめ
+- (IBAction)book_title_return:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
+
+
+- (IBAction)bool_price_end:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
+
+
 
 
 
@@ -123,9 +134,6 @@
 
 
 
-- (IBAction)book_title_end:(UITextField *)sender {
-    [sender resignFirstResponder];
-}
 
 
 

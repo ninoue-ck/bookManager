@@ -9,6 +9,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "bookManager/AddViewController.m"
             timestampString = "488985867.314932"
             startingColumnNumber = "9223372036854775807"
@@ -32,6 +33,15 @@
             startingLineNumber = "41"
             endingLineNumber = "41"
             landmarkName = "-viewDidLoad"
+=======
+            filePath = "AddViewController.m"
+            timestampString = "489169054.493"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-pickerDoneClicked"
+>>>>>>> develop
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

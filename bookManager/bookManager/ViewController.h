@@ -1,13 +1,13 @@
 //
-//  TableViewCell.h
+//  ViewController.h
 //  bookManager
 //
-//  Created by inouenaoto on 2016/06/30.
+//  Created by inouenaoto on 2016/07/02.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface TableViewCell : UITableViewCell
+@interface ViewController : UIViewController
 
 @end

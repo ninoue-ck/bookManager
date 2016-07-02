@@ -261,11 +261,11 @@
             </objects>
             <point key="canvasLocation" x="1179" y="-148"/>
         </scene>
-        <!--Item-->
+        <!--書籍一覧-->
         <scene sceneID="Kmj-QG-jud">
             <objects>
                 <navigationController id="hH9-G8-UfL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="WSa-qP-1zr"/>
+                    <tabBarItem key="tabBarItem" title="書籍一覧" id="WSa-qP-1zr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sye-gb-9jf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -389,10 +389,10 @@
             </objects>
             <point key="canvasLocation" x="2633" y="734"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--設定-->
         <scene sceneID="o7K-nn-yH7">
             <objects>
-                <tabBarController id="9Rc-mh-hUQ" sceneMemberID="viewController">
+                <tabBarController title="設定" id="9Rc-mh-hUQ" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QU8-0J-TVH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -407,11 +407,11 @@
             </objects>
             <point key="canvasLocation" x="-593" y="547"/>
         </scene>
-        <!--Item 2-->
+        <!--設定-->
         <scene sceneID="Iv4-oP-j9W">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W7i-XC-d2f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="wq5-1p-jv6"/>
+                    <tabBarItem key="tabBarItem" title="設定" id="wq5-1p-jv6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8z6-yo-BDM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

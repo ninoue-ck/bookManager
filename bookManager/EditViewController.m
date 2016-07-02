@@ -1,31 +1,30 @@
-
-//http://morizyun.github.io/blog/uitextfield-datepicker-delegate-sender/
 //
-//
-//
-//  AddViewController.m
+//  EditViewController.m
 //  bookManager
 //
-//  Created by inouenaoto on 2016/06/28.
+//  Created by inouenaoto on 2016/07/02.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
 
-#import "AddViewController.h"
+#import "EditViewController.h"
 
-@interface AddViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *book_title;
-@property (weak, nonatomic) IBOutlet UITextField *book_price;
-@property (weak, nonatomic) IBOutlet UITextField *book_date;
-@property (weak, nonatomic) IBOutlet UIImageView *book_image;
+@interface EditViewController ()
+
+@property (strong, nonatomic) IBOutlet UIImageView *book_image;
+@property (strong, nonatomic) IBOutlet UITextField *book_title;
+@property (strong, nonatomic) IBOutlet UITextField *book_price;
+@property (strong, nonatomic) IBOutlet UITextField *book_date;
+
 
 @end
 
-@implementation AddViewController
+@implementation EditViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     // DatePickerの設定
-    UIDatePicker* datePicker = [[UIDatePicker alloc]init];
+    //ぴっかーを出す
+    // DatePickerの設定
+    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
     
     // DatePickerを編集したら、updateTextFieldを呼び出す
@@ -38,7 +37,7 @@
     self.book_date.delegate = self;
     
     // DoneボタンとそのViewの作成
-    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+    UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
     keyboardDoneButtonView.barStyle  = UIBarStyleBlack;
     keyboardDoneButtonView.translucent = YES;
     keyboardDoneButtonView.tintColor = nil;
@@ -61,15 +60,17 @@
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
     
     // Viewの配置
-    
     _book_date.inputAccessoryView = keyboardDoneButtonView;
-
-    [self.view addSubview:_book_date];
     
-    // Do any additional setup after loading the view.
+    [self.view addSubview:_book_date];
 }
 
-
+    
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+//ピッカー押された後
 #pragma mark DatePickerの編集が完了したら結果をTextFieldに表示
 - (void)updateTextField:(id)sender {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -87,20 +88,25 @@
 
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+//戻るボタン
+- (IBAction)edit_back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+// リターンでキーボードを閉じる
+
+- (IBAction)title_return:(id)sender {
+    [sender resignFirstResponder];
+}
+
+- (IBAction)price_return:(id)sender {
+    [sender resignFirstResponder];
 }
 
 
-//閉じるボタン
-- (IBAction)add_close:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-//画像貼付ボタンが押された時にアルバムを開く
-- (IBAction)imagebutton_Tapped:(id)sender {
+//画像の処理
+- (IBAction)send_editimage:(id)sender {
     
     if([UIImagePickerController
         isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
@@ -118,25 +124,10 @@
     UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     self.book_image.image = image;
-
+    
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
-}
-
-
-
-
-
-
-
-//returnでキーボードを閉じる
-- (IBAction)booktitle_return:(UITextField *)sender {
-    [sender resignFirstResponder];
-}
-
-- (IBAction)bookprice_return:(UITextField *)sender {
-    [sender resignFirstResponder];
 }
 
 

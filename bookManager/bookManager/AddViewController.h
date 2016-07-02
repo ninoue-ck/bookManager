@@ -10,6 +10,4 @@
 
 @interface AddViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate>
 
-
-
 @end

@@ -1,6 +1,6 @@
 
-//http://morizyun.github.io/blog/uitextfield-datepicker-delegate-sender/
-//
+// http://morizyun.github.io/blog/uitextfield-datepicker-delegate-sender/
+// http://snippets.feb19.jp/?p=303
 //
 //
 //  AddViewController.m

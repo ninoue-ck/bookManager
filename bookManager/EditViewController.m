@@ -6,6 +6,8 @@
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
 //
+// ピッカー　http://morizyun.github.io/blog/uitextfield-datepicker-delegate-sender/
+
 
 #import "EditViewController.h"
 

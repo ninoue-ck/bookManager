@@ -6,13 +6,8 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-<<<<<<< HEAD
-        <!--設定-->
-        <scene sceneID="Pdj-Zm-9JG">
-=======
         <!--書籍追加-->
         <scene sceneID="Zag-SN-k7x">
->>>>>>> develop
             <objects>
                 <viewController id="NEp-FO-SVb" customClass="AddViewController" sceneMemberID="viewController">
                     <layoutGuides>
@@ -23,43 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frn-pm-Vw8">
-                                <rect key="frame" x="139" y="114" width="322" height="67"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                                <state key="normal" title="アカウント設定"/>
-                                <connections>
-                                    <action selector="settingButtonTapped:" destination="9ff-PJ-K7c" eventType="touchUpInside" id="fWg-KB-95X"/>
-                                    <segue destination="crP-cu-cSh" kind="presentation" identifier="Setting_to_Account" id="Cer-Sv-Shf"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Frn-pm-Vw8" firstAttribute="centerX" secondItem="UuS-sk-TRj" secondAttribute="centerX" id="2aA-m0-ll1"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="設定" id="8Cn-RO-tuy"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vJe-Hm-XLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2442" y="1146"/>
-        </scene>
-        <!--アカウント設定-->
-        <scene sceneID="gZa-6Y-61c">
-            <objects>
-                <viewController id="AJM-O4-5Ng" customClass="AccountViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7Fo-hV-qew"/>
-                        <viewControllerLayoutGuide type="bottom" id="LJH-Vz-hIG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Cs2-VJ-Gib">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyn-i8-RR0">
-                                <rect key="frame" x="50" y="114" width="119" height="21"/>
-=======
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N5F-E3-AQK">
                                 <rect key="frame" x="60" y="104" width="150" height="120"/>
                                 <constraints>
@@ -76,81 +34,16 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTW-Al-a4y">
                                 <rect key="frame" x="60" y="390" width="51" height="21"/>
->>>>>>> develop
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="パスワード確認" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxJ-mr-obX">
-                                <rect key="frame" x="50" y="276" width="119" height="21"/>
-=======
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="書籍名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cie-Ch-OSX">
                                 <rect key="frame" x="60" y="254" width="51" height="21"/>
->>>>>>> develop
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZW-ll-DKu">
-                                <rect key="frame" x="50" y="226" width="500" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="passward_return:" destination="AJM-O4-5Ng" eventType="editingDidEndOnExit" id="FWI-rf-ZEw"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="071-cx-Gzp">
-                                <rect key="frame" x="50" y="307" width="500" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="passconfi_return:" destination="AJM-O4-5Ng" eventType="editingDidEndOnExit" id="Lqq-Ud-R9o"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5X-XM-vnP">
-                                <rect key="frame" x="50" y="195" width="85" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="say-dI-O7p">
-                                <rect key="frame" x="50" y="143" width="500" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="mail_return:" destination="AJM-O4-5Ng" eventType="editingDidEndOnExit" id="xHJ-wN-QvU"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="h5X-XM-vnP" firstAttribute="top" secondItem="say-dI-O7p" secondAttribute="bottom" constant="20" id="1tV-U2-7Mt"/>
-                            <constraint firstItem="say-dI-O7p" firstAttribute="top" secondItem="jyn-i8-RR0" secondAttribute="bottom" constant="10" id="6Fb-zB-MW8"/>
-                            <constraint firstItem="071-cx-Gzp" firstAttribute="leading" secondItem="Cs2-VJ-Gib" secondAttribute="leadingMargin" constant="30" id="81z-Wf-xPW"/>
-                            <constraint firstItem="dZW-ll-DKu" firstAttribute="top" secondItem="h5X-XM-vnP" secondAttribute="bottom" constant="10" id="DE0-Nt-Zyj"/>
-                            <constraint firstItem="h5X-XM-vnP" firstAttribute="leading" secondItem="Cs2-VJ-Gib" secondAttribute="leadingMargin" constant="30" id="HhH-ac-zb3"/>
-                            <constraint firstItem="rxJ-mr-obX" firstAttribute="top" secondItem="dZW-ll-DKu" secondAttribute="bottom" constant="20" id="IeK-RH-wsP"/>
-                            <constraint firstItem="jyn-i8-RR0" firstAttribute="leading" secondItem="Cs2-VJ-Gib" secondAttribute="leadingMargin" constant="30" id="N7y-cW-9qi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="say-dI-O7p" secondAttribute="trailing" constant="30" id="Plb-s8-g1k"/>
-                            <constraint firstItem="say-dI-O7p" firstAttribute="leading" secondItem="Cs2-VJ-Gib" secondAttribute="leadingMargin" constant="30" id="WUA-VN-kA0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dZW-ll-DKu" secondAttribute="trailing" constant="30" id="cVA-E3-KuQ"/>
-                            <constraint firstItem="071-cx-Gzp" firstAttribute="top" secondItem="rxJ-mr-obX" secondAttribute="bottom" constant="10" id="eiO-XV-8hw"/>
-                            <constraint firstItem="dZW-ll-DKu" firstAttribute="leading" secondItem="Cs2-VJ-Gib" secondAttribute="leadingMargin" constant="30" id="jn2-wx-eAH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="071-cx-Gzp" secondAttribute="trailing" constant="30" id="uoJ-Q8-hjr"/>
-                            <constraint firstItem="rxJ-mr-obX" firstAttribute="leading" secondItem="Cs2-VJ-Gib" secondAttribute="leadingMargin" constant="30" id="xJn-OZ-ytM"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="アカウント設定" id="4yn-d4-l8H">
-                        <barButtonItem key="leftBarButtonItem" title="閉じる" id="vd1-Ak-yAo">
-                            <connections>
-                                <action selector="account_close:" destination="AJM-O4-5Ng" id="HgW-6O-FSq"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="oiR-d9-U9p"/>
-                    </navigationItem>
-=======
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ty2-RA-5XU">
                                 <rect key="frame" x="60" y="327" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -216,15 +109,10 @@
                         <outlet property="add_price" destination="btZ-m0-3EK" id="gmq-a9-ogN"/>
                         <outlet property="add_title" destination="2H8-E8-RHW" id="Opw-vD-7da"/>
                     </connections>
->>>>>>> develop
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYD-Qa-Irx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="3990" y="883"/>
-=======
             <point key="canvasLocation" x="1950" y="-938"/>
->>>>>>> develop
         </scene>
         <!--書籍一覧-->
         <scene sceneID="ueO-n3-HZ2">
@@ -258,11 +146,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-<<<<<<< HEAD
-                        <segue destination="Iie-0S-swL" kind="relationship" relationship="rootViewController" id="2R0-Qx-qpj"/>
-=======
-                        <segue destination="FiB-Ja-5KV" kind="push" identifier="List_to_Edit" id="Ugx-HJ-PL6"/>
->>>>>>> develop
+                        <outlet property="Listtable" destination="geN-7s-hHm" id="zRn-u4-gND"/>
+                        <segue destination="FiB-Ja-5KV" kind="push" identifier="List_to_Edit" id="udh-Ya-ZfI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JdL-FI-ST7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -334,16 +219,6 @@
                                     <action selector="title_return:" destination="FiB-Ja-5KV" eventType="editingDidEndOnExit" id="uoP-vD-SUi"/>
                                 </connections>
                             </textField>
-<<<<<<< HEAD
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dh8-yk-cj6">
-                                <rect key="frame" x="92" y="107" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Ka5-4N-jPY"/>
-                                    <constraint firstAttribute="height" constant="100" id="YJ9-wt-ngt"/>
-                                </constraints>
-                            </imageView>
-=======
->>>>>>> develop
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -385,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrD-Um-1o4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1179" y="-148"/>
+            <point key="canvasLocation" x="1117" y="-148"/>
         </scene>
         <!--書籍一覧-->
         <scene sceneID="Kmj-QG-jud">
@@ -404,13 +279,8 @@
             </objects>
             <point key="canvasLocation" x="-261" y="-148"/>
         </scene>
-<<<<<<< HEAD
-        <!--書籍一覧-->
-        <scene sceneID="Vob-w3-BDi">
-=======
         <!--設定-->
         <scene sceneID="49h-VF-yQX">
->>>>>>> develop
             <objects>
                 <viewController id="pRs-cT-Yiz" customClass="SettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
@@ -421,45 +291,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dxI-Bw-evc">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="List_to_Edit" rowHeight="44" id="huO-Og-x1K">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="huO-Og-x1K" id="uT7-AS-zrO">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="JiP-Nr-SSc" kind="push" identifier="List_to_Edit" id="qj5-vi-6b4"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="C0K-J8-whf" firstAttribute="top" secondItem="dxI-Bw-evc" secondAttribute="bottom" id="DUh-Nw-tdh"/>
-                            <constraint firstItem="dxI-Bw-evc" firstAttribute="leading" secondItem="oON-Kk-FCd" secondAttribute="leading" id="Jai-QY-9Xo"/>
-                            <constraint firstAttribute="trailing" secondItem="dxI-Bw-evc" secondAttribute="trailing" id="aOH-qX-PPV"/>
-                            <constraint firstItem="dxI-Bw-evc" firstAttribute="top" secondItem="oON-Kk-FCd" secondAttribute="top" id="ddT-mq-kDQ"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="書籍一覧" id="odB-Fh-vxD">
-                        <barButtonItem key="rightBarButtonItem" title="追加" id="LCE-tc-VbY">
-                            <connections>
-                                <action selector="addButtonTapped:" destination="bIX-hp-Pma" id="f5K-hh-GsX"/>
-                                <segue destination="2CQ-8B-vew" kind="presentation" identifier="List_to_Add" id="t3c-7B-DT9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="dxI-Bw-evc" id="nps-uc-ZJI"/>
-                    </connections>
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVr-3z-0dS">
                                 <rect key="frame" x="171" y="114" width="259" height="57"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
@@ -476,21 +307,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="設定" id="Iuo-x8-Eab"/>
->>>>>>> develop
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ct-eI-JK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="1193" y="312"/>
-        </scene>
-        <!--書籍追加-->
-        <scene sceneID="pI5-1l-Cad">
-=======
             <point key="canvasLocation" x="1138" y="734"/>
         </scene>
         <!--アカウント設定-->
         <scene sceneID="YEk-2z-nRF">
->>>>>>> develop
             <objects>
                 <viewController storyboardIdentifier="AccountViewController" id="BFk-FA-3TW" customClass="AccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
@@ -501,10 +324,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="書籍名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyO-yf-WjR">
-                                <rect key="frame" x="50" y="264" width="51" height="21"/>
-=======
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT1-dI-0kT">
                                 <rect key="frame" x="62" y="114" width="119" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -513,39 +332,16 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="en2-56-z7V">
                                 <rect key="frame" x="70" y="195" width="132" height="21"/>
->>>>>>> develop
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="購入日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht2-ot-ptR">
-                                <rect key="frame" x="50" y="416" width="51" height="21"/>
-=======
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="パスワード確認" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La8-bS-IRK">
                                 <rect key="frame" x="70" y="266" width="132" height="21"/>
->>>>>>> develop
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yzs-7u-B8j">
-                                <rect key="frame" x="50" y="295" width="500" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="booktitle_return:" destination="5cz-sU-YMt" eventType="editingDidEndOnExit" id="3Pe-Yd-mnY"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k7r-wG-Rkb">
-                                <rect key="frame" x="50" y="447" width="500" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F67-ih-gJW">
-                                <rect key="frame" x="50" y="366" width="500" height="30"/>
-=======
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cls-Tj-t8F">
                                 <rect key="frame" x="70" y="226" width="460" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -558,71 +354,9 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BcH-EQ-gcN">
                                 <rect key="frame" x="70" y="295" width="460" height="30"/>
->>>>>>> develop
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="bookprice_return:" destination="5cz-sU-YMt" eventType="editingDidEndOnExit" id="lX3-j6-UMK"/>
-                                </connections>
                             </textField>
-<<<<<<< HEAD
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5q-3t-Dcl">
-                                <rect key="frame" x="50" y="335" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zki-6p-QP2">
-                                <rect key="frame" x="50" y="104" width="170" height="130"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="jYV-jT-W1k"/>
-                                    <constraint firstAttribute="width" constant="170" id="sQR-aa-Jb1"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgF-6b-jsK">
-                                <rect key="frame" x="290" y="144" width="105" height="30"/>
-                                <state key="normal" title="画像添付ボタン"/>
-                                <connections>
-                                    <action selector="imagebutton_Tapped:" destination="5cz-sU-YMt" eventType="touchUpInside" id="Eym-7M-c6f"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="k7r-wG-Rkb" firstAttribute="top" secondItem="Ht2-ot-ptR" secondAttribute="bottom" constant="10" id="2aF-oC-Q13"/>
-                            <constraint firstItem="q5q-3t-Dcl" firstAttribute="top" secondItem="yzs-7u-B8j" secondAttribute="bottom" constant="10" id="4kT-2O-ju8"/>
-                            <constraint firstItem="yzs-7u-B8j" firstAttribute="top" secondItem="fyO-yf-WjR" secondAttribute="bottom" constant="10" id="71r-vW-uat"/>
-                            <constraint firstItem="fyO-yf-WjR" firstAttribute="leading" secondItem="Cf3-3i-qUC" secondAttribute="leadingMargin" constant="30" id="74x-dx-TGZ"/>
-                            <constraint firstItem="F67-ih-gJW" firstAttribute="top" secondItem="q5q-3t-Dcl" secondAttribute="bottom" constant="10" id="8AN-Mv-e0V"/>
-                            <constraint firstItem="q5q-3t-Dcl" firstAttribute="leading" secondItem="Cf3-3i-qUC" secondAttribute="leadingMargin" constant="30" id="F35-J9-yof"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="F67-ih-gJW" secondAttribute="trailing" constant="30" id="GhP-YJ-IxN"/>
-                            <constraint firstItem="dgF-6b-jsK" firstAttribute="leading" secondItem="zki-6p-QP2" secondAttribute="trailing" constant="70" id="Hsq-Lp-hvf"/>
-                            <constraint firstItem="fyO-yf-WjR" firstAttribute="top" secondItem="zki-6p-QP2" secondAttribute="bottom" constant="30" id="Uoq-UH-Uft"/>
-                            <constraint firstItem="F67-ih-gJW" firstAttribute="leading" secondItem="Cf3-3i-qUC" secondAttribute="leadingMargin" constant="30" id="fMN-ob-PYu"/>
-                            <constraint firstItem="yzs-7u-B8j" firstAttribute="leading" secondItem="Cf3-3i-qUC" secondAttribute="leadingMargin" constant="30" id="gDe-zF-GWQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yzs-7u-B8j" secondAttribute="trailing" constant="30" id="lv5-e5-AWb"/>
-                            <constraint firstItem="k7r-wG-Rkb" firstAttribute="leading" secondItem="Cf3-3i-qUC" secondAttribute="leadingMargin" constant="30" id="rnh-6I-Tgu"/>
-                            <constraint firstItem="Ht2-ot-ptR" firstAttribute="top" secondItem="F67-ih-gJW" secondAttribute="bottom" constant="20" id="sil-K5-cIQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="k7r-wG-Rkb" secondAttribute="trailing" constant="30" id="w8L-tI-fmo"/>
-                            <constraint firstItem="zki-6p-QP2" firstAttribute="leading" secondItem="Cf3-3i-qUC" secondAttribute="leadingMargin" constant="30" id="wt3-VY-pmt"/>
-                            <constraint firstItem="Ht2-ot-ptR" firstAttribute="leading" secondItem="Cf3-3i-qUC" secondAttribute="leadingMargin" constant="30" id="za6-kk-fce"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="書籍追加" id="s1V-pN-0Ee">
-                        <barButtonItem key="leftBarButtonItem" title="閉じる" id="WPG-xS-qIX">
-                            <connections>
-                                <action selector="add_close:" destination="5cz-sU-YMt" id="pN4-YP-MhY"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="PDr-pV-rkz"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="book_date" destination="k7r-wG-Rkb" id="bHC-5j-CDo"/>
-                        <outlet property="book_image" destination="zki-6p-QP2" id="xvD-oo-uAN"/>
-                        <outlet property="book_price" destination="F67-ih-gJW" id="JVN-DL-lSO"/>
-                        <outlet property="book_title" destination="yzs-7u-B8j" id="UBw-5E-7mB"/>
-                    </connections>
-=======
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -651,15 +385,10 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="保存" id="bIc-wJ-XUu"/>
                     </navigationItem>
->>>>>>> develop
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkT-Rp-knq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="3038" y="-108"/>
-=======
             <point key="canvasLocation" x="2633" y="734"/>
->>>>>>> develop
         </scene>
         <!--設定-->
         <scene sceneID="o7K-nn-yH7">
@@ -671,13 +400,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-<<<<<<< HEAD
-                        <segue destination="Iie-0S-swL" kind="relationship" relationship="viewControllers" id="Ofk-vu-bq1"/>
-                        <segue destination="yNJ-Vz-D4T" kind="relationship" relationship="viewControllers" id="dzf-5T-BvE"/>
-=======
                         <segue destination="hH9-G8-UfL" kind="relationship" relationship="viewControllers" id="ePF-zE-Xtp"/>
                         <segue destination="W7i-XC-d2f" kind="relationship" relationship="viewControllers" id="KX4-fV-ekz"/>
->>>>>>> develop
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGS-DI-MQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -739,83 +463,5 @@
             </objects>
             <point key="canvasLocation" x="1821" y="734"/>
         </scene>
-        <!--Item 1-->
-        <scene sceneID="YRY-Lw-VWc">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iie-0S-swL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="yal-yy-iKa"/>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="YhU-Ht-p8t"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Ng-6U-AK6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="bIX-hp-Pma" kind="relationship" relationship="rootViewController" id="Ljd-kg-SVx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XZx-9p-sBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="381" y="312"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="WiS-vj-9hM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2CQ-8B-vew" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nla-8B-DIb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="5cz-sU-YMt" kind="relationship" relationship="rootViewController" id="hFb-2v-i72"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3ba-By-80n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2226" y="-108"/>
-        </scene>
-        <!--Item 2-->
-        <scene sceneID="NIU-Pm-twE">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yNJ-Vz-D4T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="fK6-SZ-PaJ"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PBQ-iP-skU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="9ff-PJ-K7c" kind="relationship" relationship="rootViewController" id="VHf-at-Rs6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XJE-Ea-xiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1630" y="1146"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="prk-jC-H32">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="crP-cu-cSh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="N5f-tM-L8Q">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="AJM-O4-5Ng" kind="relationship" relationship="rootViewController" id="y9g-a5-ZxH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G04-ic-m5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3178" y="883"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ofk-vu-bq1"/>
-    </inferredMetricsTieBreakers>
 </document>

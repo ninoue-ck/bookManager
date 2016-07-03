@@ -7,15 +7,23 @@
 //
 
 #import "ListTableViewController.h"
+#import "ListTableCell.h"
+
+
+
 
 @interface ListTableViewController ()
 
+@property (strong, nonatomic) IBOutlet UITableView *Listtable;
 @end
 
 @implementation ListTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _Listtable.dataSource = self;
+    _Listtable.delegate = self;
+    [_Listtable registerNib:[UINib nibWithNibName:@"ListTableCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -24,39 +32,29 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return the number of sections.
-    return 1;
+    return 125;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return 3;
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"%d", indexPath.row];
-    
+    NSString *identifier = indexPath.row % 2 == 0 ? @"ListCell" : @"ListCell";
+    ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    cell.bodyLabel.text = [NSString stringWithFormat:@"%d", indexPath.row];
     return cell;
 }
-
 
 
 
@@ -72,7 +70,7 @@
 }
 
 - (IBAction)addButtonTapped:(UIBarButtonItem *)sender {
-        [self performSegueWithIdentifier:@"List_to_Add" sender:self];
+    [self performSegueWithIdentifier:@"List_to_Add" sender:self];
     
 }
 

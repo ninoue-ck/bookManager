@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  SettingViewController.m
 //  bookManager
 //
-//  Created by inouenaoto on 2016/07/02.
+//  Created by inouenaoto on 2016/07/03.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SettingViewController.h"
 
-@interface ViewController ()
+@interface SettingViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

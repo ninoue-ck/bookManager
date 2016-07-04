@@ -1,14 +1,14 @@
 //
-//  TableViewCell.m
+//  ListTableCell.m
 //  bookManager
 //
-//  Created by inouenaoto on 2016/06/30.
+//  Created by inouenaoto on 2016/07/03.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
 
-#import "TableViewCell.h"
+#import "ListTableCell.h"
 
-@implementation TableViewCell
+@implementation ListTableCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

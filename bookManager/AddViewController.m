@@ -1,26 +1,22 @@
-
-//
-//
-//
 //
 //  AddViewController.m
 //  bookManager
 //
-//  Created by inouenaoto on 2016/06/28.
+//  Created by inouenaoto on 2016/07/03.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
-//  (ピッカーを出す処理の確認) http://morizyun.github.io/blog/uitextfield-datepicker-delegate-sender/
+// ピッカー　http://morizyun.github.io/blog/uitextfield-datepicker-delegate-sender/
+//
 
 
 #import "AddViewController.h"
 
 @interface AddViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *book_title;
-@property (weak, nonatomic) IBOutlet UITextField *book_price;
-@property (weak, nonatomic) IBOutlet UITextField *book_date;
-
-
+@property (weak, nonatomic) IBOutlet UIImageView *add_image;
+@property (weak, nonatomic) IBOutlet UITextField *add_title;
+@property (weak, nonatomic) IBOutlet UITextField *add_price;
+@property (weak, nonatomic) IBOutlet UITextField *add_date;
 
 @end
 
@@ -28,29 +24,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIDatePicker* datePicker = [[UIDatePicker alloc]init];
+    //ぴっかーを出す
+    // DatePickerの設定
+    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
-    
-    
-
-    self.book_title.delegate = self;
     
     // DatePickerを編集したら、updateTextFieldを呼び出す
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     
     // textFieldの入力をdatePickerに設定
-    _book_date.inputView = datePicker;
+    _add_date.inputView = datePicker;
     
     // Delegationの設定
-    _book_date.delegate = self;
+    self.add_date.delegate = self;
     
     // DoneボタンとそのViewの作成
-    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+    UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
     keyboardDoneButtonView.barStyle  = UIBarStyleBlack;
     keyboardDoneButtonView.translucent = YES;
     keyboardDoneButtonView.tintColor = nil;
     [keyboardDoneButtonView sizeToFit];
-    
     
     // 完了ボタンとSpacerの配置
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"完了"
@@ -67,60 +60,54 @@
                                                                             action:nil];
     
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
-
     
     // Viewの配置
-    _book_date.inputAccessoryView = keyboardDoneButtonView;
+    _add_date.inputAccessoryView = keyboardDoneButtonView;
     
-    [self.view addSubview:_book_date];
+    [self.view addSubview:_add_date];
 }
-    // Do any additional setup after loading the view.
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+//ピッカー押された後
 #pragma mark DatePickerの編集が完了したら結果をTextFieldに表示
 - (void)updateTextField:(id)sender {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy/MM/dd";
     UIDatePicker *picker = (UIDatePicker *)sender;
-    _book_date.text = [dateFormatter stringFromDate:picker.date];
+    _add_date.text = [dateFormatter stringFromDate:picker.date];
 }
 
 #pragma mark datepickerの完了ボタンが押された場合
 - (void)pickerDoneClicked {
-    [_book_date resignFirstResponder];
-    _book_date = nil;
+    [_add_date resignFirstResponder];
+    _add_date = nil;
 }
+
+
+
 
 
 - (IBAction)add_close:(id)sender {
- [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-///キーボードを消す？
-//- (BOOL)textFieldShouldReturn:(UITextField *)book_title{
-//    [book_title resignFirstResponder];
-//    return YES;
-//}
-
-
-
-
-///キーボードを閉じる処理まとめ
-- (IBAction)book_title_return:(UITextField *)sender {
+//リターンでキーボードを閉じる
+- (IBAction)return_title:(id)sender {
     [sender resignFirstResponder];
 }
-
-
-- (IBAction)bool_price_end:(UITextField *)sender {
+- (IBAction)return_price:(id)sender {
     [sender resignFirstResponder];
 }
 
 
 
+//画像添付の処理
 
-
-
-
-//画像貼付ボタンが押された時にアルバムを開く
-- (IBAction)imagebutton_Tapped:(id)sender {
+- (IBAction)image_send:(id)sender {
     
     if([UIImagePickerController
         isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
@@ -132,21 +119,21 @@
     }
 }
 
-
-
-
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//画像の反映
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    self.add_image.image = image;
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
-*/
+
+
+
+
+
 
 @end

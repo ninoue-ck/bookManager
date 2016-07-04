@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GsO-5P-ZBV" customClass="ListTableCell">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GsO-5P-ZBV" id="M28-Y7-UDc">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5O9-df-z5K">
+                        <rect key="frame" x="179" y="55" width="34" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="書籍名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYh-ZL-rdB">
+                        <rect key="frame" x="179" y="21" width="51" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book_sample.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nwZ-hf-F7C">
+                        <rect key="frame" x="18" y="21" width="100" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="46o-Yp-cMf"/>
+                            <constraint firstAttribute="width" constant="100" id="ZSc-tU-n5w"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YM1-h7-WFG">
+                        <rect key="frame" x="273" y="55" width="51" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eYh-ZL-rdB" firstAttribute="top" secondItem="M28-Y7-UDc" secondAttribute="topMargin" constant="13" id="2FU-St-a8O"/>
+                    <constraint firstItem="5O9-df-z5K" firstAttribute="leading" secondItem="nwZ-hf-F7C" secondAttribute="trailing" constant="61" id="TBH-VF-fnh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5O9-df-z5K" secondAttribute="bottom" constant="15" id="WQt-bT-5J6"/>
+                    <constraint firstItem="YM1-h7-WFG" firstAttribute="leading" secondItem="5O9-df-z5K" secondAttribute="trailing" constant="60" id="cnJ-Ws-3P3"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="YM1-h7-WFG" secondAttribute="bottom" constant="15" id="kNl-Hd-CSh"/>
+                    <constraint firstItem="nwZ-hf-F7C" firstAttribute="leading" secondItem="M28-Y7-UDc" secondAttribute="leadingMargin" constant="10" id="lWM-Xd-gbp"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="nwZ-hf-F7C" secondAttribute="bottom" constant="10" id="mZa-3q-mse"/>
+                    <constraint firstItem="eYh-ZL-rdB" firstAttribute="leading" secondItem="nwZ-hf-F7C" secondAttribute="trailing" constant="61" id="vtG-wt-N10"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bodyLabel" destination="eYh-ZL-rdB" id="vHy-3t-5Xh"/>
+            </connections>
+            <point key="canvasLocation" x="486" y="334"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="book_sample.jpg" width="550" height="471"/>
+    </resources>
+</document>

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63AFF20B1D226A380049AE8D"
+               BlueprintIdentifier = "630EA4311D2808AE000AA9E9"
                BuildableName = "bookManager.app"
                BlueprintName = "bookManager"
                ReferencedContainer = "container:bookManager.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63AFF2241D226A380049AE8D"
+               BlueprintIdentifier = "630EA44A1D2808AE000AA9E9"
                BuildableName = "bookManagerTests.xctest"
                BlueprintName = "bookManagerTests"
                ReferencedContainer = "container:bookManager.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63AFF22F1D226A380049AE8D"
+               BlueprintIdentifier = "630EA4551D2808AE000AA9E9"
                BuildableName = "bookManagerUITests.xctest"
                BlueprintName = "bookManagerUITests"
                ReferencedContainer = "container:bookManager.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63AFF20B1D226A380049AE8D"
+            BlueprintIdentifier = "630EA4311D2808AE000AA9E9"
             BuildableName = "bookManager.app"
             BlueprintName = "bookManager"
             ReferencedContainer = "container:bookManager.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63AFF20B1D226A380049AE8D"
+            BlueprintIdentifier = "630EA4311D2808AE000AA9E9"
             BuildableName = "bookManager.app"
             BlueprintName = "bookManager"
             ReferencedContainer = "container:bookManager.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "63AFF20B1D226A380049AE8D"
+            BlueprintIdentifier = "630EA4311D2808AE000AA9E9"
             BuildableName = "bookManager.app"
             BlueprintName = "bookManager"
             ReferencedContainer = "container:bookManager.xcodeproj">

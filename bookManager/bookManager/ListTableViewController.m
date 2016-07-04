@@ -1,0 +1,132 @@
+//
+//  ListTableViewController.m
+//  bookManager
+//
+//  Created by inouenaoto on 2016/07/02.
+//  Copyright © 2016年 inouenaoto. All rights reserved.
+//フッター　http://blog.7bunnies.com/2011/09/uitableviewtablefooterviewuibutton.html
+//
+//
+
+
+
+
+
+
+#import "ListTableViewController.h"
+#import "ListTableCell.h"
+#define ONCE_READ_COUNT 20//20件ずつ読みこむ
+
+
+
+@interface ListTableViewController ()
+
+@property (strong, nonatomic) IBOutlet UITableView *Listtable;
+
+// インdぃケーターの処理  @property (strong, nonatomic) UIActivityIndicatorView *indicator;
+
+
+@end
+
+@implementation ListTableViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _Listtable.dataSource = self;
+    _Listtable.delegate = self;
+    [_Listtable registerNib:[UINib nibWithNibName:@"ListTableCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following  readMoreButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    /*インディケーター
+    _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.indicator setColor:[UIColor darkGrayColor]];
+    [self.indicator setHidesWhenStopped:YES];
+    [self.indicator stopAnimating];
+     */
+}
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 125;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *identifier = @"ListCell" ;
+    ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    cell.bodyLabel.text = [NSString stringWithFormat:@"%d", indexPath.row];
+    return cell;
+}
+
+
+
+
+
+//テーブルのセルから移動
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setValue:[NSString stringWithFormat:@"%d", indexPath.row] forKey:@"num"];
+    
+    [self performSegueWithIdentifier:@"List_to_Edit" sender:self];
+}
+
+- (IBAction)addButtonTapped:(UIBarButtonItem *)sender {
+    [self performSegueWithIdentifier:@"List_to_Add" sender:self];
+    
+}
+
+
+
+//テーブルの「さらに読みこむ処理の追加
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //一番下までスクロールしたかどうか
+    if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height))
+    {
+
+        //まだ表示するコンテンツが存在するか判定し存在するなら○件分を取得して表示更新する処理をここに書く
+    }
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return @"      　　　　 ***もっと読みこむ***";//コードで正しく中央署せする
+            break;
+        default:
+            return @"";
+            break;
+    }
+}
+
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+
+
+@end

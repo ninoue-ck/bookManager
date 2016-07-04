@@ -2,10 +2,10 @@
 //  SettingViewController.m
 //  bookManager
 //
-//  Created by inouenaoto on 2016/06/28.
+//  Created by inouenaoto on 2016/07/03.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
-//
+
 #import "SettingViewController.h"
 
 @interface SettingViewController ()
@@ -22,9 +22,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)settingButtonTapped:(id)sender {
-    [self performSegueWithIdentifier:@"Setting_to_Account" sender:self];
 }
 
 /*

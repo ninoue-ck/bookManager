@@ -1,10 +1,10 @@
-
 //
 //  AccountViewController.m
 //  bookManager
 //
-//  Created by inouenaoto on 2016/06/28.
+//  Created by inouenaoto on 2016/07/03.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
+//
 //
 
 #import "AccountViewController.h"
@@ -24,24 +24,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+//モーダル閉じる
 - (IBAction)account_close:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-
-//キーボードを閉じる処理まとめ
-- (IBAction)mail_end:(UITextField *)sender {
-     [sender resignFirstResponder];
-}
-- (IBAction)passward_end:(UITextField *)sender {
-    [sender resignFirstResponder];
-}
-- (IBAction)passward_confirm:(UITextField *)sender {
-    [sender resignFirstResponder];
-}
-
-
 
 
 

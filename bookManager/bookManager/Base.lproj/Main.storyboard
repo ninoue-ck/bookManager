@@ -393,7 +393,7 @@
         <!--設定-->
         <scene sceneID="o7K-nn-yH7">
             <objects>
-                <tabBarController title="設定" id="9Rc-mh-hUQ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbarcontroller" title="設定" id="9Rc-mh-hUQ" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QU8-0J-TVH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -15,14 +15,15 @@
 
 #import "ListTableViewController.h"
 #import "ListTableCell.h"
-#define ONCE_READ_COUNT 20
+#define ONCE_READ_COUNT 20//20件ずつ読みこむ
 
 
 
 @interface ListTableViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *Listtable;
-@property (strong, nonatomic) UIActivityIndicatorView *indicator;
+
+// インdぃケーターの処理  @property (strong, nonatomic) UIActivityIndicatorView *indicator;
 
 
 @end
@@ -39,12 +40,12 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following  readMoreButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    //インディケーター
+    /*インディケーター
     _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.indicator setColor:[UIColor darkGrayColor]];
     [self.indicator setHidesWhenStopped:YES];
     [self.indicator stopAnimating];
-    
+     */
 }
 
 
@@ -116,15 +117,7 @@
             break;
     }
 }
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

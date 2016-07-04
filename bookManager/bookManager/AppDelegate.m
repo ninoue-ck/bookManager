@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "AccountViewController.h"
+
+
 
 @interface AppDelegate ()
 
@@ -15,11 +18,73 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+
+
+
+/*
+//初回起動かどうかの判定
+- (BOOL)isFirstRun
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([userDefaults objectForKey:@"firstRunDate"]) {
+        // 日時が設定済みなら初回起動でない
+        return NO;
+    }
+    
+    // 初回起動日時を設定
+    [userDefaults setObject:[NSDate date] forKey:@"firstRunDate"];
+    
+    // 保存
+    [userDefaults synchronize];
+    
+    // 初回起動
     return YES;
 }
 
+
+//初回起動ならアカウント設定
+
+
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    if ([self isFirstRun]) {
+        // 初回起動時の処理
+        // Storyboard を呼ぶ
+        UIStoryboard *TutorialSB = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        // Storyboard の中のどの ViewContorller を呼ぶか
+        // @""の中は Storyboard IDを記述する。ココ間違えばブラック画面かな。
+        AccountViewController* vc = [TutorialSB instantiateViewControllerWithIdentifier: @"AccountViewController"];
+        // その画面を表示させる
+        [self.window setRootViewController:vc];
+    }
+    
+    return YES;
+/
+*?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    return YES;
+}
+*/
+ 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

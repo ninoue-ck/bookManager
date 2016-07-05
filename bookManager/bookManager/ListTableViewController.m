@@ -17,6 +17,7 @@
 
 #import "ListTableViewController.h"
 #import "ListTableCell.h"
+#import "EditViewController.h"
 #define ONCE_READ_COUNT 20//20件ずつ読みこむ
 
 
@@ -117,6 +118,19 @@ int total = 0;
     
     [self performSegueWithIdentifier:@"List_to_Edit" sender:self];
 }
+
+//セグエが編集画面へのものだった時にデータを渡す
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"List_to_Edit"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        EditViewController *editViewController = (EditViewController *)segue.destinationViewController;
+        editViewController.selected_title = [_contents objectAtIndex:indexPath.row];
+
+    }
+}
+
+
+
 
 - (IBAction)addButtonTapped:(UIBarButtonItem *)sender {
     [self performSegueWithIdentifier:@"List_to_Add" sender:self];

@@ -10,14 +10,19 @@
 
 
 #import "EditViewController.h"
+#import "ListTableViewController.h"
+#import "ListTableCell.h"
 
-@interface EditViewController ()
+@interface EditViewController (){
+    UITextField *book_title_field;
+}
 
 @property (strong, nonatomic) IBOutlet UIImageView *book_image;
-@property (strong, nonatomic) IBOutlet UITextField *book_title;
-@property (strong, nonatomic) IBOutlet UITextField *book_price;
-@property (strong, nonatomic) IBOutlet UITextField *book_date;
+@property (weak, nonatomic) IBOutlet UITextField *book_title_field;
 
+@property (weak, nonatomic) IBOutlet UITextField *book_price_field;
+
+@property (weak, nonatomic) IBOutlet UITextField *book_date_field;
 
 @end
 
@@ -25,6 +30,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //一覧から受け取ったデータたち
+    self.book_title_field.text = _selected_title;
+    self.book_price_field.text = _selected_price;
+    self.book_date_field.text = _selected_date;
+    
+    
+    
+    
+    
     //ぴっかーを出す
     // DatePickerの設定
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
@@ -34,10 +48,10 @@
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     
     // textFieldの入力をdatePickerに設定
-    _book_date.inputView = datePicker;
+    _book_date_field.inputView = datePicker;
     
     // Delegationの設定
-    self.book_date.delegate = self;
+    self.book_date_field.delegate = self;
     
     // DoneボタンとそのViewの作成
     UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
@@ -63,9 +77,9 @@
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
     
     // Viewの配置
-    _book_date.inputAccessoryView = keyboardDoneButtonView;
+    _book_date_field.inputAccessoryView = keyboardDoneButtonView;
     
-    [self.view addSubview:_book_date];
+    [self.view addSubview:_book_date_field];
 }
 
     
@@ -79,13 +93,13 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy/MM/dd";
     UIDatePicker *picker = (UIDatePicker *)sender;
-    _book_date.text = [dateFormatter stringFromDate:picker.date];
+    _book_date_field.text = [dateFormatter stringFromDate:picker.date];
 }
 
 #pragma mark datepickerの完了ボタンが押された場合
 - (void)pickerDoneClicked {
-    [_book_date resignFirstResponder];
-    _book_date = nil;
+    [_book_date_field resignFirstResponder];
+    _book_date_field = nil;
 }
 
 

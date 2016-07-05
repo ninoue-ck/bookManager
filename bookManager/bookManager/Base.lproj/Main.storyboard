@@ -166,7 +166,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5ro-zc-Csp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book_sample.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5ro-zc-Csp">
                                 <rect key="frame" x="50" y="114" width="150" height="118"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="E4r-dV-kjL"/>
@@ -200,9 +200,6 @@
                                 <rect key="frame" x="60" y="363" width="480" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="price_return:" destination="FiB-Ja-5KV" eventType="editingDidEndOnExit" id="uvY-VC-3MX"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhR-l4-57D">
                                 <rect key="frame" x="293" y="184" width="60" height="30"/>
@@ -215,9 +212,6 @@
                                 <rect key="frame" x="60" y="291" width="480" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="title_return:" destination="FiB-Ja-5KV" eventType="editingDidEndOnExit" id="uoP-vD-SUi"/>
-                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -252,10 +246,10 @@
                         <barButtonItem key="rightBarButtonItem" title="保存" id="U5Z-VN-nhN"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="book_date" destination="Pef-EA-4KW" id="uIh-KE-Cqg"/>
+                        <outlet property="book_date_field" destination="Pef-EA-4KW" id="NUD-5I-YWh"/>
                         <outlet property="book_image" destination="5ro-zc-Csp" id="ddl-yR-Gwk"/>
-                        <outlet property="book_price" destination="rp8-x2-du5" id="l5e-ky-AMl"/>
-                        <outlet property="book_title" destination="qe7-Qf-xaN" id="ecG-Q1-NQe"/>
+                        <outlet property="book_price_field" destination="rp8-x2-du5" id="t3O-fE-QVt"/>
+                        <outlet property="book_title_field" destination="qe7-Qf-xaN" id="wZG-Nf-BpS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrD-Um-1o4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -468,4 +462,7 @@
             <point key="canvasLocation" x="1821" y="734"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="book_sample.jpg" width="550" height="471"/>
+    </resources>
 </document>

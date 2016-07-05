@@ -10,4 +10,11 @@
 
 @interface EditViewController : UIViewController<UITextFieldDelegate>
 
+
+//テキストフィールドの初期値
+//実行ファイルにするとなぜかエラー出る
+@property (nonatomic, copy) NSString *selected_title;
+@property (nonatomic, copy) NSString *selected_price;
+@property (nonatomic, copy) NSString *selected_date;
+
 @end

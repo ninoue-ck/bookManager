@@ -31,9 +31,11 @@
 @property (nonatomic, strong) NSArray *dataSourceBookPrice;
 @property (nonatomic, strong) NSArray *dataSourceBookDate;
 @property (strong, nonatomic) UIActivityIndicatorView *indicator;
-@property (strong, nonatomic) NSArray *contents;
+@property (strong, nonatomic) NSArray *title_list;
 @property (readwrite) NSInteger page;
 
+@property (strong, nonatomic) NSArray *price_list;
+@property (strong, nonatomic) NSArray *date_list;
 
 @end
 
@@ -53,8 +55,11 @@ int total = 0;
     // Uncomment the following  readMoreButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     
-    self.contents = [self createContents];
-    total = [_contents count];
+    self.title_list = [self title_sample];
+    self.price_list = [self price_sample];
+    self.date_list = [self date_sample];
+    
+    total = [_title_list count];
     _page = 1;
     _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.indicator setColor:[UIColor darkGrayColor]];
@@ -64,7 +69,7 @@ int total = 0;
 }
 
 //以下仮データ
-- (NSArray *)createContents
+- (NSArray *)title_sample
 {
     
     NSMutableArray *data = [NSMutableArray array];
@@ -78,6 +83,38 @@ int total = 0;
     return [data copy];
     
 }
+
+- (NSArray *)price_sample
+{
+    
+    NSMutableArray *data = [NSMutableArray array];
+    for (int i = 0; i < 20; i++) {
+        [data addObject:@"1000円"];
+        [data addObject:@"2000円"];
+        [data addObject:@"3000円"];
+        [data addObject:@"4000円"];
+    }
+    
+    return [data copy];
+    
+}
+
+
+- (NSArray *)date_sample
+{
+    
+    NSMutableArray *data = [NSMutableArray array];
+    for (int i = 0; i < 20; i++) {
+        [data addObject:@"2015 4 3"];
+        [data addObject:@"2016 06 14"];
+        [data addObject:@"2017 02 13"];
+        [data addObject:@"2016 09 06"];
+    }
+    
+    return [data copy];
+    
+}
+
 
 
 
@@ -102,7 +139,11 @@ int total = 0;
 {
     NSString *identifier = @"ListCell" ;
     ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    cell.bodyLabel.text = [_contents objectAtIndex:indexPath.row];
+    cell.title_label.text = [_title_list objectAtIndex:indexPath.row];
+    cell.price_label.text = [_price_list objectAtIndex:indexPath.row];
+    cell.date_label.text = [_date_list objectAtIndex:indexPath.row];
+    
+    
     return cell;
 }
 
@@ -124,7 +165,9 @@ int total = 0;
     if ([segue.identifier isEqualToString:@"List_to_Edit"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EditViewController *editViewController = (EditViewController *)segue.destinationViewController;
-        editViewController.selected_title = [_contents objectAtIndex:indexPath.row];
+        editViewController.selected_title = [_title_list objectAtIndex:indexPath.row];
+        editViewController.selected_price = [_price_list objectAtIndex:indexPath.row];
+        editViewController.selected_date = [_date_list objectAtIndex:indexPath.row];
 
     }
 }

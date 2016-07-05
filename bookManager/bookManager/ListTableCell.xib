@@ -53,7 +53,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="bodyLabel" destination="eYh-ZL-rdB" id="vHy-3t-5Xh"/>
+                <outlet property="date_label" destination="YM1-h7-WFG" id="dlK-Bm-vkt"/>
+                <outlet property="price_label" destination="5O9-df-z5K" id="aWl-QX-jPf"/>
+                <outlet property="title_label" destination="eYh-ZL-rdB" id="zKT-g8-6Zo"/>
             </connections>
             <point key="canvasLocation" x="486" y="334"/>
         </tableViewCell>

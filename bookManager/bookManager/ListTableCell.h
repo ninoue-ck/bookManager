@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ListTableCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *bodylabel;
-@property (weak, nonatomic) IBOutlet UILabel *bodyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *title_label;
+@property (weak, nonatomic) IBOutlet UILabel *price_label;
+@property (weak, nonatomic) IBOutlet UILabel *date_label;
+
 
 @end

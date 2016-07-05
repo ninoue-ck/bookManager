@@ -266,7 +266,9 @@
         <scene sceneID="Kmj-QG-jud">
             <objects>
                 <navigationController id="hH9-G8-UfL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="書籍一覧" id="WSa-qP-1zr"/>
+                    <tabBarItem key="tabBarItem" title="書籍一覧" id="WSa-qP-1zr">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="6" vertical="-13"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sye-gb-9jf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -393,7 +395,7 @@
         <!--設定-->
         <scene sceneID="o7K-nn-yH7">
             <objects>
-                <tabBarController storyboardIdentifier="tabbarcontroller" title="設定" id="9Rc-mh-hUQ" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbarcontroller" title="設定" id="9Rc-mh-hUQ" customClass="TabbarViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QU8-0J-TVH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -412,7 +414,9 @@
         <scene sceneID="Iv4-oP-j9W">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W7i-XC-d2f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="設定" id="wq5-1p-jv6"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="設定" id="wq5-1p-jv6">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="6" vertical="-13"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8z6-yo-BDM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

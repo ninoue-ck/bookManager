@@ -9,6 +9,7 @@
 //
 //
 //
+//
 
 
 
@@ -132,21 +133,31 @@ int total = 0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _page*ONCE_READ_COUNT;;
+    
+    return _page*ONCE_READ_COUNT+1;;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+  if(indexPath.row == _page*ONCE_READ_COUNT)
+    {
+        NSString *identifier = @"ListCell" ;
+        ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        cell.title_label.text = @"hoge";
+        cell.price_label.text = [_price_list objectAtIndex:indexPath.row];
+        cell.date_label.text = [_date_list objectAtIndex:indexPath.row];
+        
+        return cell;
+  }
+  else{
     NSString *identifier = @"ListCell" ;
     ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     cell.title_label.text = [_title_list objectAtIndex:indexPath.row];
     cell.price_label.text = [_price_list objectAtIndex:indexPath.row];
     cell.date_label.text = [_date_list objectAtIndex:indexPath.row];
-    
-    
-    return cell;
+        return cell;
+    }
 }
-
 
 
 
@@ -196,13 +207,14 @@ int total = 0;
 
 
 //もっと読みこむフッター
+/*
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIButton *list_loadbutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     list_loadbutton.frame =CGRectMake(0, 0, 320, 60);
     [list_loadbutton setTitle:@"***もっと読み込む***" forState:UIControlStateNormal];
     return list_loadbutton;
 }
-
+*/
 
 
 //インディケータの設定

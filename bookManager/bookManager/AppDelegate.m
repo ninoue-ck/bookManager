@@ -64,7 +64,7 @@
     
     //タブの画像設定
     UIImage *image1 = [UIImage imageNamed:@"tabbar_item.png"];
-//ひとまず一色で  UIImage *image2= [UIImage imageNamed:@"tab_bar_selected.jpg"];
+//UIImage *image2= [UIImage imageNamed:@"tab_bar_selected.jpg"];
     [[UITabBar appearance] setBackgroundImage:image1];
 //    [[UITabBar appearance] setSelectionIndicatorImage:image2];
     return YES;

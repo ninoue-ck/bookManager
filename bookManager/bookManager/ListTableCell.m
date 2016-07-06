@@ -7,6 +7,7 @@
 //
 
 #import "ListTableCell.h"
+#import <AFNetworking/AFNetworking.h>
 
 @implementation ListTableCell
 

@@ -21,12 +21,16 @@
 		630EA47F1D281068000AA9E9 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630EA47E1D281068000AA9E9 /* AccountViewController.m */; };
 		630EA4811D282D64000AA9E9 /* book_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 630EA4801D282D64000AA9E9 /* book_sample.jpg */; };
 		633BFB341D2B9E7A00D6F8A3 /* customtab_button.m in Sources */ = {isa = PBXBuildFile; fileRef = 633BFB331D2B9E7A00D6F8A3 /* customtab_button.m */; };
-		633BFB431D2BA7AF00D6F8A3 /* tab_bar_selected.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 633BFB411D2BA7AF00D6F8A3 /* tab_bar_selected.jpg */; };
-		633BFB441D2BA7AF00D6F8A3 /* tabbar_item.png in Resources */ = {isa = PBXBuildFile; fileRef = 633BFB421D2BA7AF00D6F8A3 /* tabbar_item.png */; };
 		63DC74D31D290B9D0012159F /* ListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DC74D21D290B9D0012159F /* ListTableCell.m */; };
 		63DC74D51D290BAF0012159F /* ListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DC74D41D290BAF0012159F /* ListTableCell.xib */; };
 		63F104C81D2CA19600E31385 /* Read_More_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F104C61D2CA19600E31385 /* Read_More_Cell.m */; };
 		63F104C91D2CA19600E31385 /* Read_More_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F104C71D2CA19600E31385 /* Read_More_Cell.xib */; };
+		63F105951D2D0A4800E31385 /* bookManagerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F105941D2D0A4800E31385 /* bookManagerAPI.m */; };
+		63F105981D2D0EE800E31385 /* sampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F105971D2D0EE800E31385 /* sampleViewController.m */; };
+		63F1059A1D2D19DA00E31385 /* tabbar_item.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F105991D2D19DA00E31385 /* tabbar_item.png */; };
+		8E55745FB41B630073C6BEFD /* libPods-bookManagerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 883F7208AD064EB7A5934B72 /* libPods-bookManagerUITests.a */; };
+		8F7447C5C028716FA3FFD621 /* libPods-bookManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E569D0BDF9779D373208A8B7 /* libPods-bookManagerTests.a */; };
+		FBBE4F1485F0E1D676772899 /* libPods-bookManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26647940019BB5DF3DD2EC4C /* libPods-bookManager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26647940019BB5DF3DD2EC4C /* libPods-bookManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bookManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		630EA4321D2808AE000AA9E9 /* bookManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		630EA4361D2808AE000AA9E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		630EA4381D2808AE000AA9E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,14 +79,25 @@
 		630EA4801D282D64000AA9E9 /* book_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = book_sample.jpg; sourceTree = SOURCE_ROOT; };
 		633BFB321D2B9E7A00D6F8A3 /* customtab_button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = customtab_button.h; path = ../customtab_button.h; sourceTree = "<group>"; };
 		633BFB331D2B9E7A00D6F8A3 /* customtab_button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = customtab_button.m; path = ../customtab_button.m; sourceTree = "<group>"; };
-		633BFB411D2BA7AF00D6F8A3 /* tab_bar_selected.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tab_bar_selected.jpg; path = ../../../../.Trash/tab_bar_selected.jpg; sourceTree = "<group>"; };
-		633BFB421D2BA7AF00D6F8A3 /* tabbar_item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_item.png; path = ../../../../.Trash/tabbar_item.png; sourceTree = "<group>"; };
 		63DC74D11D290B9D0012159F /* ListTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableCell.h; sourceTree = "<group>"; };
 		63DC74D21D290B9D0012159F /* ListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableCell.m; sourceTree = "<group>"; };
 		63DC74D41D290BAF0012159F /* ListTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableCell.xib; sourceTree = "<group>"; };
 		63F104C51D2CA19600E31385 /* Read_More_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Read_More_Cell.h; sourceTree = "<group>"; };
 		63F104C61D2CA19600E31385 /* Read_More_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Read_More_Cell.m; sourceTree = "<group>"; };
 		63F104C71D2CA19600E31385 /* Read_More_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Read_More_Cell.xib; sourceTree = "<group>"; };
+		63F105931D2D0A4800E31385 /* bookManagerAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookManagerAPI.h; sourceTree = "<group>"; };
+		63F105941D2D0A4800E31385 /* bookManagerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookManagerAPI.m; sourceTree = "<group>"; };
+		63F105961D2D0EE800E31385 /* sampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sampleViewController.h; sourceTree = "<group>"; };
+		63F105971D2D0EE800E31385 /* sampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sampleViewController.m; sourceTree = "<group>"; };
+		63F105991D2D19DA00E31385 /* tabbar_item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_item.png; path = ../../../tabbar_item.png; sourceTree = "<group>"; };
+		883F7208AD064EB7A5934B72 /* libPods-bookManagerUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bookManagerUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6A7B68D5420805662119B80 /* Pods-bookManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookManagerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bookManagerUITests/Pods-bookManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D83016957F8A55F14D0F1503 /* Pods-bookManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-bookManager/Pods-bookManager.release.xcconfig"; sourceTree = "<group>"; };
+		DAF9B6A5B6970AD1F5F7DD7F /* Pods-bookManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bookManagerUITests/Pods-bookManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E199DB502F8BFEF30E269F08 /* Pods-bookManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookManagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bookManagerTests/Pods-bookManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E569D0BDF9779D373208A8B7 /* libPods-bookManagerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bookManagerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC6DDF802801DD860EEF11C4 /* Pods-bookManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bookManagerTests/Pods-bookManagerTests.release.xcconfig"; sourceTree = "<group>"; };
+		FA83F0753B670C8A5B0BB4E1 /* Pods-bookManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bookManager/Pods-bookManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBBE4F1485F0E1D676772899 /* libPods-bookManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7447C5C028716FA3FFD621 /* libPods-bookManagerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,12 +121,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E55745FB41B630073C6BEFD /* libPods-bookManagerUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0CF1A41D81141C8F1D9DC3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA83F0753B670C8A5B0BB4E1 /* Pods-bookManager.debug.xcconfig */,
+				D83016957F8A55F14D0F1503 /* Pods-bookManager.release.xcconfig */,
+				E199DB502F8BFEF30E269F08 /* Pods-bookManagerTests.debug.xcconfig */,
+				EC6DDF802801DD860EEF11C4 /* Pods-bookManagerTests.release.xcconfig */,
+				A6A7B68D5420805662119B80 /* Pods-bookManagerUITests.debug.xcconfig */,
+				DAF9B6A5B6970AD1F5F7DD7F /* Pods-bookManagerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		630EA4291D2808AE000AA9E9 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +151,8 @@
 				630EA44E1D2808AE000AA9E9 /* bookManagerTests */,
 				630EA4591D2808AE000AA9E9 /* bookManagerUITests */,
 				630EA4331D2808AE000AA9E9 /* Products */,
+				0C0CF1A41D81141C8F1D9DC3 /* Pods */,
+				AB55469CBF1752D5E006E125 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +169,10 @@
 		630EA4341D2808AE000AA9E9 /* bookManager */ = {
 			isa = PBXGroup;
 			children = (
+				63F105931D2D0A4800E31385 /* bookManagerAPI.h */,
+				63F105941D2D0A4800E31385 /* bookManagerAPI.m */,
+				63F105961D2D0EE800E31385 /* sampleViewController.h */,
+				63F105971D2D0EE800E31385 /* sampleViewController.m */,
 				633BFB331D2B9E7A00D6F8A3 /* customtab_button.m */,
 				633BFB321D2B9E7A00D6F8A3 /* customtab_button.h */,
 				630EA4741D281052000AA9E9 /* AddViewController.h */,
@@ -164,8 +202,7 @@
 		630EA4351D2808AE000AA9E9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				633BFB421D2BA7AF00D6F8A3 /* tabbar_item.png */,
-				633BFB411D2BA7AF00D6F8A3 /* tab_bar_selected.jpg */,
+				63F105991D2D19DA00E31385 /* tabbar_item.png */,
 				630EA4801D282D64000AA9E9 /* book_sample.jpg */,
 				630EA4361D2808AE000AA9E9 /* main.m */,
 			);
@@ -190,6 +227,16 @@
 			path = bookManagerUITests;
 			sourceTree = "<group>";
 		};
+		AB55469CBF1752D5E006E125 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26647940019BB5DF3DD2EC4C /* libPods-bookManager.a */,
+				E569D0BDF9779D373208A8B7 /* libPods-bookManagerTests.a */,
+				883F7208AD064EB7A5934B72 /* libPods-bookManagerUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -197,9 +244,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 630EA45F1D2808AE000AA9E9 /* Build configuration list for PBXNativeTarget "bookManager" */;
 			buildPhases = (
+				01CD15DE1519980C6B00AF29 /* [CP] Check Pods Manifest.lock */,
 				630EA42E1D2808AE000AA9E9 /* Sources */,
 				630EA42F1D2808AE000AA9E9 /* Frameworks */,
 				630EA4301D2808AE000AA9E9 /* Resources */,
+				F2C39053BFC0555FDEB36DC8 /* [CP] Embed Pods Frameworks */,
+				B398CBE525595EF969048CDF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,9 +264,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 630EA4621D2808AE000AA9E9 /* Build configuration list for PBXNativeTarget "bookManagerTests" */;
 			buildPhases = (
+				44F51539F6A675C1DDDF40A4 /* [CP] Check Pods Manifest.lock */,
 				630EA4471D2808AE000AA9E9 /* Sources */,
 				630EA4481D2808AE000AA9E9 /* Frameworks */,
 				630EA4491D2808AE000AA9E9 /* Resources */,
+				F48BC68BD3C782A6D3229304 /* [CP] Embed Pods Frameworks */,
+				B7D42BC959F8007C3413D667 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,9 +285,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 630EA4651D2808AE000AA9E9 /* Build configuration list for PBXNativeTarget "bookManagerUITests" */;
 			buildPhases = (
+				B96EE269FEA61A5EC217F5D7 /* [CP] Check Pods Manifest.lock */,
 				630EA4521D2808AE000AA9E9 /* Sources */,
 				630EA4531D2808AE000AA9E9 /* Frameworks */,
 				630EA4541D2808AE000AA9E9 /* Resources */,
+				3DED5BF16CB3DAC1C7551CAB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -293,11 +348,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				633BFB441D2BA7AF00D6F8A3 /* tabbar_item.png in Resources */,
-				633BFB431D2BA7AF00D6F8A3 /* tab_bar_selected.jpg in Resources */,
 				63F104C91D2CA19600E31385 /* Read_More_Cell.xib in Resources */,
 				630EA4451D2808AE000AA9E9 /* LaunchScreen.storyboard in Resources */,
 				630EA4421D2808AE000AA9E9 /* Assets.xcassets in Resources */,
+				63F1059A1D2D19DA00E31385 /* tabbar_item.png in Resources */,
 				63DC74D51D290BAF0012159F /* ListTableCell.xib in Resources */,
 				630EA4811D282D64000AA9E9 /* book_sample.jpg in Resources */,
 				630EA4401D2808AE000AA9E9 /* Main.storyboard in Resources */,
@@ -320,6 +374,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01CD15DE1519980C6B00AF29 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3DED5BF16CB3DAC1C7551CAB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bookManagerUITests/Pods-bookManagerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44F51539F6A675C1DDDF40A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B398CBE525595EF969048CDF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bookManager/Pods-bookManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7D42BC959F8007C3413D667 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bookManagerTests/Pods-bookManagerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B96EE269FEA61A5EC217F5D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F2C39053BFC0555FDEB36DC8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bookManager/Pods-bookManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F48BC68BD3C782A6D3229304 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bookManagerTests/Pods-bookManagerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		630EA42E1D2808AE000AA9E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -331,8 +508,10 @@
 				633BFB341D2B9E7A00D6F8A3 /* customtab_button.m in Sources */,
 				630EA4761D281052000AA9E9 /* AddViewController.m in Sources */,
 				630EA47F1D281068000AA9E9 /* AccountViewController.m in Sources */,
+				63F105981D2D0EE800E31385 /* sampleViewController.m in Sources */,
 				630EA46A1D28093D000AA9E9 /* ListTableViewController.m in Sources */,
 				63F104C81D2CA19600E31385 /* Read_More_Cell.m in Sources */,
+				63F105951D2D0A4800E31385 /* bookManagerAPI.m in Sources */,
 				630EA4701D28098D000AA9E9 /* EditViewController.m in Sources */,
 				630EA47C1D281062000AA9E9 /* SettingViewController.m in Sources */,
 			);
@@ -475,6 +654,7 @@
 		};
 		630EA4601D2808AE000AA9E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA83F0753B670C8A5B0BB4E1 /* Pods-bookManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = bookManager/Info.plist;
@@ -486,6 +666,7 @@
 		};
 		630EA4611D2808AE000AA9E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D83016957F8A55F14D0F1503 /* Pods-bookManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = bookManager/Info.plist;
@@ -497,6 +678,7 @@
 		};
 		630EA4631D2808AE000AA9E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E199DB502F8BFEF30E269F08 /* Pods-bookManagerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = bookManagerTests/Info.plist;
@@ -509,6 +691,7 @@
 		};
 		630EA4641D2808AE000AA9E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC6DDF802801DD860EEF11C4 /* Pods-bookManagerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = bookManagerTests/Info.plist;
@@ -521,6 +704,7 @@
 		};
 		630EA4661D2808AE000AA9E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6A7B68D5420805662119B80 /* Pods-bookManagerUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = bookManagerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -532,6 +716,7 @@
 		};
 		630EA4671D2808AE000AA9E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAF9B6A5B6970AD1F5F7DD7F /* Pods-bookManagerUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = bookManagerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

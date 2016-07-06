@@ -56,16 +56,16 @@
   
     //タブの文字設定
     UIFont *tabFont = [UIFont fontWithName:@"ArialMT" size:17.0f];
-    NSDictionary *selectedAttributes = @{NSFontAttributeName:tabFont,NSForegroundColorAttributeName:[UIColor blackColor]};
+    NSDictionary *selectedAttributes = @{NSFontAttributeName:tabFont,NSForegroundColorAttributeName:[UIColor blueColor]};
     [[UITabBarItem appearance] setTitleTextAttributes:selectedAttributes forState:UIControlStateSelected
      ];
     NSDictionary *attributesNomal = @{NSFontAttributeName:tabFont,NSForegroundColorAttributeName:[UIColor grayColor]};
     [[UITabBarItem appearance] setTitleTextAttributes:attributesNomal forState:UIControlStateNormal];
-    
+    [UITabBar appearance].barTintColor = [UIColor brownColor];
     //タブの画像設定
-    UIImage *image1 = [UIImage imageNamed:@"tabbar_item.png"];
+   // UIImage *image1 = [UIImage imageNamed:@"tabbar_item.png"];
 //UIImage *image2= [UIImage imageNamed:@"tab_bar_selected.jpg"];
-    [[UITabBar appearance] setBackgroundImage:image1];
+  //  [[UITabBar appearance] setBackgroundImage:image1];
 //    [[UITabBar appearance] setSelectionIndicatorImage:image2];
     return YES;
     

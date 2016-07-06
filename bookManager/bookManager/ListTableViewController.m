@@ -20,7 +20,7 @@
 #import "ListTableCell.h"
 #import "Read_More_Cell.h"
 #import "EditViewController.h"
-#define ONCE_READ_COUNT 20//20件ずつ読みこむ
+#define ONCE_READ_COUNT 5
 
 
 

@@ -252,6 +252,24 @@
             </objects>
             <point key="canvasLocation" x="1117" y="-148"/>
         </scene>
+        <!--Sample View Controller-->
+        <scene sceneID="2z9-lg-aAY">
+            <objects>
+                <viewController id="eAr-Iq-TRH" customClass="sampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="07a-7F-8GS"/>
+                        <viewControllerLayoutGuide type="bottom" id="8ha-zq-fDe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tVD-oa-Ut4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VUb-uJ-Bfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1026" y="-320"/>
+        </scene>
         <!--書籍一覧-->
         <scene sceneID="Kmj-QG-jud">
             <objects>

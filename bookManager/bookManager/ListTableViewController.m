@@ -18,6 +18,7 @@
 
 #import "ListTableViewController.h"
 #import "ListTableCell.h"
+#import "Read_More_Cell.h"
 #import "EditViewController.h"
 #define ONCE_READ_COUNT 20//20件ずつ読みこむ
 
@@ -50,6 +51,7 @@ int total = 0;
     _Listtable.delegate = self;
     [_Listtable registerNib:[UINib nibWithNibName:@"ListTableCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];
     
+       [_Listtable registerNib:[UINib nibWithNibName:@"Read_More_Cell" bundle:nil] forCellReuseIdentifier:@"ReadMoreCell"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -139,23 +141,24 @@ int total = 0;
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-  if(indexPath.row == _page*ONCE_READ_COUNT)
+  
+    //最終セルの設定
+    if(indexPath.row == _page*ONCE_READ_COUNT)
     {
+        NSString *identifier = @"ReadMoreCell" ;
+        Read_More_Cell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        [cell.Read_Button addTarget:self action:@selector(read_more_button:event:) forControlEvents:UIControlEventTouchUpInside];
+    return cell;
+  }
+    
+//その他のセル
+    else{
         NSString *identifier = @"ListCell" ;
         ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        cell.title_label.text = @"hoge";
+        cell.title_label.text = [_title_list objectAtIndex:indexPath.row];
         cell.price_label.text = [_price_list objectAtIndex:indexPath.row];
         cell.date_label.text = [_date_list objectAtIndex:indexPath.row];
-        
-        return cell;
-  }
-  else{
-    NSString *identifier = @"ListCell" ;
-    ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    cell.title_label.text = [_title_list objectAtIndex:indexPath.row];
-    cell.price_label.text = [_price_list objectAtIndex:indexPath.row];
-    cell.date_label.text = [_date_list objectAtIndex:indexPath.row];
-        return cell;
+    return cell;
     }
 }
 
@@ -190,6 +193,25 @@ int total = 0;
     [self performSegueWithIdentifier:@"List_to_Add" sender:self];
     
 }
+
+
+//もっと読みこむボタンのイベント
+- (void)read_more_button:(UIButton *)sender event:(UIEvent *)event {
+        
+        if([_indicator isAnimating]) {
+            return;
+        }
+        
+        
+        if (total > (_page*ONCE_READ_COUNT)) {
+            [self startIndicator];
+            [self performSelector:@selector(reloadMoreData) withObject:nil afterDelay:0.1f];
+        }
+        
+    
+}
+
+
 
 
 /*　スクロールかボタンか迷い中なのでコメント化
@@ -245,6 +267,9 @@ int total = 0;
 }
 
 
+
+/*
+
 #pragma mark - 表示セルの一番下まできたら次のONCE_READ_COUNT件数取得
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -266,17 +291,11 @@ int total = 0;
 }
 
 
-
-
-
-
-/*- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
-{
-            return @"      　　　　 ***もっと読みこむ***";//コードで正しく中央署せする
-}
- 
 */
- 
+
+
+
+
  
  
 

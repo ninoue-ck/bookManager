@@ -1,15 +1,14 @@
 //
-//  sample_sellTableViewCell.m
+//  Read_More_Cell.m
 //  bookManager
 //
-//  Created by inouenaoto on 2016/07/05.
+//  Created by inouenaoto on 2016/07/06.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
 
-#import "sample_sellTableViewCell.h"
+#import "Read_More_Cell.h"
 
-@implementation sample_sellTableViewCell
-
+@implementation Read_More_Cell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -18,9 +17,8 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
+
     // Configure the view for the selected state
 }
 
 @end
-

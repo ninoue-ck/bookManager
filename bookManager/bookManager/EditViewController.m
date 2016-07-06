@@ -147,8 +147,15 @@
     
 }
 
+//キーボードを閉じる処理
 
+- (IBAction)edittitle_return:(id)sender {
+        [sender resignFirstResponder];
+}
 
+- (IBAction)editprice_return:(id)sender {
+        [sender resignFirstResponder];
+}
 
 /*
 #pragma mark - Navigation

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630095ED1D2DFF5200D83EE1 /* API_ExchengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630095EC1D2DFF5200D83EE1 /* API_ExchengeViewController.m */; };
 		630EA4371D2808AE000AA9E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 630EA4361D2808AE000AA9E9 /* main.m */; };
 		630EA43A1D2808AE000AA9E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 630EA4391D2808AE000AA9E9 /* AppDelegate.m */; };
 		630EA4401D2808AE000AA9E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630EA43E1D2808AE000AA9E9 /* Main.storyboard */; };
@@ -52,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		26647940019BB5DF3DD2EC4C /* libPods-bookManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bookManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		630095EB1D2DFF5200D83EE1 /* API_ExchengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_ExchengeViewController.h; sourceTree = "<group>"; };
+		630095EC1D2DFF5200D83EE1 /* API_ExchengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_ExchengeViewController.m; sourceTree = "<group>"; };
 		630EA4321D2808AE000AA9E9 /* bookManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		630EA4361D2808AE000AA9E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		630EA4381D2808AE000AA9E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 			children = (
 				63F105931D2D0A4800E31385 /* bookManagerAPI.h */,
 				63F105941D2D0A4800E31385 /* bookManagerAPI.m */,
+				630095EB1D2DFF5200D83EE1 /* API_ExchengeViewController.h */,
+				630095EC1D2DFF5200D83EE1 /* API_ExchengeViewController.m */,
 				63F105961D2D0EE800E31385 /* sampleViewController.h */,
 				63F105971D2D0EE800E31385 /* sampleViewController.m */,
 				633BFB331D2B9E7A00D6F8A3 /* customtab_button.m */,
@@ -511,6 +516,7 @@
 				63F105981D2D0EE800E31385 /* sampleViewController.m in Sources */,
 				630EA46A1D28093D000AA9E9 /* ListTableViewController.m in Sources */,
 				63F104C81D2CA19600E31385 /* Read_More_Cell.m in Sources */,
+				630095ED1D2DFF5200D83EE1 /* API_ExchengeViewController.m in Sources */,
 				63F105951D2D0A4800E31385 /* bookManagerAPI.m in Sources */,
 				630EA4701D28098D000AA9E9 /* EditViewController.m in Sources */,
 				630EA47C1D281062000AA9E9 /* SettingViewController.m in Sources */,

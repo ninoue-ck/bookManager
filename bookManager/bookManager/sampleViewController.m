@@ -17,23 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSError *error0 = nil;
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"local" ofType:@"json"];
-    NSString *jsonString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error: &error0];
-    NSData *jsonData = [jsonString dataUsingEncoding:NSUnicodeStringEncoding];
-    if(error0){NSLog(@"よみこみえらー");}
     
-    //------------------------------
-    // NSArray に変換
-    //------------------------------
-    NSError *error1 = nil;
-    NSArray *array = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                     options:NSJSONReadingAllowFragments
-                                                       error:&error1];
-    if(error1){NSLog(@"ぱーすえらー");}
-    // Do any additional setup after loading the view.
+    
+    
+
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

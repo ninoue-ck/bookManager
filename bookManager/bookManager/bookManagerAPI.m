@@ -33,6 +33,9 @@
 
 
 
+
+
+
 /*
  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:origin]];
 // サーバーとの通信を行う

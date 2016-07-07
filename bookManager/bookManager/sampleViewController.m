@@ -1,19 +1,15 @@
 //
-//  bookManagerAPI.m
+//  sampleViewController.m
 //  bookManager
 //
-//  Created by inouenaoto on 2016/07/06.
+//  Created by inouenaoto on 2016/07/07.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
-//APIのjsonを取得してそれをarrayにするためのクラス
-// https://teratail.com/questions/10512
 
-
-#import "bookManagerAPI.h"
+#import "sampleViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
-@interface bookManagerAPI()
-
+@interface sampleViewController ()
 @property (nonatomic) NSMutableArray *ID_Array;
 @property (nonatomic) NSMutableArray *Image_Array;
 @property (nonatomic) NSMutableArray *Price_Array;
@@ -22,22 +18,20 @@
 
 @end
 
+@implementation sampleViewController
 
-
-
-@implementation bookManagerAPI
-
-- (void)GetJson {
+- (void)viewDidLoad {
+    [super viewDidLoad];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
     
     NSString *url = @"http://app.com/book/get";
     NSDictionary *params = [[NSDictionary alloc] init];
-    //params = @{@"page":@"0-10"};
+    params = @{@"page":@"0-10"};
     
     [manager POST:@"http://app.com/book/get"
-       parameters:nil
+       parameters:params
           success:^(NSURLSessionDataTask *operation, id responseObject) {
               //通信に成功した場合の処理
               NSArray *API_Array = [responseObject objectForKey:@"result"];
@@ -67,22 +61,22 @@
               // エラーの場合はエラーの内容をコンソールに出力する
               NSLog(@"failed: %@", error);
           }];
-
+    // Do any additional setup after loading the view.
 }
 
-
-
-
-
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 /*
- NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:origin]];
-// サーバーとの通信を行う
-NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-// JSONをパース
-NSArray *array = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];
+#pragma mark - Navigation
 
-//NSLogで表示
-NSLog(@"名前:%@ 誕生日:%@", [array valueForKeyPath:@"name"], [array valueForKeyPath:@"birthday"]);
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
 */
+
 @end

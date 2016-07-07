@@ -22,17 +22,6 @@
 @implementation sampleViewController
 
 
-- (id)init {
-    _ID_Array  = [NSMutableArray array];
-    _Image_Array = [NSMutableArray array];
-    _Price_Array = [NSMutableArray array];
-    _Title_Array  = [NSMutableArray array];
-    _Date_Array    = [NSMutableArray array];
-    return self;
-}
-
-
-
 
 
 - (void)viewDidLoad {

@@ -12,4 +12,14 @@
 
 @interface bookManagerAPI : NSObject
 
+
+@property (nonatomic) NSMutableArray *ID_Array;
+@property (nonatomic) NSMutableArray *Image_Array;
+@property (nonatomic) NSMutableArray *Price_Array;
+@property (nonatomic) NSMutableArray *Title_Array;
+@property (nonatomic) NSMutableArray *Date_Array;
+
+
+- (void)GetJson;
+
 @end

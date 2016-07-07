@@ -14,8 +14,8 @@
 
 
 
-
-
+#import <AFNetworking/AFNetworking.h>
+#import"bookManagerAPI.h"
 #import "ListTableViewController.h"
 #import "ListTableCell.h"
 #import "Read_More_Cell.h"
@@ -35,6 +35,14 @@
 @property (strong, nonatomic) NSArray *price_list;
 @property (strong, nonatomic) NSArray *date_list;
 
+
+//APIの配列たち
+@property (nonatomic) NSMutableArray *ID_Array;
+@property (nonatomic) NSMutableArray *Image_Array;
+@property (nonatomic) NSMutableArray *Price_Array;
+@property (nonatomic) NSMutableArray *Title_Array;
+@property (nonatomic) NSMutableArray *Date_Array;
+
 @end
 
 @implementation ListTableViewController
@@ -43,6 +51,12 @@ int total = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //get json の呼び出し
+    bookManagerAPI *API = [[bookManagerAPI alloc] init];
+    [API GetJson];
+    
+    
+    
     _Listtable.dataSource = self;
     _Listtable.delegate = self;
     [_Listtable registerNib:[UINib nibWithNibName:@"ListTableCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];

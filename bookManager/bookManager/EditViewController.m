@@ -19,10 +19,10 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *book_image;
 @property (weak, nonatomic) IBOutlet UITextField *book_title_field;
-
 @property (weak, nonatomic) IBOutlet UITextField *book_price_field;
-
 @property (weak, nonatomic) IBOutlet UITextField *book_date_field;
+
+
 
 @end
 

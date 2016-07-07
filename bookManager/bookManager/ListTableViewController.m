@@ -28,10 +28,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *Listtable;
 
-
-@property (nonatomic, strong) NSArray *dataSourceBookTitle;
-@property (nonatomic, strong) NSArray *dataSourceBookPrice;
-@property (nonatomic, strong) NSArray *dataSourceBookDate;
 @property (strong, nonatomic) UIActivityIndicatorView *indicator;
 @property (strong, nonatomic) NSArray *title_list;
 @property (readwrite) NSInteger page;

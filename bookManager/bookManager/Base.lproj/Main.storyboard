@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qnO-Mz-dN4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Rc-mh-hUQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -253,27 +253,27 @@
             <point key="canvasLocation" x="1117" y="-148"/>
         </scene>
         <!--Sample View Controller-->
-        <scene sceneID="2z9-lg-aAY">
+        <scene sceneID="d3d-ml-tFh">
             <objects>
-                <viewController id="eAr-Iq-TRH" customClass="sampleViewController" sceneMemberID="viewController">
+                <viewController id="GD1-eg-6xY" customClass="sampleViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="07a-7F-8GS"/>
-                        <viewControllerLayoutGuide type="bottom" id="8ha-zq-fDe"/>
+                        <viewControllerLayoutGuide type="top" id="wM0-si-YYb"/>
+                        <viewControllerLayoutGuide type="bottom" id="ud4-ld-peN"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tVD-oa-Ut4">
+                    <view key="view" contentMode="scaleToFill" id="8xi-Gy-1BJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VUb-uJ-Bfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOC-bL-OCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1026" y="-320"/>
+            <point key="canvasLocation" x="-2145" y="-1545"/>
         </scene>
-        <!--Exchenge View Controller-->
+        <!--Sample View Controller-->
         <scene sceneID="ESg-ti-cad">
             <objects>
-                <viewController id="qnO-Mz-dN4" customClass="API_ExchengeViewController" sceneMemberID="viewController">
+                <viewController id="qnO-Mz-dN4" customClass="sampleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nly-uE-AOS"/>
                         <viewControllerLayoutGuide type="bottom" id="DG1-qP-Z5y"/>
@@ -304,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYT-J7-2Ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2041" y="-426"/>
+            <point key="canvasLocation" x="-2019" y="-226"/>
         </scene>
         <!--Exchenge View Controller-->
         <scene sceneID="2Lb-c5-t3F">

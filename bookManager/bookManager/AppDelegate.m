@@ -61,12 +61,11 @@
      ];
     NSDictionary *attributesNomal = @{NSFontAttributeName:tabFont,NSForegroundColorAttributeName:[UIColor grayColor]};
     [[UITabBarItem appearance] setTitleTextAttributes:attributesNomal forState:UIControlStateNormal];
-    [UITabBar appearance].barTintColor = [UIColor brownColor];
     //タブの画像設定
-   // UIImage *image1 = [UIImage imageNamed:@"tabbar_item.png"];
-//UIImage *image2= [UIImage imageNamed:@"tab_bar_selected.jpg"];
-  //  [[UITabBar appearance] setBackgroundImage:image1];
-//    [[UITabBar appearance] setSelectionIndicatorImage:image2];
+    UIImage *image1 = [UIImage imageNamed:@"tab.jpg"];
+    UIImage *image2= [UIImage imageNamed:@"selected_tub.jpg"];
+    [[UITabBar appearance] setBackgroundImage:image1];
+    [[UITabBar appearance] setSelectionIndicatorImage:image2];
     return YES;
     
     

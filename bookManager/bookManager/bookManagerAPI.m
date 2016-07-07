@@ -6,7 +6,7 @@
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
 //APIのjsonを取得してそれをarrayにするためのクラス
-// https://teratail.com/questions/10512
+//http://qiita.com/asakahara/items/9cb68bef56ca70b505c6
 
 
 #import "bookManagerAPI.h"
@@ -34,23 +34,33 @@
     
     NSString *url = @"http://app.com/book/get";
     NSDictionary *params = [[NSDictionary alloc] init];
-    //params = @{@"page":@"0-10"};
+    params = @{@"page":@"0-10"};
     
     [manager POST:@"http://app.com/book/get"
        parameters:nil
           success:^(NSURLSessionDataTask *operation, id responseObject) {
               //通信に成功した場合の処理
-              NSArray *API_Array = [responseObject objectForKey:@"result"];
+             NSArray *API_Array = [responseObject objectForKey:@"result"];
+              NSLog(@"%@",API_Array);
+              for(int i = 0; i < API_Array.count; i++) {
+                  [_ID_Array addObject:[API_Array[i] objectForKey:@"id"]];
+                  [_Image_Array addObject:[API_Array[i] objectForKey:@"image_url"]];
+                  [_Title_Array addObject:[API_Array[i] objectForKey:@"name"]];
+                  [_Price_Array addObject:[API_Array[i] objectForKey:@"price"]];
+                  [_Date_Array addObject:[API_Array[i] objectForKey:@"purchase_date"]];
+                  //NSLog(@"%@",[API_Array[i] objectForKey:@"id"]);
+              }
+              NSLog(@"%@",_Price_Array);
+              NSLog(@"%@",_Title_Array);
+              NSLog(@"%@",_Date_Array);
+    //          self.Price_Array =[[responseObject objectForKey:@"result"] objectForKey:@"price"];
+      //        NSLog(@"result %@",_Price_Array);
               
-              NSMutableArray *id = [NSMutableArray array];
-              NSMutableArray *image_url = [NSMutableArray array];
-              NSMutableArray *name = [NSMutableArray array];
-              NSMutableArray *price = [NSMutableArray array];
-              NSMutableArray *purchase_date = [NSMutableArray array];
               
+    //         self.items = [[jsonDictionary objectForKey:@"feed"] objectForKey:@"entry"];
               // NSLog(@"response: %@", responseObject);
               //  NSLog(@"%@",API_Array);
-              for(int i = 0; i < API_Array.count; i++) {
+             for(int i = 0; i < API_Array.count; i++) {
                   [_ID_Array addObject:[API_Array[i] objectForKey:@"id"]];
                   [_Image_Array addObject:[API_Array[i] objectForKey:@"image_url"]];
                   [_Title_Array addObject:[API_Array[i] objectForKey:@"name"]];
@@ -62,15 +72,13 @@
               NSLog(@"  1: %@",_Title_Array[1]);
               
               //   NSLog(@"%@", name);
-              
-          } failure:^(NSURLSessionDataTask *operation, NSError *error) {
+      
+         } failure:^(NSURLSessionDataTask *operation, NSError *error) {
               // エラーの場合はエラーの内容をコンソールに出力する
               NSLog(@"failed: %@", error);
           }];
 
 }
-
-
 
 
 

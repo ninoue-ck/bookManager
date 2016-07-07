@@ -5,6 +5,7 @@
 //  Created by inouenaoto on 2016/07/07.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
+//http://qiita.com/asakahara/items/9cb68bef56ca70b505c6
 
 #import "sampleViewController.h"
 #import <AFNetworking/AFNetworking.h>
@@ -19,6 +20,20 @@
 @end
 
 @implementation sampleViewController
+
+
+- (id)init {
+    _ID_Array  = [NSMutableArray array];
+    _Image_Array = [NSMutableArray array];
+    _Price_Array = [NSMutableArray array];
+    _Title_Array  = [NSMutableArray array];
+    _Date_Array    = [NSMutableArray array];
+    return self;
+}
+
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,14 +51,20 @@
               //通信に成功した場合の処理
               NSArray *API_Array = [responseObject objectForKey:@"result"];
               
-              NSMutableArray *id = [NSMutableArray array];
-              NSMutableArray *image_url = [NSMutableArray array];
-              NSMutableArray *name = [NSMutableArray array];
-              NSMutableArray *price = [NSMutableArray array];
-              NSMutableArray *purchase_date = [NSMutableArray array];
               
-              // NSLog(@"response: %@", responseObject);
+            //  NSLog(@"回数は%d", API_Array.count);
+              
+              _ID_Array = [[NSMutableArray alloc]init];
+              _Image_Array = [NSMutableArray array];
+              _Title_Array = [NSMutableArray array];
+              _Price_Array = [NSMutableArray array];
+              _Date_Array = [NSMutableArray array];
+              
+                           // NSLog(@"response: %@", responseObject);
               //  NSLog(@"%@",API_Array);
+              
+              //取得したAPIをそれぞれの配列に格納
+              NSLog(@"%@",API_Array);
               for(int i = 0; i < API_Array.count; i++) {
                   [_ID_Array addObject:[API_Array[i] objectForKey:@"id"]];
                   [_Image_Array addObject:[API_Array[i] objectForKey:@"image_url"]];
@@ -52,9 +73,9 @@
                   [_Date_Array addObject:[API_Array[i] objectForKey:@"purchase_date"]];
                   //NSLog(@"%@",[API_Array[i] objectForKey:@"id"]);
               }
-              NSLog(@"%@",_Price_Array);
-              NSLog(@"  1: %@",_Title_Array[1]);
-              
+            NSLog(@"%@",_Price_Array);
+            NSLog(@"%@",_Title_Array);
+            NSLog(@"%@",_Date_Array);
               //   NSLog(@"%@", name);
               
           } failure:^(NSURLSessionDataTask *operation, NSError *error) {
@@ -62,11 +83,15 @@
               NSLog(@"failed: %@", error);
           }];
     // Do any additional setup after loading the view.
+   //  NSLog(@"%@",_Price_Array);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)tap:(id)sender {
+     NSLog(@"%@",_Price_Array);
 }
 
 /*

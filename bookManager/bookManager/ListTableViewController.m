@@ -5,7 +5,7 @@
 //  Created by inouenaoto on 2016/07/02.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //フッター　http://blog.7bunnies.com/2011/09/uitableviewtablefooterviewuibutton.html
-//
+//テーブル処理　https://gist.github.com/inonb/3157988#file-gistfile1-txt
 //
 //
 //
@@ -20,7 +20,7 @@
 #import "ListTableCell.h"
 #import "Read_More_Cell.h"
 #import "EditViewController.h"
-#define ONCE_READ_COUNT 5
+#define ONCE_READ_COUNT 2
 
 
 
@@ -29,19 +29,14 @@
 @property (strong, nonatomic) IBOutlet UITableView *Listtable;
 
 @property (strong, nonatomic) UIActivityIndicatorView *indicator;
-@property (strong, nonatomic) NSArray *title_list;
+@property (strong, nonatomic) NSMutableArray *title_list;
 @property (readwrite) NSInteger page;
 
-@property (strong, nonatomic) NSArray *price_list;
-@property (strong, nonatomic) NSArray *date_list;
+@property (strong, nonatomic) NSMutableArray *price_list;
+@property (strong, nonatomic) NSMutableArray *date_list;
 
 
-//APIの配列たち
-@property (nonatomic) NSMutableArray *ID_Array;
-@property (nonatomic) NSMutableArray *Image_Array;
-@property (nonatomic) NSMutableArray *Price_Array;
-@property (nonatomic) NSMutableArray *Title_Array;
-@property (nonatomic) NSMutableArray *Date_Array;
+
 
 @end
 
@@ -49,84 +44,50 @@
 
 int total = 0;
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+ //  [self GetJson]; wiiの中じゃないと上手くいかない
+  // NSLog(@"%@",_Price_Array);
+    
+/*
     //get json の呼び出し
     bookManagerAPI *API = [[bookManagerAPI alloc] init];
     [API GetJson];
+*/
     
-    
-    
+
     _Listtable.dataSource = self;
     _Listtable.delegate = self;
     [_Listtable registerNib:[UINib nibWithNibName:@"ListTableCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];
+    [_Listtable registerNib:[UINib nibWithNibName:@"Read_More_Cell" bundle:nil] forCellReuseIdentifier:@"ReadMoreCell"];
     
-       [_Listtable registerNib:[UINib nibWithNibName:@"Read_More_Cell" bundle:nil] forCellReuseIdentifier:@"ReadMoreCell"];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following  readMoreButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    
-    self.title_list = [self title_sample];
-    self.price_list = [self price_sample];
-    self.date_list = [self date_sample];
-    
-    total = [_title_list count];
+//    total = [_title_list count];
+//    NSLog(@"total %d",total);
+    total=2;
     _page = 1;
     _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.indicator setColor:[UIColor darkGrayColor]];
     [self.indicator setHidesWhenStopped:YES];
     [self.indicator stopAnimating];
-    
+//   NSLog(@"%@",_Price_Array);
+
+
 }
 
-//以下仮データ
-- (NSArray *)title_sample
-{
-    
-    NSMutableArray *data = [NSMutableArray array];
-    for (int i = 0; i < 20; i++) {
-        [data addObject:@"パーフェクトPHP"];
-        [data addObject:@"cakePHP辞典"];
-        [data addObject:@"パーフェクトじゃないPHP"];
-        [data addObject:@"cakeじゃないPHP"];
-    }
-    
-    return [data copy];
-    
-}
 
-- (NSArray *)price_sample
-{
-    
-    NSMutableArray *data = [NSMutableArray array];
-    for (int i = 0; i < 20; i++) {
-        [data addObject:@"1000円"];
-        [data addObject:@"2000円"];
-        [data addObject:@"3000円"];
-        [data addObject:@"4000円"];
-    }
-    
-    return [data copy];
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"viewWillAppear");
+    total = [_title_list count];    [self GetJson];
     
 }
 
 
-- (NSArray *)date_sample
-{
-    
-    NSMutableArray *data = [NSMutableArray array];
-    for (int i = 0; i < 20; i++) {
-        [data addObject:@"2015 4 3"];
-        [data addObject:@"2016 06 14"];
-        [data addObject:@"2017 02 13"];
-        [data addObject:@"2016 09 06"];
-    }
-    
-    return [data copy];
-    
-}
 
 
 
@@ -138,21 +99,37 @@ int total = 0;
     // Dispose of any resources that can be recreated.
 }
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 125;
 }
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    return _page*ONCE_READ_COUNT+1;
     
-    return _page*ONCE_READ_COUNT+1;;
+   // return _page*ONCE_READ_COUNT+1;;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-  
-    //最終セルの設定
+    
+    NSString *identifier = @"ListCell" ;
+    ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    //表示する内容がない場合の条件
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: @"ListCell"];
+    }
+    
+    
+    
+    
+    //最終セルの設定 http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22
     if(indexPath.row == _page*ONCE_READ_COUNT)
     {
         NSString *identifier = @"ReadMoreCell" ;
@@ -160,22 +137,39 @@ int total = 0;
         [cell.Read_Button addTarget:self action:@selector(read_more_button:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
   }
+
+
+        cell.title_label.text = [self.title_list objectAtIndex:indexPath.row];
+        cell.price_label.text = [NSString stringWithFormat:@"%@円", self.price_list [indexPath.row]];
+        cell.bookimage_view.image=[ UIImage imageNamed:@"book_sample.jpg" ];
+
     
-//その他のセル
-    else{
-        NSString *identifier = @"ListCell" ;
-        ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        cell.title_label.text = [_title_list objectAtIndex:indexPath.row];
-        cell.price_label.text = [_price_list objectAtIndex:indexPath.row];
-        cell.date_label.text = [_date_list objectAtIndex:indexPath.row];
+    
+
+    NSString *gmt = self.date_list[indexPath.row];
+   
+    NSDateFormatter *DF = [[NSDateFormatter alloc] init];
+    [DF setDateFormat:@"EEE, dd MM yyy HH:mm:ss Z"];
+    [DF setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"JP"]];
+    NSDate *tmpDate = [DF dateFromString:gmt];
+    
+
+    NSDateFormatter *DFafter = [[NSDateFormatter alloc] init];
+    [DFafter setDateFormat:@"yyyy/MM/dd"];
+    NSString *set_date = [DFafter stringFromDate:tmpDate];
+    
+    cell.date_label.text = set_date;
+    
+    
     return cell;
-    }
+    
 }
 
 
 
 
 //テーブルのセルから移動
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
@@ -213,7 +207,7 @@ int total = 0;
         }
         
         
-        if (total > (_page*ONCE_READ_COUNT)) {
+        if (self.title_list.count > (_page*ONCE_READ_COUNT)) {
             [self startIndicator];
             [self performSelector:@selector(reloadMoreData) withObject:nil afterDelay:0.1f];
         }
@@ -238,15 +232,6 @@ int total = 0;
 */
 
 
-//もっと読みこむフッター
-/*
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIButton *list_loadbutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    list_loadbutton.frame =CGRectMake(0, 0, 320, 60);
-    [list_loadbutton setTitle:@"***もっと読み込む***" forState:UIControlStateNormal];
-    return list_loadbutton;
-}
-*/
 
 
 //インディケータの設定
@@ -303,11 +288,66 @@ int total = 0;
 
 */
 
+- (void)GetJson {
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSString *url = @"http://app.com/book/get";
+    NSDictionary *params = [[NSDictionary alloc] init];
+    params = @{@"page":@"0-10"};
+
+    [manager POST:@"http://app.com/book/get"
+       parameters:params
+          success:^(NSURLSessionDataTask *operation, id responseObject) {
+            //通信に成功した場合の処理
+              NSArray *API_Array = [responseObject objectForKey:@"result"];
+          
+          
+              //  NSLog(@"回数は%d", API_Array.count);
+          
+              NSArray * APIArray = [responseObject objectForKey:@"result"];
+              NSMutableArray *ID_Array = [NSMutableArray array];
+              NSMutableArray *Image_Array = [NSMutableArray array];
+              NSMutableArray *Title_Array = [NSMutableArray array];
+              NSMutableArray *Price_Array = [NSMutableArray array];
+              NSMutableArray *Date_Array = [NSMutableArray array];
+          
+          
+          //取得したAPIをそれぞれの配列に格納
+          // NSLog(@"%@",API_Array);
+          for(int i = 0; i < API_Array.count; i++) {
+              [ID_Array addObject:[API_Array[i] objectForKey:@"id"]];
+              [Image_Array addObject:[API_Array[i] objectForKey:@"image_url"]];
+              [Title_Array addObject:[API_Array[i] objectForKey:@"name"]];
+              [Price_Array addObject:[API_Array[i] objectForKey:@"price"]];
+              [Date_Array addObject:[API_Array[i] objectForKey:@"purchase_date"]];
+
+          }
+          
+          // NSLog(@"%@", _Title_Array);
+            self.title_list = Title_Array;
+            self.price_list = Price_Array;
+            self.date_list = Date_Array;
+            [self.Listtable reloadData];
+             NSLog(@"%@", _title_list);
+              
+
+            NSLog(@"total %d ",self.title_list.count);
+          
+          
+      } failure:^(NSURLSessionDataTask *operation, NSError *error) {
+          // エラーの場合はエラーの内容をコンソールに出力する
+          NSLog(@"failed: %@", error);
+      }];
+    NSInteger total=0;
+    total = self.title_list.count;
+    NSLog(@"total %d ",self.title_list.count);
+
+}
 
 
 
- 
- 
+
 
 
 

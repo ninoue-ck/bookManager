@@ -27,7 +27,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book_sample.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nwZ-hf-F7C">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nwZ-hf-F7C">
                         <rect key="frame" x="18" y="21" width="100" height="60"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="46o-Yp-cMf"/>
@@ -53,6 +53,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="bookimage_view" destination="nwZ-hf-F7C" id="XvU-eF-Jgk"/>
                 <outlet property="date_label" destination="YM1-h7-WFG" id="dlK-Bm-vkt"/>
                 <outlet property="price_label" destination="5O9-df-z5K" id="aWl-QX-jPf"/>
                 <outlet property="title_label" destination="eYh-ZL-rdB" id="zKT-g8-6Zo"/>
@@ -60,7 +61,4 @@
             <point key="canvasLocation" x="486" y="334"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="book_sample.jpg" width="550" height="471"/>
-    </resources>
 </document>

@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bookManager/ListTableViewController.m"
-            timestampString = "489769234.8898"
+            timestampString = "489772819.497732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "-GetJson"
             landmarkType = "5">
          </BreakpointContent>

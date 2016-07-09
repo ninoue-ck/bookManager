@@ -29,13 +29,12 @@
 @property (strong, nonatomic) IBOutlet UITableView *Listtable;
 
 @property (strong, nonatomic) UIActivityIndicatorView *indicator;
-@property (strong, nonatomic) NSMutableArray *title_list;
 @property (readwrite) NSInteger page;
 
+@property (strong, nonatomic) NSMutableArray *title_list;
 @property (strong, nonatomic) NSMutableArray *price_list;
 @property (strong, nonatomic) NSMutableArray *date_list;
-
-
+@property (strong, nonatomic) NSString *set_date; //時間を書式変更したもの
 
 
 @end
@@ -82,8 +81,7 @@ int total = 0;
 
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"viewWillAppear");
-    total = [_title_list count];    [self GetJson];
+    [self GetJson];
     
 }
 
@@ -113,7 +111,7 @@ int total = 0;
 {
     return _page*ONCE_READ_COUNT+1;
     
-   // return _page*ONCE_READ_COUNT+1;;
+
 }
 
 
@@ -121,13 +119,6 @@ int total = 0;
     
     NSString *identifier = @"ListCell" ;
     ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    //表示する内容がない場合の条件
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: @"ListCell"];
-    }
-    
-    
-    
     
     //最終セルの設定 http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22
     if(indexPath.row == _page*ONCE_READ_COUNT)
@@ -145,7 +136,11 @@ int total = 0;
 
     
     
-
+    
+    
+    
+    
+    //　時間の書式変更「http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22」
     NSString *gmt = self.date_list[indexPath.row];
    
     NSDateFormatter *DF = [[NSDateFormatter alloc] init];
@@ -156,9 +151,9 @@ int total = 0;
 
     NSDateFormatter *DFafter = [[NSDateFormatter alloc] init];
     [DFafter setDateFormat:@"yyyy/MM/dd"];
-    NSString *set_date = [DFafter stringFromDate:tmpDate];
+    _set_date = [DFafter stringFromDate:tmpDate];
     
-    cell.date_label.text = set_date;
+    cell.date_label.text = _set_date;
     
     
     return cell;
@@ -172,20 +167,23 @@ int total = 0;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setValue:[NSString stringWithFormat:@"%d", indexPath.row] forKey:@"num"];
-    
     [self performSegueWithIdentifier:@"List_to_Edit" sender:self];
 }
+
+
 
 //セグエが編集画面へのものだった時にデータを渡す
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"List_to_Edit"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EditViewController *editViewController = (EditViewController *)segue.destinationViewController;
-        editViewController.selected_title = [_title_list objectAtIndex:indexPath.row];
-        editViewController.selected_price = [_price_list objectAtIndex:indexPath.row];
-        editViewController.selected_date = [_date_list objectAtIndex:indexPath.row];
+        editViewController.selected_title = [self.title_list objectAtIndex:indexPath.row];
+        editViewController.selected_price = [NSString stringWithFormat:@"%@円", self.price_list [indexPath.row]];
+        editViewController.selected_date = _set_date;
+        
+//        editViewController.selected_price = [self.price_list objectAtIndex:indexPath.row];
+//        editViewController.selected_date = [self.date_list objectAtIndex:indexPath.row];
+
 
     }
 }
@@ -332,17 +330,12 @@ int total = 0;
              NSLog(@"%@", _title_list);
               
 
-            NSLog(@"total %d ",self.title_list.count);
           
           
       } failure:^(NSURLSessionDataTask *operation, NSError *error) {
           // エラーの場合はエラーの内容をコンソールに出力する
           NSLog(@"failed: %@", error);
       }];
-    NSInteger total=0;
-    total = self.title_list.count;
-    NSLog(@"total %d ",self.title_list.count);
-
 }
 
 

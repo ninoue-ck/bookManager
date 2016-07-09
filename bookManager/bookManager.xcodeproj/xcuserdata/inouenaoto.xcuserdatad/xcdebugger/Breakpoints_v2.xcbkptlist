@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bookManager/EditViewController.m"
-            timestampString = "489414350.425974"
+            timestampString = "489777057.141564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "@interface EditViewController()"
+            landmarkType = "2">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

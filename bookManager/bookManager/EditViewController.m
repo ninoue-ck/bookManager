@@ -12,11 +12,10 @@
 #import "EditViewController.h"
 #import "ListTableViewController.h"
 #import "ListTableCell.h"
+#import <AFNetworking/AFNetworking.h>
 
-@interface EditViewController (){
-    UITextField *book_title_field;
-}
 
+@interface EditViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *book_image;
 @property (weak, nonatomic) IBOutlet UITextField *book_title_field;
 @property (weak, nonatomic) IBOutlet UITextField *book_price_field;
@@ -156,6 +155,11 @@
 - (IBAction)editprice_return:(id)sender {
         [sender resignFirstResponder];
 }
+
+
+
+
+
 
 /*
 #pragma mark - Navigation

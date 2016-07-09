@@ -18,13 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N5F-E3-AQK">
-                                <rect key="frame" x="60" y="104" width="150" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="IYx-Mi-oOF"/>
-                                    <constraint firstAttribute="width" constant="150" id="OQb-gg-uh1"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHI-tU-Klr">
                                 <rect key="frame" x="310" y="154" width="60" height="30"/>
                                 <state key="normal" title="画像添付"/>
@@ -71,6 +64,13 @@
                                     <action selector="return_title:" destination="NEp-FO-SVb" eventType="editingDidEndOnExit" id="lSz-Z5-0vV"/>
                                 </connections>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N5F-E3-AQK">
+                                <rect key="frame" x="60" y="104" width="150" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="IYx-Mi-oOF"/>
+                                    <constraint firstAttribute="width" constant="150" id="OQb-gg-uh1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -101,7 +101,11 @@
                                 <action selector="add_close:" destination="NEp-FO-SVb" id="QU4-Yf-cyN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="Jez-Db-j26"/>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="Jez-Db-j26">
+                            <connections>
+                                <action selector="add_save:" destination="NEp-FO-SVb" id="1j1-RE-Jra"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="add_date" destination="CYL-Gl-jl5" id="pfG-ej-xeL"/>

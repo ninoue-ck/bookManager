@@ -10,13 +10,25 @@
 
 
 #import "AddViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
-@interface AddViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *add_image;
-@property (weak, nonatomic) IBOutlet UITextField *add_title;
-@property (weak, nonatomic) IBOutlet UITextField *add_price;
-@property (weak, nonatomic) IBOutlet UITextField *add_date;
+@interface AddViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate>{
+    
+    NSString *add_image;
+    NSString *add_title;
+    NSString *add_price;
+    NSDate *add_date;
+    
+    
+}
+
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *add_image_field;
+@property (weak, nonatomic) IBOutlet UITextField *add_title_field;
+@property (weak, nonatomic) IBOutlet UITextField *add_price_field;
+@property (weak, nonatomic) IBOutlet UITextField *add_date_field;
 
 @end
 
@@ -33,10 +45,10 @@
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     
     // textFieldの入力をdatePickerに設定
-    _add_date.inputView = datePicker;
+    _add_date_field.inputView = datePicker;
     
     // Delegationの設定
-    self.add_date.delegate = self;
+    self.add_date_field.delegate = self;
     
     // DoneボタンとそのViewの作成
     UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
@@ -62,9 +74,9 @@
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
     
     // Viewの配置
-    _add_date.inputAccessoryView = keyboardDoneButtonView;
+    _add_date_field.inputAccessoryView = keyboardDoneButtonView;
     
-    [self.view addSubview:_add_date];
+    [self.view addSubview:_add_date_field];
 }
 
 
@@ -78,13 +90,13 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy/MM/dd";
     UIDatePicker *picker = (UIDatePicker *)sender;
-    _add_date.text = [dateFormatter stringFromDate:picker.date];
+    _add_date_field.text = [dateFormatter stringFromDate:picker.date];
 }
 
 #pragma mark datepickerの完了ボタンが押された場合
 - (void)pickerDoneClicked {
-    [_add_date resignFirstResponder];
-    _add_date = nil;
+    [_add_date_field resignFirstResponder];
+    _add_date_field = nil;
 }
 
 
@@ -125,7 +137,7 @@
 {
     UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    self.add_image.image = image;
+    self.add_image_field.image = image;
     
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -134,6 +146,39 @@
 
 
 
+NSString *add_image;
+NSString *add_title;
+NSString *add_picee;
+NSDate *add_date;
+
+//書籍追加時のメソッ
+- (void)add {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSString * url = @"http://app.com/book/regist";
+    NSDictionary *params = [[NSDictionary alloc] init];
+    params = @{
+               @"image_url":add_image,
+               @"name":add_title,
+               @"price":add_price,
+               @"purchase_date":add_date
+               };
+    [manager POST:url parameters:params
+          success:^(NSURLSessionDataTask *task, id responseObject)
+     {
+         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"失敗" message:@"入力してください" delegate:self cancelButtonTitle:nil otherButtonTitles:@"やり直す", nil];
+         [alertView show];
+         [self dismissViewControllerAnimated:YES completion:nil];
+     } failure:^(NSURLSessionDataTask *task, NSError *error)
+     {
+         NSLog(@"Error: %@", error);
+     }];
+}
+
+- (IBAction)add_save:(id)sender {
+    add_image =[NSString stringWithFormat:@"/hog/123.jpg"];
+    [self add];
+}
 
 
 

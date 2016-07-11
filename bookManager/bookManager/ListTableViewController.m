@@ -20,7 +20,7 @@
 #import "ListTableCell.h"
 #import "Read_More_Cell.h"
 #import "EditViewController.h"
-#define ONCE_READ_COUNT 2
+#define ONCE_READ_COUNT 1
 
 
 
@@ -34,6 +34,7 @@
 @property (strong, nonatomic) NSMutableArray *title_list;
 @property (strong, nonatomic) NSMutableArray *price_list;
 @property (strong, nonatomic) NSMutableArray *date_list;
+@property (strong, nonatomic) NSMutableArray *id_list;
 @property (strong, nonatomic) NSString *set_date; //時間を書式変更したもの
 
 
@@ -146,12 +147,12 @@ int total = 0;
     NSDateFormatter *DF = [[NSDateFormatter alloc] init];
     [DF setDateFormat:@"EEE, dd MM yyy HH:mm:ss Z"];
     [DF setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"JP"]];
-    NSDate *tmpDate = [DF dateFromString:gmt];
+    NSDate *date = [DF dateFromString:gmt];
     
-
-    NSDateFormatter *DFafter = [[NSDateFormatter alloc] init];
-    [DFafter setDateFormat:@"yyyy/MM/dd"];
-    _set_date = [DFafter stringFromDate:tmpDate];
+    //NSStringに
+    NSDateFormatter *outFmt = [[NSDateFormatter alloc] init];
+    [outFmt setDateFormat:@"yyyy/MM/dd"];
+    _set_date = [outFmt stringFromDate:date];
     
     cell.date_label.text = _set_date;
     
@@ -180,8 +181,8 @@ int total = 0;
         editViewController.selected_title = [self.title_list objectAtIndex:indexPath.row];
         editViewController.selected_price = [NSString stringWithFormat:@"%@円", self.price_list [indexPath.row]];
         editViewController.selected_date = _set_date;
-        
-//        editViewController.selected_price = [self.price_list objectAtIndex:indexPath.row];
+         editViewController.selected_id = [self.id_list objectAtIndex:indexPath.row];
+        // editViewController.selected_price = [self.price_list objectAtIndex:indexPath.row];
 //        editViewController.selected_date = [self.date_list objectAtIndex:indexPath.row];
 
 
@@ -322,14 +323,17 @@ int total = 0;
 
           }
           
-          // NSLog(@"%@", _Title_Array);
             self.title_list = Title_Array;
             self.price_list = Price_Array;
             self.date_list = Date_Array;
+            self.id_list = ID_Array;
             [self.Listtable reloadData];
-             NSLog(@"%@", _title_list);
               
-
+              
+                       NSLog(@"%@", _title_list);
+                       NSLog(@"%@", _price_list);
+                       NSLog(@"%@", _date_list);
+              
           
           
       } failure:^(NSURLSessionDataTask *operation, NSError *error) {

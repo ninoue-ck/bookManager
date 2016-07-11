@@ -243,7 +243,11 @@
                                 <action selector="edit_back:" destination="FiB-Ja-5KV" id="W1A-n6-j5B"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="U5Z-VN-nhN"/>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="U5Z-VN-nhN">
+                            <connections>
+                                <action selector="edit_save:" destination="FiB-Ja-5KV" id="xDZ-3x-2rK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="book_date_field" destination="Pef-EA-4KW" id="NUD-5I-YWh"/>

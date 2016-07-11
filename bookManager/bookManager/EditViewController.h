@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface EditViewController : UIViewController<UITextFieldDelegate>
-
-
 //テキストフィールドの初期値
-//実行ファイルにするとなぜかエラー出る
+//実行ファイルにするとインポートしてないからエラー出る
 @property (nonatomic, copy) NSString *selected_title;
 @property (nonatomic, copy) NSString *selected_price;
 @property (nonatomic, copy) NSString *selected_date;
-
+@property (nonatomic, copy) NSString *selected_id;
 @end

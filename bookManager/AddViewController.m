@@ -13,7 +13,8 @@
 #import <AFNetworking/AFNetworking.h>
 
 
-@interface AddViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate>{
+@interface AddViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate>
+{
     
     NSString *add_image;
     NSString *add_title;
@@ -34,8 +35,20 @@
 
 @implementation AddViewController
 
+@synthesize add_title_field;
+@synthesize add_price_field;
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    //ぴっかーを出す
+    add_title_field.delegate=self;
+    add_price_field.delegate=self;
+    
+ 
     //ぴっかーを出す
     // DatePickerの設定
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
@@ -77,7 +90,31 @@
     _add_date_field.inputAccessoryView = keyboardDoneButtonView;
     
     [self.view addSubview:_add_date_field];
+    [self setup];
 }
+
+
+-(void)setup{
+    
+    
+    add_title_field.placeholder =@"金額を入力してください";
+    add_price_field.placeholder =@"書籍名を入力してください";
+    add_title_field.clearButtonMode = UITextFieldViewModeAlways;
+    add_price_field.clearButtonMode = UITextFieldViewModeAlways;
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -85,7 +122,6 @@
     // Dispose of any resources that can be recreated.
 }
 //ピッカー押された後
-#pragma mark DatePickerの編集が完了したら結果をTextFieldに表示
 - (void)updateTextField:(id)sender {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy/MM/dd";
@@ -145,12 +181,6 @@
 }
 
 
-
-NSString *add_image;
-NSString *add_title;
-NSString *add_picee;
-NSDate *add_date;
-
 //書籍追加時のメソッ
 - (void)add {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -158,17 +188,17 @@ NSDate *add_date;
     NSString * url = @"http://app.com/book/regist";
     NSDictionary *params = [[NSDictionary alloc] init];
     params = @{
-               @"image_url":add_image,
-               @"name":add_title,
-               @"price":add_price,
-               @"purchase_date":add_date
+               @"image_url":@"hoge",
+               @"name":add_title_field.text,
+               @"price":add_price_field.text,
+               @"purchase_date":_add_date_field.text
                };
+    NSLog(@"%@",add_price_field.text);
     [manager POST:url parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject)
      {
-         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"失敗" message:@"入力してください" delegate:self cancelButtonTitle:nil otherButtonTitles:@"やり直す", nil];
-         [alertView show];
-         [self dismissViewControllerAnimated:YES completion:nil];
+    /*     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"成功" message:@"書籍を追加しました" delegate:self cancelButtonTitle:nil otherButtonTitles:@"やり直す", nil];
+         [alertView show];  */
      } failure:^(NSURLSessionDataTask *task, NSError *error)
      {
          NSLog(@"Error: %@", error);
@@ -176,8 +206,10 @@ NSDate *add_date;
 }
 
 - (IBAction)add_save:(id)sender {
-    add_image =[NSString stringWithFormat:@"/hog/123.jpg"];
     [self add];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"成功" message:@"書籍を追加しました" delegate:self cancelButtonTitle:nil otherButtonTitles:@"やり直す", nil];
+    [alertView show];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

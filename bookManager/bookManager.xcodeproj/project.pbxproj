@@ -26,6 +26,7 @@
 		633BFB341D2B9E7A00D6F8A3 /* customtab_button.m in Sources */ = {isa = PBXBuildFile; fileRef = 633BFB331D2B9E7A00D6F8A3 /* customtab_button.m */; };
 		63DC74D31D290B9D0012159F /* ListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DC74D21D290B9D0012159F /* ListTableCell.m */; };
 		63DC74D51D290BAF0012159F /* ListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DC74D41D290BAF0012159F /* ListTableCell.xib */; };
+		63E043361D350667001FFB94 /* AccountRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E043351D350667001FFB94 /* AccountRegistViewController.m */; };
 		63F104C81D2CA19600E31385 /* Read_More_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F104C61D2CA19600E31385 /* Read_More_Cell.m */; };
 		63F104C91D2CA19600E31385 /* Read_More_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F104C71D2CA19600E31385 /* Read_More_Cell.xib */; };
 		63F105951D2D0A4800E31385 /* bookManagerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F105941D2D0A4800E31385 /* bookManagerAPI.m */; };
@@ -88,6 +89,8 @@
 		63DC74D11D290B9D0012159F /* ListTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableCell.h; sourceTree = "<group>"; };
 		63DC74D21D290B9D0012159F /* ListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableCell.m; sourceTree = "<group>"; };
 		63DC74D41D290BAF0012159F /* ListTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableCell.xib; sourceTree = "<group>"; };
+		63E043341D350667001FFB94 /* AccountRegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRegistViewController.h; sourceTree = "<group>"; };
+		63E043351D350667001FFB94 /* AccountRegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRegistViewController.m; sourceTree = "<group>"; };
 		63F104C51D2CA19600E31385 /* Read_More_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Read_More_Cell.h; sourceTree = "<group>"; };
 		63F104C61D2CA19600E31385 /* Read_More_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Read_More_Cell.m; sourceTree = "<group>"; };
 		63F104C71D2CA19600E31385 /* Read_More_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Read_More_Cell.xib; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				633BFB321D2B9E7A00D6F8A3 /* customtab_button.h */,
 				630EA4741D281052000AA9E9 /* AddViewController.h */,
 				630EA4751D281052000AA9E9 /* AddViewController.m */,
+				63E043341D350667001FFB94 /* AccountRegistViewController.h */,
+				63E043351D350667001FFB94 /* AccountRegistViewController.m */,
 				630EA46E1D28098D000AA9E9 /* EditViewController.h */,
 				630EA46F1D28098D000AA9E9 /* EditViewController.m */,
 				630EA47A1D281062000AA9E9 /* SettingViewController.h */,
@@ -516,6 +521,7 @@
 				633BFB341D2B9E7A00D6F8A3 /* customtab_button.m in Sources */,
 				630EA4761D281052000AA9E9 /* AddViewController.m in Sources */,
 				630EA47F1D281068000AA9E9 /* AccountViewController.m in Sources */,
+				63E043361D350667001FFB94 /* AccountRegistViewController.m in Sources */,
 				630096391D2E5CCF00D83EE1 /* sampleViewController.m in Sources */,
 				630EA46A1D28093D000AA9E9 /* ListTableViewController.m in Sources */,
 				63F104C81D2CA19600E31385 /* Read_More_Cell.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AccountViewController.h"
-
+#import "AccountRegistViewController.h"
 
 
 @interface AppDelegate (){
@@ -19,12 +19,12 @@
 
 @implementation AppDelegate
 
+@synthesize window;
 
 
 
 
 
-/*
 //初回起動かどうかの判定
 - (BOOL)isFirstRun
 {
@@ -47,13 +47,22 @@
 
 
 //初回起動ならアカウント設定
-*/
-
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-  
+    if ([self isFirstRun ]){
+        // 初回起動時の処理
+        // Storyboard を呼ぶ
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        // Storyboard の中のどの ViewContorller を呼ぶか
+        // @""の中は Storyboard IDを記述する。
+        AccountRegistViewController* vc = [storyboard instantiateViewControllerWithIdentifier: @"AccountRegistViewController"];
+        // その画面を表示させる
+        [self.window setRootViewController:vc];
+    }
+    
+
     //タブの文字設定
     UIFont *tabFont = [UIFont fontWithName:@"ArialMT" size:17.0f];
     NSDictionary *selectedAttributes = @{NSFontAttributeName:tabFont,NSForegroundColorAttributeName:[UIColor blueColor]};
@@ -69,25 +78,6 @@
     return YES;
     
     
-/*    if ([self isFirstRun]) {
-        // 初回起動時の処理
-        // Storyboard を呼ぶ
-        UIStoryboard *TutorialSB = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-        // Storyboard の中のどの ViewContorller を呼ぶか
-        // @""の中は Storyboard IDを記述する。ココ間違えばブラック画面かな。
-        AccountViewController* vc = [TutorialSB instantiateViewControllerWithIdentifier: @"AccountViewController"];
-        // その画面を表示させる
-        [self.window setRootViewController:vc];
-    }
-
-//タブの設定
-    UIImage *image1= [UIImage imageNamed:@"tabbaritem.png"];
-    UIImage *image2= [UIImage imageNamed:@"tabbar_selected.png"];
-    [[UITabBar appearance] setBackgroundImage:image1];
-    [[UITabBar appearance] setSelectionIndicatorImage:image2];
-    return YES;
-*/
- 
 }
 
 

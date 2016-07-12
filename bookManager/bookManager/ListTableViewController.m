@@ -20,7 +20,7 @@
 #import "ListTableCell.h"
 #import "Read_More_Cell.h"
 #import "EditViewController.h"
-#define ONCE_READ_COUNT 3
+#define ONCE_READ_COUNT 1
 
 
 
@@ -295,7 +295,7 @@ int total = 0;
 
     NSString *url = @"http://app.com/book/get";
     NSDictionary *params = [[NSDictionary alloc] init];
-    params = @{@"page":@"0-5"};
+    params = @{@"page":@"0-10"};
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     [manager POST:url

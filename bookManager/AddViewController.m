@@ -13,7 +13,8 @@
 #import <AFNetworking/AFNetworking.h>
 
 
-@interface AddViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate>
+@interface AddViewController ()
+<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate>
 {
     
     NSString *add_image;
@@ -97,9 +98,9 @@
     
     _add_price_field.placeholder =@"金額";
     _add_title_field.placeholder =@"書籍名";
-  //  add_title_field.clearButtonMode = UITextFieldViewModeAlways;
-  //  add_price_field.clearButtonMode = UITextFieldViewModeAlways;
-    
+    _add_title_field.clearButtonMode = UITextFieldViewModeAlways;
+   _add_price_field.clearButtonMode = UITextFieldViewModeAlways;
+
     
     
     
@@ -125,6 +126,8 @@
     dateFormatter.dateFormat = @"yyyy/MM/dd";
     UIDatePicker *picker = (UIDatePicker *)sender;
     _add_date_field.text = [dateFormatter stringFromDate:picker.date];
+    add_date=[dateFormatter stringFromDate:picker.date];
+    
 }
 
 #pragma mark datepickerの完了ボタンが押された場合
@@ -187,9 +190,9 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     
-    NSString * url = @"http://app.com/book/regist";
+    NSString *url = @"http://app.com/book/regist";
     NSDictionary *params = [[NSDictionary alloc] init];
     params = @{
                @"image_url":@"hoge",
@@ -197,6 +200,7 @@
                @"price":_add_price_field.text,
                @"purchase_date":_add_date_field.text
                };
+    NSLog(@"parms %@",params);
     NSLog(@"%@",_add_price_field.text);
     [manager POST:url parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject)
@@ -223,7 +227,7 @@
     if([_add_title_field.text length] == 0  || [_add_price_field.text length] == 0)  {
         NSLog(@"%@", _add_price_field.text);
         NSLog(@"%@", _add_title_field.text);
-        NSLog(@"%@", _add_date_field.text);
+        NSLog(@"date %@", _add_date_field.text);
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"み入力項目あり" preferredStyle:UIAlertControllerStyleAlert];
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {

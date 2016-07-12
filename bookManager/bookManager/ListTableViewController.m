@@ -20,7 +20,7 @@
 #import "ListTableCell.h"
 #import "Read_More_Cell.h"
 #import "EditViewController.h"
-#define ONCE_READ_COUNT 1
+#define ONCE_READ_COUNT 3
 
 
 
@@ -76,13 +76,13 @@ int total = 0;
     [self.indicator stopAnimating];
 //   NSLog(@"%@",_Price_Array);
 
-
 }
 
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [self GetJson];
+    NSLog(@"grt json %@",_title_list);
     
 }
 
@@ -131,11 +131,13 @@ int total = 0;
   }
 
 
+    
+    
+    
         cell.title_label.text = [self.title_list objectAtIndex:indexPath.row];
         cell.price_label.text = [NSString stringWithFormat:@"%@円", self.price_list [indexPath.row]];
         cell.bookimage_view.image=[ UIImage imageNamed:@"book_sample.jpg" ];
 
-    
     
     
     
@@ -155,7 +157,9 @@ int total = 0;
     _set_date = [outFmt stringFromDate:date];
     
     cell.date_label.text = _set_date;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+
     
     return cell;
     
@@ -179,9 +183,9 @@ int total = 0;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EditViewController *editViewController = (EditViewController *)segue.destinationViewController;
         editViewController.selected_title = [self.title_list objectAtIndex:indexPath.row];
-        editViewController.selected_price = [NSString stringWithFormat:@"%@円", self.price_list [indexPath.row]];
+        editViewController.selected_price = [self.price_list objectAtIndex:indexPath.row];
         editViewController.selected_date = _set_date;
-         editViewController.selected_id = [self.id_list objectAtIndex:indexPath.row];
+        editViewController.selected_id = [self.id_list objectAtIndex:indexPath.row];
         // editViewController.selected_price = [self.price_list objectAtIndex:indexPath.row];
 //        editViewController.selected_date = [self.date_list objectAtIndex:indexPath.row];
 
@@ -289,13 +293,12 @@ int total = 0;
 
 - (void)GetJson {
 
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
     NSString *url = @"http://app.com/book/get";
     NSDictionary *params = [[NSDictionary alloc] init];
-    params = @{@"page":@"0-10"};
-
-    [manager POST:@"http://app.com/book/get"
+    params = @{@"page":@"0-5"};
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [manager POST:url
        parameters:params
           success:^(NSURLSessionDataTask *operation, id responseObject) {
             //通信に成功した場合の処理
@@ -327,17 +330,16 @@ int total = 0;
             self.price_list = Price_Array;
             self.date_list = Date_Array;
             self.id_list = ID_Array;
-            [self.Listtable reloadData];
+           [self.Listtable reloadData];
               
-              
-                       NSLog(@"%@", _title_list);
+ /*
+                       NSLog(@"title %@", _title_list);
                        NSLog(@"%@", _price_list);
                        NSLog(@"%@", _date_list);
-              
-          
+ */
+          [self.tableView reloadData];
           
       } failure:^(NSURLSessionDataTask *operation, NSError *error) {
-          // エラーの場合はエラーの内容をコンソールに出力する
           NSLog(@"failed: %@", error);
       }];
 }

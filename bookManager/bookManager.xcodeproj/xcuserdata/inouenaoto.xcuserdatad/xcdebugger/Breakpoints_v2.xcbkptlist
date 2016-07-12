@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bookManager/EditViewController.m"
-            timestampString = "489777057.141564"
+            timestampString = "489995832.104333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "@interface EditViewController()"
             landmarkType = "2">
          </BreakpointContent>

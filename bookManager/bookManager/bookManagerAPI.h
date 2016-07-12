@@ -19,7 +19,6 @@
 @property (nonatomic) NSMutableArray *Title_Array;
 @property (nonatomic) NSMutableArray *Date_Array;
 
-
 - (void)GetJson;
 
 @end

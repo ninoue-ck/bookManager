@@ -17,27 +17,18 @@
 
 @interface EditViewController ()
 
-
 @property (strong, nonatomic) IBOutlet UIImageView *book_image;
 @property (weak, nonatomic) IBOutlet UITextField *book_title_field;
 @property (weak, nonatomic) IBOutlet UITextField *book_price_field;
 @property (weak, nonatomic) IBOutlet UITextField *book_date_field;
-
-
-
-
-
 @end
 
 @implementation EditViewController
-
 
 @synthesize selected_title;
 @synthesize selected_price;
 @synthesize selected_date;
 @synthesize selected_id;
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,12 +36,9 @@
     _book_title_field.delegate=self;
     _book_price_field.delegate=self;
 */
-    
-    
     //一覧から受け取ったデータたち
     _book_title_field.text = selected_title;
     _book_price_field.text = [NSString stringWithFormat:@"%@", selected_price];
-;
     _book_date_field.text = selected_date;
     
     //ぴっかーを出す
@@ -87,18 +75,16 @@
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                             target:nil
                                                                             action:nil];
-    
+
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
-    
     // Viewの配置
     _book_date_field.inputAccessoryView = keyboardDoneButtonView;
-    
     [self.view addSubview:_book_date_field];
-  
- 
+    _book_title_field.clearButtonMode = UITextFieldViewModeAlways;
+    _book_price_field.clearButtonMode = UITextFieldViewModeAlways;
+
 }
 
-    
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -118,9 +104,6 @@
    //  _book_date_field = nil;
 }
 
-
-
-
 //戻るボタン
 - (IBAction)edit_back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -134,8 +117,6 @@
 - (IBAction)price_return:(id)sender {
     [sender resignFirstResponder];
 }
-
-
 //画像の処理
 - (IBAction)send_editimage:(id)sender {
     
@@ -162,7 +143,6 @@
 }
 
 //キーボードを閉じる処理
-
 - (IBAction)edittitle_return:(id)sender {
         [sender resignFirstResponder];
 }
@@ -170,8 +150,6 @@
 - (IBAction)editprice_return:(id)sender {
         [sender resignFirstResponder];
 }
-
-
 
 //書籍追加時のメソッ
 - (void)edit_book {
@@ -204,7 +182,6 @@
      }];
 }
 
-
 /*
 - (IBAction)add_save:(id)sender {
     [self add];
@@ -214,7 +191,6 @@
      [self edit_book];
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 -(void) keyboardWillShow:(NSNotification *) notification{
     CGRect rect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];

@@ -21,10 +21,6 @@
 
 @synthesize window;
 
-
-
-
-
 //初回起動かどうかの判定
 - (BOOL)isFirstRun
 {
@@ -45,9 +41,7 @@
     return YES;
 }
 
-
 //初回起動ならアカウント設定
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -79,18 +73,6 @@
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*- (BOOL):(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

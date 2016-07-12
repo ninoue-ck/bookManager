@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		630096311D2E3A8D00D83EE1 /* selected_tub.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 630096301D2E3A8D00D83EE1 /* selected_tub.jpg */; };
 		630096331D2E3A9600D83EE1 /* tab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 630096321D2E3A9600D83EE1 /* tab.jpg */; };
-		630096391D2E5CCF00D83EE1 /* sampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630096381D2E5CCF00D83EE1 /* sampleViewController.m */; };
 		630EA4371D2808AE000AA9E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 630EA4361D2808AE000AA9E9 /* main.m */; };
 		630EA43A1D2808AE000AA9E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 630EA4391D2808AE000AA9E9 /* AppDelegate.m */; };
 		630EA4401D2808AE000AA9E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630EA43E1D2808AE000AA9E9 /* Main.storyboard */; };
@@ -57,8 +56,6 @@
 		26647940019BB5DF3DD2EC4C /* libPods-bookManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bookManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		630096301D2E3A8D00D83EE1 /* selected_tub.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = selected_tub.jpg; path = ../../../selected_tub.jpg; sourceTree = "<group>"; };
 		630096321D2E3A9600D83EE1 /* tab.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tab.jpg; path = ../../../tab.jpg; sourceTree = "<group>"; };
-		630096371D2E5CCF00D83EE1 /* sampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sampleViewController.h; sourceTree = "<group>"; };
-		630096381D2E5CCF00D83EE1 /* sampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sampleViewController.m; sourceTree = "<group>"; };
 		630EA4321D2808AE000AA9E9 /* bookManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		630EA4361D2808AE000AA9E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		630EA4381D2808AE000AA9E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -189,8 +186,6 @@
 				630EA47A1D281062000AA9E9 /* SettingViewController.h */,
 				630EA47B1D281062000AA9E9 /* SettingViewController.m */,
 				630EA47D1D281068000AA9E9 /* AccountViewController.h */,
-				630096371D2E5CCF00D83EE1 /* sampleViewController.h */,
-				630096381D2E5CCF00D83EE1 /* sampleViewController.m */,
 				630EA47E1D281068000AA9E9 /* AccountViewController.m */,
 				630EA4381D2808AE000AA9E9 /* AppDelegate.h */,
 				63DC74D11D290B9D0012159F /* ListTableCell.h */,
@@ -522,7 +517,6 @@
 				630EA4761D281052000AA9E9 /* AddViewController.m in Sources */,
 				630EA47F1D281068000AA9E9 /* AccountViewController.m in Sources */,
 				63E043361D350667001FFB94 /* AccountRegistViewController.m in Sources */,
-				630096391D2E5CCF00D83EE1 /* sampleViewController.m in Sources */,
 				630EA46A1D28093D000AA9E9 /* ListTableViewController.m in Sources */,
 				63F104C81D2CA19600E31385 /* Read_More_Cell.m in Sources */,
 				63F105951D2D0A4800E31385 /* bookManagerAPI.m in Sources */,

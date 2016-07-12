@@ -11,16 +11,9 @@
 #import <AFNetworking/AFNetworking.h>
 
 @interface AccountViewController ()
-
 @property (weak, nonatomic) IBOutlet UITextField *account_adress;
-
 @property (weak, nonatomic) IBOutlet UITextField *account_pass;
-
 @property (weak, nonatomic) IBOutlet UITextField *account_confirm_pass;
-
-
-
-
 @end
 
 @implementation AccountViewController
@@ -78,7 +71,6 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
-
 //モーダル閉じる
 - (IBAction)account_close:(id)sender {
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -98,12 +90,7 @@
     } else {
         [self accountLogin];
     }
-
 }
-
-
-
-
 /*
 #pragma mark - Navigation
 

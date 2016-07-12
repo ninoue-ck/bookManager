@@ -7,114 +7,69 @@
 //
 // ピッカー　http://morizyun.github.io/blog/uitextfield-datepicker-delegate-sender/
 //
-
-
 #import "AddViewController.h"
 #import <AFNetworking/AFNetworking.h>
-
 
 @interface AddViewController ()
 <UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate>
 {
-    
     NSString *add_image;
     NSString *add_title;
     NSString *add_price;
     NSDate *add_date;
-    
-    
 }
 @property (weak, nonatomic) IBOutlet UIImageView *add_image_field;
 @property (weak, nonatomic) IBOutlet UITextField *add_title_field;
 @property (weak, nonatomic) IBOutlet UITextField *add_price_field;
 @property (weak, nonatomic) IBOutlet UITextField *add_date_field;
 
-
 @end
 
 @implementation AddViewController
 
-//@synthesize add_title_field;
-//@synthesize add_price_field;
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
     //ぴっかーを出す
 //    add_title_field.delegate=self;
 //    add_price_field.delegate=self;
-    
- 
     //ぴっかーを出す
     // DatePickerの設定
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
-    
     // DatePickerを編集したら、updateTextFieldを呼び出す
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
-    
     // textFieldの入力をdatePickerに設定
     _add_date_field.inputView = datePicker;
-    
     // Delegationの設定
     self.add_date_field.delegate = self;
-    
     // DoneボタンとそのViewの作成
     UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
     keyboardDoneButtonView.barStyle  = UIBarStyleBlack;
     keyboardDoneButtonView.translucent = YES;
     keyboardDoneButtonView.tintColor = nil;
     [keyboardDoneButtonView sizeToFit];
-    
     // 完了ボタンとSpacerの配置
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"完了"
                                                                    style:UIBarButtonItemStyleDone
                                                                   target:self
                                                                   action:@selector(pickerDoneClicked)];
-    
     UIBarButtonItem *spacer1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                              target:nil
                                                                              action:nil];
-    
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                             target:nil
                                                                             action:nil];
-    
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
     
     // Viewの配置
     _add_date_field.inputAccessoryView = keyboardDoneButtonView;
     
     [self.view addSubview:_add_date_field];
-    [self text_default];
-}
-
-
--(void)text_default{
-    
-    
     _add_price_field.placeholder =@"金額";
     _add_title_field.placeholder =@"書籍名";
     _add_title_field.clearButtonMode = UITextFieldViewModeAlways;
-   _add_price_field.clearButtonMode = UITextFieldViewModeAlways;
-
-    
-    
-    
-    
+    _add_price_field.clearButtonMode = UITextFieldViewModeAlways;
 }
-
-
-
-
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -136,11 +91,6 @@
     _add_date_field = nil;
 }
 
-
-
-
-
-
 - (IBAction)add_close:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -153,10 +103,7 @@
     [sender resignFirstResponder];
 }
 
-
-
 //画像添付の処理
-
 - (IBAction)image_send:(id)sender {
     
     if([UIImagePickerController

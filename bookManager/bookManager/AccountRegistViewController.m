@@ -33,8 +33,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
 - (void)Account_regist {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -57,6 +55,7 @@
               NSLog(@"Error : %@", error);
           }];
 }
+
 - (IBAction)Account_save:(id)sender {
     if (![_pass_field.text isEqualToString:_confirm_pass_field.text ]) {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"パスワードが一位しません" preferredStyle:UIAlertControllerStyleAlert];
@@ -83,7 +82,6 @@
 -(void)alertbutton{
             
 }
-
 /*
 #pragma mark - Navigation
 

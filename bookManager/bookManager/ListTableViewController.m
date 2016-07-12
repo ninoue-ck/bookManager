@@ -10,10 +10,6 @@
 //
 //
 //
-
-
-
-
 #import <AFNetworking/AFNetworking.h>
 #import"bookManagerAPI.h"
 #import "ListTableViewController.h"
@@ -21,8 +17,6 @@
 #import "Read_More_Cell.h"
 #import "EditViewController.h"
 #define ONCE_READ_COUNT 1
-
-
 
 @interface ListTableViewController ()
 
@@ -37,37 +31,19 @@
 @property (strong, nonatomic) NSMutableArray *id_list;
 @property (strong, nonatomic) NSString *set_date; //時間を書式変更したもの
 
-
 @end
 
 @implementation ListTableViewController
 
 int total = 0;
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
- //  [self GetJson]; wiiの中じゃないと上手くいかない
-  // NSLog(@"%@",_Price_Array);
-    
-/*
-    //get json の呼び出し
-    bookManagerAPI *API = [[bookManagerAPI alloc] init];
-    [API GetJson];
-*/
-    
-
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"ListTableCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"Read_More_Cell" bundle:nil] forCellReuseIdentifier:@"ReadMoreCell"];
-    
-//    total = [_title_list count];
-//    NSLog(@"total %d",total);
+
     total=2;
     _page = 1;
     _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -78,26 +54,17 @@ int total = 0;
 
 }
 
-
-
 - (void)viewWillAppear:(BOOL)animated {
     [self GetJson];
     NSLog(@"grt json %@",_title_list);
     
 }
 
-
-
-
-
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -107,14 +74,10 @@ int total = 0;
     return 1;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _page*ONCE_READ_COUNT+1;
-    
-
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -129,20 +92,10 @@ int total = 0;
         [cell.Read_Button addTarget:self action:@selector(read_more_button:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
   }
-
-
-    
-    
-    
         cell.title_label.text = [self.title_list objectAtIndex:indexPath.row];
         cell.price_label.text = [NSString stringWithFormat:@"%@円", self.price_list [indexPath.row]];
         cell.bookimage_view.image=[ UIImage imageNamed:@"book_sample.jpg" ];
 
-    
-    
-    
-    
-    
     //　時間の書式変更「http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22」
     NSString *gmt = self.date_list[indexPath.row];
    
@@ -159,23 +112,15 @@ int total = 0;
     cell.date_label.text = _set_date;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-
-    
     return cell;
     
 }
-
-
-
-
 //テーブルのセルから移動
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"List_to_Edit" sender:self];
 }
-
-
 
 //セグエが編集画面へのものだった時にデータを渡す
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -192,9 +137,6 @@ int total = 0;
 
     }
 }
-
-
-
 
 - (IBAction)addButtonTapped:(UIBarButtonItem *)sender {
     [self performSegueWithIdentifier:@"List_to_Add" sender:self];
@@ -218,9 +160,6 @@ int total = 0;
     
 }
 
-
-
-
 /*　スクロールかボタンか迷い中なのでコメント化
 //テーブルの「さらに読みこむ処理の追加
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -233,10 +172,6 @@ int total = 0;
     }
 }
 */
-
-
-
-
 //インディケータの設定
 - (void)reloadMoreData
 {
@@ -255,7 +190,6 @@ int total = 0;
     [self.tableView setTableFooterView:_indicator];
 }
 
-
 - (void)endIndicator
 {
     [_indicator stopAnimating];
@@ -263,9 +197,6 @@ int total = 0;
     [self.tableView setTableFooterView:nil];
     
 }
-
-
-
 /*
 
 #pragma mark - 表示セルの一番下まできたら次のONCE_READ_COUNT件数取得
@@ -287,10 +218,7 @@ int total = 0;
         
     }
 }
-
-
 */
-
 - (void)GetJson {
 
     NSString *url = @"http://app.com/book/get";
@@ -344,19 +272,10 @@ int total = 0;
       }];
 }
 
-
-
-
-
-
-
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-
-
-
 
 @end

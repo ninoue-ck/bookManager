@@ -13,12 +13,7 @@
 #import <AFNetworking/AFNetworking.h>
 
 @interface bookManagerAPI()
-
-
 @end
-
-
-
 
 @implementation bookManagerAPI
 
@@ -37,10 +32,8 @@
           success:^(NSURLSessionDataTask *operation, id responseObject) {
               //通信に成功した場合の処理
               NSArray *API_Array = [responseObject objectForKey:@"result"];
-              
-              
               //  NSLog(@"回数は%d", API_Array.count);
-              
+
               _ID_Array = [[NSMutableArray alloc]init];
               _Image_Array = [NSMutableArray array];
               _Title_Array = [NSMutableArray array];
@@ -73,10 +66,6 @@
     //  NSLog(@"%@",_Price_Array);
     
 }
-
-
-
-
 /*
  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:origin]];
 // サーバーとの通信を行う

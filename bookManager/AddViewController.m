@@ -242,5 +242,28 @@
     
 }
 
+//キーボードが出た時画面を上にずらす
+-(void) keyboardWillShow:(NSNotification *) notification{
+    CGRect rect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
+        self.view.transform = transform;
+    } completion:NULL];
+}
 
+//消えた時戻す
+-(void) keyboardWillHide:(NSNotification *)notification{
+    NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        self.view.transform = CGAffineTransformIdentity;
+    } completion:NULL];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
 @end

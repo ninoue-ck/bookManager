@@ -361,11 +361,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cls-Tj-t8F">
-                                <rect key="frame" x="70" y="226" width="460" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cf1-vl-5zr">
                                 <rect key="frame" x="70" y="145" width="460" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -373,6 +368,11 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BcH-EQ-gcN">
                                 <rect key="frame" x="70" y="295" width="460" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cls-Tj-t8F">
+                                <rect key="frame" x="70" y="228" width="460" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -402,8 +402,17 @@
                                 <action selector="account_close:" destination="BFk-FA-3TW" id="EQK-0g-kP1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="bIc-wJ-XUu"/>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="bIc-wJ-XUu">
+                            <connections>
+                                <action selector="login_save:" destination="BFk-FA-3TW" id="G8j-kG-453"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="account_adress" destination="cf1-vl-5zr" id="LCa-y4-pPQ"/>
+                        <outlet property="account_confirm_pass" destination="BcH-EQ-gcN" id="S6l-17-hSm"/>
+                        <outlet property="account_pass" destination="Cls-Tj-t8F" id="Wza-t3-P3w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkT-Rp-knq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -487,7 +496,7 @@
         <!--設定-->
         <scene sceneID="o7K-nn-yH7">
             <objects>
-                <tabBarController storyboardIdentifier="tabbarcontroller" title="設定" id="9Rc-mh-hUQ" customClass="TabbarViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" title="設定" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9Rc-mh-hUQ" customClass="TabbarViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QU8-0J-TVH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -562,7 +571,6 @@
         <!--Navigation Controller-->
         <scene sceneID="pZH-9n-eU6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k06-IA-Edb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A6V-oA-1WO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZDA-CX-e9S">
@@ -574,6 +582,7 @@
                         <segue destination="ILj-Xk-fN5" kind="relationship" relationship="rootViewController" id="6vh-ym-cWI"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k06-IA-Edb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-503" y="635"/>
         </scene>

@@ -43,21 +43,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CYL-Gl-jl5">
-                                <rect key="frame" x="60" y="421" width="480" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btZ-m0-3EK">
-                                <rect key="frame" x="60" y="358" width="480" height="22"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btZ-m0-3EK">
+                                <rect key="frame" x="60" y="356" width="480" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="return_price:" destination="NEp-FO-SVb" eventType="editingDidEndOnExit" id="qUH-NE-0E6"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2H8-E8-RHW">
-                                <rect key="frame" x="60" y="285" width="480" height="22"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2H8-E8-RHW">
+                                <rect key="frame" x="60" y="283" width="480" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -71,6 +66,11 @@
                                     <constraint firstAttribute="width" constant="150" id="OQb-gg-uh1"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CYL-Gl-jl5">
+                                <rect key="frame" x="60" y="419" width="480" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -108,10 +108,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="add_date" destination="CYL-Gl-jl5" id="pfG-ej-xeL"/>
+                        <outlet property="add_date_field" destination="CYL-Gl-jl5" id="Amv-JN-igC"/>
                         <outlet property="add_image" destination="N5F-E3-AQK" id="ilR-PH-5YY"/>
-                        <outlet property="add_price" destination="btZ-m0-3EK" id="gmq-a9-ogN"/>
-                        <outlet property="add_title" destination="2H8-E8-RHW" id="Opw-vD-7da"/>
+                        <outlet property="add_image_field" destination="N5F-E3-AQK" id="vrA-A9-Qqd"/>
+                        <outlet property="add_price_field" destination="btZ-m0-3EK" id="C3s-dm-XF8"/>
+                        <outlet property="add_title_field" destination="2H8-E8-RHW" id="xhw-Yz-21N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYD-Qa-Irx" userLabel="First Responder" sceneMemberID="firstResponder"/>

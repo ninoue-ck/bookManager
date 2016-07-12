@@ -23,20 +23,18 @@
     
     
 }
-
-
-
 @property (weak, nonatomic) IBOutlet UIImageView *add_image_field;
 @property (weak, nonatomic) IBOutlet UITextField *add_title_field;
 @property (weak, nonatomic) IBOutlet UITextField *add_price_field;
 @property (weak, nonatomic) IBOutlet UITextField *add_date_field;
 
+
 @end
 
 @implementation AddViewController
 
-@synthesize add_title_field;
-@synthesize add_price_field;
+//@synthesize add_title_field;
+//@synthesize add_price_field;
 
 
 
@@ -45,8 +43,8 @@
     
     
     //ぴっかーを出す
-    add_title_field.delegate=self;
-    add_price_field.delegate=self;
+//    add_title_field.delegate=self;
+//    add_price_field.delegate=self;
     
  
     //ぴっかーを出す
@@ -90,17 +88,17 @@
     _add_date_field.inputAccessoryView = keyboardDoneButtonView;
     
     [self.view addSubview:_add_date_field];
-    [self setup];
+    [self text_default];
 }
 
 
--(void)setup{
+-(void)text_default{
     
     
-    add_title_field.placeholder =@"金額を入力してください";
-    add_price_field.placeholder =@"書籍名を入力してください";
-    add_title_field.clearButtonMode = UITextFieldViewModeAlways;
-    add_price_field.clearButtonMode = UITextFieldViewModeAlways;
+    _add_price_field.placeholder =@"金額";
+    _add_title_field.placeholder =@"書籍名";
+  //  add_title_field.clearButtonMode = UITextFieldViewModeAlways;
+  //  add_price_field.clearButtonMode = UITextFieldViewModeAlways;
     
     
     
@@ -183,35 +181,62 @@
 
 //書籍追加時のメソッ
 - (void)add {
+    
+//    if([_add_title_field.text length] == 0  || [_add_price_field.text length] == 0 || [_add_date_field.text length] == 0)  {
+    
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    
     NSString * url = @"http://app.com/book/regist";
     NSDictionary *params = [[NSDictionary alloc] init];
     params = @{
                @"image_url":@"hoge",
-               @"name":add_title_field.text,
-               @"price":add_price_field.text,
+               @"name":_add_title_field.text,
+               @"price":_add_price_field.text,
                @"purchase_date":_add_date_field.text
                };
-    NSLog(@"%@",add_price_field.text);
+    NSLog(@"%@",_add_price_field.text);
     [manager POST:url parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject)
      {
+         [self dismissViewControllerAnimated:YES completion:nil];
+
     /*     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"成功" message:@"書籍を追加しました" delegate:self cancelButtonTitle:nil otherButtonTitles:@"やり直す", nil];
          [alertView show];  */
      } failure:^(NSURLSessionDataTask *task, NSError *error)
      {
          NSLog(@"Error: %@", error);
      }];
+/*    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"み入力項目あり" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self alertButtonTap];
+        }]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }  */
 }
 
 - (IBAction)add_save:(id)sender {
+    if([_add_title_field.text length] == 0  || [_add_price_field.text length] == 0)  {
+        NSLog(@"%@", _add_price_field.text);
+        NSLog(@"%@", _add_title_field.text);
+        NSLog(@"%@", _add_date_field.text);
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"み入力項目あり" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self alertButton];
+        }]];
+        [self presentViewController:alertController animated:YES completion:nil];
+}else{
     [self add];
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"成功" message:@"書籍を追加しました" delegate:self cancelButtonTitle:nil otherButtonTitles:@"やり直す", nil];
-    [alertView show];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
-
+- (void)alertButton {
+    
+}
 
 
 @end

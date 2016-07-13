@@ -13,7 +13,7 @@
 @interface AccountViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *account_adress;
 @property (weak, nonatomic) IBOutlet UITextField *account_pass;
-@property (weak, nonatomic) IBOutlet UITextField *account_confirm_pass;
+
 @end
 
 @implementation AccountViewController
@@ -22,7 +22,7 @@
     [super viewDidLoad];
     _account_adress.placeholder =@"メースアドレスを入力してください";
     _account_pass.placeholder =@"パスワードを入力してください";
-    _account_confirm_pass.placeholder =@"パスワードを再度入力してください";
+
     // Do any additional setup after loading the view.
 }
 
@@ -75,7 +75,8 @@
 //モーダル閉じる
 
 - (IBAction)login_save:(id)sender {
-    if ([_account_adress.text length] == 0  || [_account_pass.text length] == 0  || [_account_confirm_pass.text length] == 0)  {
+    if ([_account_adress.text length] == 0  || [_account_pass.text length] == 0  )
+        {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"項目に誤りがあります" preferredStyle:UIAlertControllerStyleAlert];
         

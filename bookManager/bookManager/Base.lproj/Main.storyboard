@@ -448,24 +448,13 @@
                                     <action selector="adres_return:" destination="ILj-Xk-fN5" eventType="editingDidEndOnExit" id="ExW-jB-cjb"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63o-G4-GLT">
-                                <rect key="frame" x="70" y="310" width="460" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="WU6-2s-WOQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="confpass:" destination="ILj-Xk-fN5" eventType="editingDidEndOnExit" id="m3P-G0-vXC"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログイン画面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-S6-lLo">
                                 <rect key="frame" x="225" y="70" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fm-6N-cf3">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fm-6N-cf3">
                                 <rect key="frame" x="254" y="410" width="92" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="ログイン"/>
@@ -489,23 +478,18 @@
                         <constraints>
                             <constraint firstItem="6fm-6N-cf3" firstAttribute="centerX" secondItem="L80-WZ-pnZ" secondAttribute="centerX" id="2zZ-ln-g7k"/>
                             <constraint firstItem="N1M-5l-MB8" firstAttribute="leading" secondItem="L80-WZ-pnZ" secondAttribute="leadingMargin" constant="50" id="4mW-VY-oiN"/>
-                            <constraint firstItem="63o-G4-GLT" firstAttribute="top" secondItem="HTX-T8-HPf" secondAttribute="bottom" constant="30" id="6Ys-SH-bLY"/>
-                            <constraint firstItem="63o-G4-GLT" firstAttribute="leading" secondItem="L80-WZ-pnZ" secondAttribute="leadingMargin" constant="50" id="SPL-Tc-739"/>
                             <constraint firstItem="HTX-T8-HPf" firstAttribute="leading" secondItem="L80-WZ-pnZ" secondAttribute="leadingMargin" constant="50" id="V2l-kG-5db"/>
                             <constraint firstItem="HTX-T8-HPf" firstAttribute="top" secondItem="N1M-5l-MB8" secondAttribute="bottom" constant="30" id="XiV-y2-et5"/>
                             <constraint firstItem="oYR-S6-lLo" firstAttribute="centerX" secondItem="L80-WZ-pnZ" secondAttribute="centerX" id="Z5B-8N-P1K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N1M-5l-MB8" secondAttribute="trailing" constant="50" id="g3z-TH-vPV"/>
                             <constraint firstItem="N1M-5l-MB8" firstAttribute="top" secondItem="oYR-S6-lLo" secondAttribute="bottom" constant="50" id="g9p-aE-S2P"/>
-                            <constraint firstItem="6fm-6N-cf3" firstAttribute="top" secondItem="63o-G4-GLT" secondAttribute="bottom" constant="50" id="kAd-Qp-uw1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HTX-T8-HPf" secondAttribute="trailing" constant="50" id="pK5-7u-62z"/>
                             <constraint firstItem="oYR-S6-lLo" firstAttribute="top" secondItem="L80-WZ-pnZ" secondAttribute="topMargin" constant="70" id="re3-Fk-8Lf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="63o-G4-GLT" secondAttribute="trailing" constant="50" id="zYn-yI-BDk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="アカウント登録" id="1A9-yk-AEa" userLabel="アカウント登録"/>
                     <connections>
                         <outlet property="account_adress" destination="N1M-5l-MB8" id="Hji-1R-nh0"/>
-                        <outlet property="account_confirm_pass" destination="63o-G4-GLT" id="eca-ey-ETR"/>
                         <outlet property="account_pass" destination="HTX-T8-HPf" id="Gdl-oF-S2m"/>
                         <segue destination="9Rc-mh-hUQ" kind="modal" identifier="regist-to-tab" id="HiD-Ay-Obl"/>
                     </connections>

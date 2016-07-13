@@ -81,8 +81,8 @@
     dateFormatter.dateFormat = @"yyyy/MM/dd";
     UIDatePicker *picker = (UIDatePicker *)sender;
     _add_date_field.text = [dateFormatter stringFromDate:picker.date];
-    add_date=[dateFormatter stringFromDate:picker.date];
-    
+    add_date=picker.date;
+    NSLog(@"add_date %@",add_date);
 }
 
 #pragma mark datepickerの完了ボタンが押された場合
@@ -131,45 +131,62 @@
 
 //書籍追加時のメソッ
 - (void)add {
-    
+    add_title=_add_title_field.text;
+    add_price=_add_price_field.text;
 //    if([_add_title_field.text length] == 0  || [_add_price_field.text length] == 0 || [_add_date_field.text length] == 0)  {
-    
-    
+ if (add_title !=nil && add_price !=nil && add_date!=nil) {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+   manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     
     NSString *url = @"http://app.com/book/regist";
     NSDictionary *params = [[NSDictionary alloc] init];
+    
+/*    params = @{
+               @"image_url":@"hoge",
+               @"name":add_title,
+               @"price":add_price,
+               //@"purchase_date":add_date
+               @"purchase_date":add_date
+               };
+    
+     NSLog(@"add parms %@",params);
+*/
     params = @{
                @"image_url":@"hoge",
                @"name":_add_title_field.text,
                @"price":_add_price_field.text,
+               //@"purchase_date":add_date
                @"purchase_date":_add_date_field.text
                };
-    NSLog(@"parms %@",params);
-    NSLog(@"%@",_add_price_field.text);
+ 
+// NSLog(@"parms %@",params);
+//    NSLog(@"%@",_add_price_field.text);
     [manager POST:url parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject)
      {
-         [self dismissViewControllerAnimated:YES completion:nil];
+      //   [self dismissViewControllerAnimated:YES completion:nil];
 
     /*     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"成功" message:@"書籍を追加しました" delegate:self cancelButtonTitle:nil otherButtonTitles:@"やり直す", nil];
          [alertView show];  */
+         [self dismissViewControllerAnimated:YES completion:nil];
+
      } failure:^(NSURLSessionDataTask *task, NSError *error)
      {
          NSLog(@"Error: %@", error);
      }];
-/*    }else{
+/*   }else{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"み入力項目あり" preferredStyle:UIAlertControllerStyleAlert];
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self alertButtonTap];
+            [self alertButton];
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
-    }  */
+    }
+ */
+ }
 }
-
+ 
 - (IBAction)add_save:(id)sender {
     if([_add_title_field.text length] == 0  || [_add_price_field.text length] == 0)  {
         NSLog(@"%@", _add_price_field.text);
@@ -183,6 +200,8 @@
         [self presentViewController:alertController animated:YES completion:nil];
 }else{
     [self add];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+
     }
 }
 - (void)alertButton {
@@ -191,7 +210,6 @@
 
 //キーボードが出た時画面を上にずらす
 -(void) keyboardWillShow:(NSNotification *) notification{
-    CGRect rect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);

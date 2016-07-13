@@ -8,12 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditViewController : UIViewController<UITextFieldDelegate> {
+@interface EditViewController : UIViewController<UITextFieldDelegate>{
+    
+    NSString *editBook_title;
+    NSString *editImage_url;
+    NSString *editBookDate;
+    NSString *editPrice;
+    NSDate *editPurchaseDate;
+    
+}
+
+
+/*{
     NSString *selected_title;
     NSString *selected_price;
     NSString *selected_date;
     NSString *selected_id;
-}
+}*/
 
 //テキストフィールドの初期値
 //実行ファイルにするとインポートしてないからエラー出る

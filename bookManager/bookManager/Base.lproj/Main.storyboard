@@ -59,6 +59,11 @@
                                     <action selector="return_title:" destination="NEp-FO-SVb" eventType="editingDidEndOnExit" id="lSz-Z5-0vV"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CYL-Gl-jl5">
+                                <rect key="frame" x="60" y="419" width="480" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N5F-E3-AQK">
                                 <rect key="frame" x="60" y="104" width="150" height="120"/>
                                 <constraints>
@@ -66,11 +71,6 @@
                                     <constraint firstAttribute="width" constant="150" id="OQb-gg-uh1"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CYL-Gl-jl5">
-                                <rect key="frame" x="60" y="419" width="480" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -109,7 +109,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="add_date_field" destination="CYL-Gl-jl5" id="Amv-JN-igC"/>
-                        <outlet property="add_image" destination="N5F-E3-AQK" id="ilR-PH-5YY"/>
                         <outlet property="add_image_field" destination="N5F-E3-AQK" id="vrA-A9-Qqd"/>
                         <outlet property="add_price_field" destination="btZ-m0-3EK" id="C3s-dm-XF8"/>
                         <outlet property="add_title_field" destination="2H8-E8-RHW" id="xhw-Yz-21N"/>
@@ -141,7 +140,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="Listtable" destination="geN-7s-hHm" id="zRn-u4-gND"/>
                         <segue destination="FiB-Ja-5KV" kind="push" identifier="List_to_Edit" id="udh-Ya-ZfI"/>
                     </connections>
                 </tableViewController>

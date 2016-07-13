@@ -20,7 +20,7 @@
 
 @interface ListTableViewController ()
 
-@property (strong, nonatomic) IBOutlet UITableView *Listtable;
+// @property (strong, nonatomic) IBOutlet UITableView *Listtable;
 
 @property (strong, nonatomic) UIActivityIndicatorView *indicator;
 @property (readwrite) NSInteger page;
@@ -39,6 +39,12 @@ int total = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+ //   _Listtable.dataSource = self;
+ //   _Listtable.delegate = self;
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"ListTableCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];
@@ -150,8 +156,7 @@ int total = 0;
         if([_indicator isAnimating]) {
             return;
         }
-        
-        
+    
         if (self.title_list.count > (_page*ONCE_READ_COUNT)) {
             [self startIndicator];
             [self performSelector:@selector(reloadMoreData) withObject:nil afterDelay:0.1f];
@@ -225,7 +230,8 @@ int total = 0;
     NSDictionary *params = [[NSDictionary alloc] init];
     params = @{@"page":@"0-10"};
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
+       manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
+    NSLog(@"params %@",params);
     [manager POST:url
        parameters:params
           success:^(NSURLSessionDataTask *operation, id responseObject) {
@@ -234,8 +240,6 @@ int total = 0;
           
           
               //  NSLog(@"回数は%d", API_Array.count);
-          
-              NSArray * APIArray = [responseObject objectForKey:@"result"];
               NSMutableArray *ID_Array = [NSMutableArray array];
               NSMutableArray *Image_Array = [NSMutableArray array];
               NSMutableArray *Title_Array = [NSMutableArray array];
@@ -258,7 +262,7 @@ int total = 0;
             self.price_list = Price_Array;
             self.date_list = Date_Array;
             self.id_list = ID_Array;
-           [self.Listtable reloadData];
+   //        [self.Listtable reloadData];
               
  /*
                        NSLog(@"title %@", _title_list);

@@ -75,9 +75,14 @@
     }
     else {
         [self Account_regist];
-        [self dismissViewControllerAnimated:YES completion:nil];
+         [self performSegueWithIdentifier:@"regist-to-tab" sender:self];
+        //    [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
+
+
+
+
 
 -(void)alertbutton{
             

@@ -170,7 +170,7 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     
     
     NSString *url = @"http://app.com/book/update";
@@ -204,7 +204,8 @@
  //   NSLog(@"%@", params);
     [manager POST:url parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject)
-     {
+     {[self.navigationController popViewControllerAnimated:YES];
+
         }failure:^(NSURLSessionDataTask *task, NSError *error)
      {
          NSLog(@"Error: %@", error);
@@ -218,7 +219,7 @@
 */
 - (IBAction)edit_save:(id)sender {
      [self edit_book];
-    [self.navigationController popViewControllerAnimated:YES];
+  //  [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void) keyboardWillShow:(NSNotification *) notification{

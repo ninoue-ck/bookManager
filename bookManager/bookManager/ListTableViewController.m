@@ -11,12 +11,11 @@
 //
 //
 #import <AFNetworking/AFNetworking.h>
-#import"bookManagerAPI.h"
 #import "ListTableViewController.h"
 #import "ListTableCell.h"
 #import "Read_More_Cell.h"
 #import "EditViewController.h"
-#define ONCE_READ_COUNT 1
+#define ONCE_READ_COUNT 5
 
 @interface ListTableViewController ()
 
@@ -35,7 +34,7 @@
 
 @implementation ListTableViewController
 
-int total = 0;
+int add_number = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,7 +49,7 @@ int total = 0;
     [self.tableView registerNib:[UINib nibWithNibName:@"ListTableCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"Read_More_Cell" bundle:nil] forCellReuseIdentifier:@"ReadMoreCell"];
 
-    total=2;
+
     _page = 1;
     _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.indicator setColor:[UIColor darkGrayColor]];
@@ -65,6 +64,8 @@ int total = 0;
     NSLog(@"grt json %@",_title_list);
     
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -82,7 +83,12 @@ int total = 0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(_page*ONCE_READ_COUNT+1 <= self.title_list.count){
     return _page*ONCE_READ_COUNT+1;
+    }
+    else{
+        return self.title_list.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -91,13 +97,14 @@ int total = 0;
     ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     //最終セルの設定 http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22
-    if(indexPath.row == _page*ONCE_READ_COUNT)
+    if(　(indexPath.row == _page*ONCE_READ_COUNT) || (indexPath.row == self.title_list.count) )
     {
         NSString *identifier = @"ReadMoreCell" ;
         Read_More_Cell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         [cell.Read_Button addTarget:self action:@selector(read_more_button:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
   }
+//   else if(indexPath.row < (_page*ONCE_READ_COUNT)){
         cell.title_label.text = [self.title_list objectAtIndex:indexPath.row];
         cell.price_label.text = [NSString stringWithFormat:@"%@円", self.price_list [indexPath.row]];
         cell.bookimage_view.image=[ UIImage imageNamed:@"book_sample.jpg" ];
@@ -119,6 +126,8 @@ int total = 0;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
+    
+    
     
 }
 //テーブルのセルから移動
@@ -150,22 +159,29 @@ int total = 0;
 }
 
 
+
+
 //もっと読みこむボタンのイベント
 - (void)read_more_button:(UIButton *)sender event:(UIEvent *)event {
-        
+
+    
         if([_indicator isAnimating]) {
             return;
         }
     
-        if (self.title_list.count > (_page*ONCE_READ_COUNT)) {
+        if (self.title_list.count > _page*ONCE_READ_COUNT)  {
             [self startIndicator];
             [self performSelector:@selector(reloadMoreData) withObject:nil afterDelay:0.1f];
         }
-        
-    
 }
 
-/*　スクロールかボタンか迷い中なのでコメント化
+
+
+
+
+
+/*
+スクロールかボタンか迷い中なのでコメント化
 //テーブルの「さらに読みこむ処理の追加
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -177,14 +193,15 @@ int total = 0;
     }
 }
 */
-//インディケータの設定
+
+//次のワンスリードカウントを読みこむメソッド
 - (void)reloadMoreData
 {
     _page++;
     [self.tableView reloadData];
     [self endIndicator];
 }
-
+//インディケータの設定
 - (void)startIndicator
 {
     [_indicator startAnimating];
@@ -216,7 +233,7 @@ int total = 0;
         }
         
         
-        if (total > (_page*ONCE_READ_COUNT)) {
+        if (_title_list.count > (_page*ONCE_READ_COUNT)) {
             [self startIndicator];
             [self performSelector:@selector(reloadMoreData) withObject:nil afterDelay:0.1f];
         }
@@ -224,28 +241,26 @@ int total = 0;
     }
 }
 */
+
+
 - (void)GetJson {
 
     NSString *url = @"http://app.com/book/get";
     NSDictionary *params = [[NSDictionary alloc] init];
-    params = @{@"page":@"0-10"};
+    params = @{@"page":@"0-100"};
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-       manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
-    NSLog(@"params %@",params);
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
     [manager POST:url
        parameters:params
           success:^(NSURLSessionDataTask *operation, id responseObject) {
             //通信に成功した場合の処理
               NSArray *API_Array = [responseObject objectForKey:@"result"];
           
-          
-              //  NSLog(@"回数は%d", API_Array.count);
               NSMutableArray *ID_Array = [NSMutableArray array];
               NSMutableArray *Image_Array = [NSMutableArray array];
               NSMutableArray *Title_Array = [NSMutableArray array];
               NSMutableArray *Price_Array = [NSMutableArray array];
               NSMutableArray *Date_Array = [NSMutableArray array];
-          
           
           //取得したAPIをそれぞれの配列に格納
           // NSLog(@"%@",API_Array);
@@ -270,7 +285,6 @@ int total = 0;
                        NSLog(@"%@", _date_list);
  */
           [self.tableView reloadData];
-          
       } failure:^(NSURLSessionDataTask *operation, NSError *error) {
           NSLog(@"failed: %@", error);
       }];

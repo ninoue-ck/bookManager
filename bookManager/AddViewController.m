@@ -105,7 +105,6 @@
 
 //画像添付の処理
 - (IBAction)image_send:(id)sender {
-    
     if([UIImagePickerController
         isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -120,10 +119,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     self.add_image_field.image = image;
-    
-    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -137,7 +133,7 @@
  if (add_title !=nil && add_price !=nil && add_date!=nil) {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-   manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     
     NSString *url = @"http://app.com/book/regist";
     NSDictionary *params = [[NSDictionary alloc] init];
@@ -165,25 +161,11 @@
     [manager POST:url parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject)
      {
-      //   [self dismissViewControllerAnimated:YES completion:nil];
-
-    /*     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"成功" message:@"書籍を追加しました" delegate:self cancelButtonTitle:nil otherButtonTitles:@"やり直す", nil];
-         [alertView show];  */
          [self dismissViewControllerAnimated:YES completion:nil];
-
      } failure:^(NSURLSessionDataTask *task, NSError *error)
      {
          NSLog(@"Error: %@", error);
      }];
-/*   }else{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"み入力項目あり" preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self alertButton];
-        }]];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
- */
  }
 }
  
@@ -192,7 +174,7 @@
         NSLog(@"%@", _add_price_field.text);
         NSLog(@"%@", _add_title_field.text);
         NSLog(@"date %@", _add_date_field.text);
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"み入力項目あり" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"未入力項目あり" preferredStyle:UIAlertControllerStyleAlert];
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self alertButton];
@@ -212,8 +194,8 @@
 -(void) keyboardWillShow:(NSNotification *) notification{
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
-        CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
-        self.view.transform = transform;
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
+    self.view.transform = transform;
     } completion:NULL];
 }
 
@@ -227,7 +209,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }

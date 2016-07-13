@@ -101,4 +101,37 @@
  }
  */
 
+-(void) keyboardWillShow:(NSNotification *) notification{
+    NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
+        self.view.transform = transform;
+    } completion:NULL];
+}
+
+//消えた時戻す
+-(void) keyboardWillHide:(NSNotification *)notification{
+    NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        self.view.transform = CGAffineTransformIdentity;
+    } completion:NULL];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+//キーボードを閉じる処理
+- (IBAction)mail_return:(id)sender {
+    [sender resignFirstResponder];
+}
+- (IBAction)pass_return:(id)sender {
+    [sender resignFirstResponder];
+}
+- (IBAction)confpass_return:(id)sender {
+    [sender resignFirstResponder];
+}
+
+
 @end

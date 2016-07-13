@@ -51,7 +51,7 @@
           } failure:^(NSURLSessionDataTask *task, NSError *error) {
               NSLog(@"Error : %@", error);
               
-              UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"メールアドレスとパスワードが一致しません" preferredStyle:UIAlertControllerStyleAlert];
+              UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"メールアドレスかパスワードどちらかが間違っています" preferredStyle:UIAlertControllerStyleAlert];
               
               [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                   [self alertbutton];
@@ -67,7 +67,6 @@
 - (void)tolisttableView {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UITabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-    
     [self presentViewController:vc animated:YES completion:nil];
 }
 

@@ -155,19 +155,9 @@
 
 //書籍追加時のメソッ
 - (void)edit_book {
-    
-    
-    
     editBook_title=_book_title_field.text;
     editPrice=_book_price_field.text;
-   // NSString *editBookDate;
-//   editPurchaseDate=_book_date_field.text;
-    
-    
-    
-    
-    
-    
+
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
@@ -185,23 +175,7 @@
 
     
     NSLog(@"parms %@", params);
-    
-    
-    
-    
-    
-/*
-    params = @{
-               @"id" :selected_id,
-               @"name":_book_title_field.text,
-               @"image_url":@"hoge",
-               @"price":_book_price_field.text,
-               @"purchase_date":_book_date_field.text
-               };
-*/
-    
-  //   NSLog(@"parms %@", params);
- //   NSLog(@"%@", params);
+
     [manager POST:url parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject)
      {[self.navigationController popViewControllerAnimated:YES];
@@ -212,11 +186,6 @@
      }];
 }
 
-/*
-- (IBAction)add_save:(id)sender {
-    [self add];
-}
-*/
 - (IBAction)edit_save:(id)sender {
      [self edit_book];
   //  [self.navigationController popViewControllerAnimated:YES];

@@ -80,10 +80,6 @@
     }
 }
 
-
-
-
-
 -(void)alertbutton{
             
 }

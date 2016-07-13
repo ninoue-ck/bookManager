@@ -125,6 +125,12 @@ int add_number = 0;
     cell.date_label.text = _set_date;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    cell.title_label.adjustsFontSizeToFitWidth = YES;
+    cell.price_label.adjustsFontSizeToFitWidth = YES;
+    cell.date_label.adjustsFontSizeToFitWidth = YES;
+    
+    
+    
     return cell;
     
     

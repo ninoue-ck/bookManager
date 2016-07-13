@@ -6,19 +6,19 @@
 //  Copyright © 2016年 inouenaoto. All rights reserved.
 //
 
-#import "AccountRegistViewController.h"
+#import "AccountSettingViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
 
 
-@interface AccountRegistViewController ()
+@interface AccountSettingViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *adress_field;
 @property (weak, nonatomic) IBOutlet UITextField *pass_field;
 @property (weak, nonatomic) IBOutlet UITextField *confirm_pass_field;
 
 @end
 
-@implementation AccountRegistViewController
+@implementation AccountSettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,7 +33,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)Account_regist {
+- (void)Account_edit  {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
@@ -58,39 +58,47 @@
 
 - (IBAction)Account_save:(id)sender {
     if (![_pass_field.text isEqualToString:_confirm_pass_field.text ]) {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"パスワードが一位しません" preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self alertbutton];
-    }]];
-    [self presentViewController:alertController animated:YES completion:nil];
-    
-    } else if
-        ([_adress_field.text length] == 0 || [_pass_field.text length] == 0 || [_confirm_pass_field.text length] == 0) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"入力されていない項目があります" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"パスワードが一位しません" preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self alertbutton];
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
         
-    }
+    } else if
+        ([_adress_field.text length] == 0 || [_pass_field.text length] == 0 || [_confirm_pass_field.text length] == 0) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"入力されていない項目があります" preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [self alertbutton];
+            }]];
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+        }
     else {
-        [self Account_regist];
-         [self performSegueWithIdentifier:@"regist-to-tab" sender:self];
+        [self Account_edit];
+        [self dismissViewControllerAnimated:YES completion:nil];
         //    [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
+
+- (IBAction)close_button:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
 -(void)alertbutton{
-            
+    
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

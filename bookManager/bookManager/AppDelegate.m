@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AccountViewController.h"
-#import "AccountRegistViewController.h"
+#import "AccountSettingViewController.h"
 
 
 @interface AppDelegate (){
@@ -42,27 +42,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     if ([self isFirstRun ]){
-/*        // 初回起動時の処理
+        // 初回起動時の処理
         // Storyboard を呼ぶ
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
         // Storyboard の中のどの ViewContorller を呼ぶか
         // @""の中は Storyboard IDを記述する。
-        AccountRegistViewController* vc = [storyboard instantiateViewControllerWithIdentifier: @"AccountRegistViewController"];
-        // その画面を表示させる
-        [self.window setRootViewController:vc];
-*/
-     }
-    
-   else{
-        // Storyboard を呼ぶ
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-        // Storyboard の中のどの ViewContorller を呼ぶか
-        // @""の中は Storyboard IDを記述する。
-        AccountRegistViewController* vc = [storyboard instantiateViewControllerWithIdentifier: @"AccountRegistViewController"];
+        AccountSettingViewController* vc = [storyboard instantiateViewControllerWithIdentifier: @"AccountSettingViewController"];
         // その画面を表示させる
         [self.window setRootViewController:vc];
 
-}
+     }
+    
+
     
 
     //タブの文字設定

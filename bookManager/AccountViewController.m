@@ -20,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _account_adress.placeholder =@"メースアドレスを入力してください";
+    _account_pass.placeholder =@"パスワードを入力してください";
+    _account_confirm_pass.placeholder =@"パスワードを再度入力してください";
     // Do any additional setup after loading the view.
 }
 
@@ -70,9 +73,6 @@
 }
 
 //モーダル閉じる
-- (IBAction)account_close:(id)sender {
-        [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 - (IBAction)login_save:(id)sender {
     if ([_account_adress.text length] == 0  || [_account_pass.text length] == 0  || [_account_confirm_pass.text length] == 0)  {

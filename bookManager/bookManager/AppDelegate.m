@@ -25,18 +25,14 @@
 - (BOOL)isFirstRun
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
     if ([userDefaults objectForKey:@"firstRunDate"]) {
         // 日時が設定済みなら初回起動でない
         return NO;
     }
-    
     // 初回起動日時を設定
     [userDefaults setObject:[NSDate date] forKey:@"firstRunDate"];
-    
     // 保存
     [userDefaults synchronize];
-    
     // 初回起動
     return YES;
 }

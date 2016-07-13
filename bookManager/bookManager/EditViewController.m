@@ -32,11 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-/*
-    _book_title_field.delegate=self;
-    _book_price_field.delegate=self;
-*/
-    //一覧から受け取ったデータたち
+    //一覧画面から受け取ったデータたち
     _book_title_field.text = selected_title;
     _book_price_field.text = [NSString stringWithFormat:@"%@", selected_price];
     _book_date_field.text = selected_date;
@@ -125,7 +121,6 @@
     if([UIImagePickerController
         isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-        imagePicker.delegate = self;
         imagePicker.allowsEditing = YES;
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:imagePicker animated:YES completion:nil];
@@ -136,7 +131,6 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     self.book_image.image = image;
     
     

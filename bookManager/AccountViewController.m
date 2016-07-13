@@ -28,7 +28,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 - (void)accountLogin {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];

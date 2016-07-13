@@ -4,8 +4,6 @@
 //
 //  Created by inouenaoto on 2016/07/02.
 //  Copyright © 2016年 inouenaoto. All rights reserved.
-//フッター　http://blog.7bunnies.com/2011/09/uitableviewtablefooterviewuibutton.html
-//テーブル処理　https://gist.github.com/inonb/3157988#file-gistfile1-txt
 //
 //
 //
@@ -38,24 +36,16 @@ int add_number = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
- //   _Listtable.dataSource = self;
- //   _Listtable.delegate = self;
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"ListTableCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"Read_More_Cell" bundle:nil] forCellReuseIdentifier:@"ReadMoreCell"];
-
 
     _page = 1;
     _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.indicator setColor:[UIColor darkGrayColor]];
     [self.indicator setHidesWhenStopped:YES];
     [self.indicator stopAnimating];
-//   NSLog(@"%@",_Price_Array);
 
 }
 
@@ -64,8 +54,6 @@ int add_number = 0;
     NSLog(@"grt json %@",_title_list);
     
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -97,17 +85,16 @@ int add_number = 0;
     ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     //最終セルの設定 http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22
-    if(　(indexPath.row == _page*ONCE_READ_COUNT) || (indexPath.row == self.title_list.count) )
+    if((indexPath.row == _page*ONCE_READ_COUNT) || (indexPath.row == self.title_list.count) )
     {
         NSString *identifier = @"ReadMoreCell" ;
         Read_More_Cell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         [cell.Read_Button addTarget:self action:@selector(read_more_button:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
   }
-//   else if(indexPath.row < (_page*ONCE_READ_COUNT)){
-        cell.title_label.text = [self.title_list objectAtIndex:indexPath.row];
-        cell.price_label.text = [NSString stringWithFormat:@"%@円", self.price_list [indexPath.row]];
-        cell.bookimage_view.image=[ UIImage imageNamed:@"book_sample.jpg" ];
+    cell.title_label.text = [self.title_list objectAtIndex:indexPath.row];
+    cell.price_label.text = [NSString stringWithFormat:@"%@円", self.price_list [indexPath.row]];
+    cell.bookimage_view.image=[ UIImage imageNamed:@"book_sample.jpg" ];
 
     //　時間の書式変更「http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22」
     NSString *gmt = self.date_list[indexPath.row];
@@ -128,13 +115,7 @@ int add_number = 0;
     cell.title_label.adjustsFontSizeToFitWidth = YES;
     cell.price_label.adjustsFontSizeToFitWidth = YES;
     cell.date_label.adjustsFontSizeToFitWidth = YES;
-    
-    
-    
     return cell;
-    
-    
-    
 }
 //テーブルのセルから移動
 
@@ -152,10 +133,6 @@ int add_number = 0;
         editViewController.selected_price = [self.price_list objectAtIndex:indexPath.row];
         editViewController.selected_date = _set_date;
         editViewController.selected_id = [self.id_list objectAtIndex:indexPath.row];
-        // editViewController.selected_price = [self.price_list objectAtIndex:indexPath.row];
-//        editViewController.selected_date = [self.date_list objectAtIndex:indexPath.row];
-
-
     }
 }
 
@@ -163,9 +140,6 @@ int add_number = 0;
     [self performSegueWithIdentifier:@"List_to_Add" sender:self];
     
 }
-
-
-
 
 //もっと読みこむボタンのイベント
 - (void)read_more_button:(UIButton *)sender event:(UIEvent *)event {
@@ -180,25 +154,6 @@ int add_number = 0;
             [self performSelector:@selector(reloadMoreData) withObject:nil afterDelay:0.1f];
         }
 }
-
-
-
-
-
-
-/*
-スクロールかボタンか迷い中なのでコメント化
-//テーブルの「さらに読みこむ処理の追加
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    //一番下までスクロールしたかどうか
-    if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height))
-    {
-
-        //まだ表示するコンテンツが存在するか判定し存在するなら○件分を取得して表示更新する処理をここに書く
-    }
-}
-*/
 
 //次のワンスリードカウントを読みこむメソッド
 - (void)reloadMoreData
@@ -225,28 +180,6 @@ int add_number = 0;
     [self.tableView setTableFooterView:nil];
     
 }
-/*
-
-#pragma mark - 表示セルの一番下まできたら次のONCE_READ_COUNT件数取得
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    
-    if(self.tableView.contentOffset.y >= (self.tableView.contentSize.height - self.tableView.bounds.size.height))
-    {
-        
-        if([_indicator isAnimating]) {
-            return;
-        }
-        
-        
-        if (_title_list.count > (_page*ONCE_READ_COUNT)) {
-            [self startIndicator];
-            [self performSelector:@selector(reloadMoreData) withObject:nil afterDelay:0.1f];
-        }
-        
-    }
-}
-*/
 
 
 - (void)GetJson {
@@ -283,13 +216,6 @@ int add_number = 0;
             self.price_list = Price_Array;
             self.date_list = Date_Array;
             self.id_list = ID_Array;
-   //        [self.Listtable reloadData];
-              
- /*
-                       NSLog(@"title %@", _title_list);
-                       NSLog(@"%@", _price_list);
-                       NSLog(@"%@", _date_list);
- */
           [self.tableView reloadData];
       } failure:^(NSURLSessionDataTask *operation, NSError *error) {
           NSLog(@"failed: %@", error);

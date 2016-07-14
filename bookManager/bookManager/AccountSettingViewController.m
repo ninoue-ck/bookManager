@@ -29,7 +29,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)Account_edit  {
+- (void)account_edit  {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
@@ -70,7 +70,7 @@
             
         }
     else {
-        [self Account_edit];
+        [self account_edit];
         [self dismissViewControllerAnimated:YES completion:nil];
         //    [self dismissViewControllerAnimated:YES completion:nil];
     }

@@ -50,7 +50,7 @@ int add_number = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self GetJson];
+    [self getJson];
     NSLog(@"get json %@",_titleList);
     
 }
@@ -179,7 +179,7 @@ int add_number = 0;
     
 }
 
-- (void)GetJson {
+- (void)getJson {
     NSString *url = @"http://app.com/book/get";
     NSDictionary *params = [[NSDictionary alloc] init];
     params = @{@"page":@"0-100"};

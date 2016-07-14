@@ -60,7 +60,7 @@
               [self presentViewController:alertController animated:YES completion:nil];
           }];
 }
--(void)alertbutton{
+-(void)alertbutton {
 }
 
 - (void)tolisttableView {
@@ -74,28 +74,29 @@
 
 //モーダル閉じる
 - (IBAction)login_save:(id)sender {
-    if ([_accountAdress.text length] == 0  || [_accountPass.text length] == 0  ) {
+    if ([self.accountAdress.text length] == 0  || [self.accountPass.text length] == 0  ) {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"項目に誤りがあります" preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self alertbutton];
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
-} else {
+    }
+    else {
         [self accountLogin];
     }
 }
 
 //キーボードをずらすメソッド
--(void) keyboardWillShow:(NSNotification *) notification{
+-(void) keyboardWillShow:(NSNotification *) notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    [UIView animateWithDuration:duration animations:^{
+    [UIView animateWithDuration:duration animations:^ {
         CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
         self.view.transform = transform;
     } completion:NULL];
 }
 
--(void) keyboardWillHide:(NSNotification *)notification{
+-(void) keyboardWillHide:(NSNotification *)notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         self.view.transform = CGAffineTransformIdentity;
@@ -116,7 +117,7 @@
 }
 
 - (IBAction)confpass:(id)sender {
-        [sender resignFirstResponder];
+    [sender resignFirstResponder];
 }
 
 @end

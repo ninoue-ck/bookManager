@@ -12,7 +12,6 @@
 @end
 
 @implementation SettingViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 }

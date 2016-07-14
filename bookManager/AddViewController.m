@@ -114,63 +114,61 @@
 
 //書籍追加時のメソッ
 - (void)add {
-    addTitle=_addTitleField.text;
-    addPrice=_addPriceField.text;
- if (addTitle !=nil && addPrice !=nil && addDate!=nil) {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
-    
-    NSString *url = @"http://app.com/book/regist";
-    NSDictionary *params = [[NSDictionary alloc] init];
-    
-    params = @{
-               @"image_url":@"hoge",
-               @"name":_addTitleField.text,
-               @"price":_addPriceField.text,
-               @"purchase_date":_addDateField.text
-               };
- 
-    [manager POST:url parameters:params
-          success:^(NSURLSessionDataTask *task, id responseObject)
-     {
-         [self dismissViewControllerAnimated:YES completion:nil];
-     } failure:^(NSURLSessionDataTask *task, NSError *error)
-     {
-         NSLog(@"Error: %@", error);
-     }];
- }
+    addTitle=self.addTitleField.text;
+    addPrice=self.addPriceField.text;
+    if (addTitle !=nil && addPrice !=nil && addDate!=nil) {
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+        NSString *url = @"http://app.com/book/regist";
+        NSDictionary *params = [[NSDictionary alloc] init];
+        params = @{
+                   @"image_url":@"hoge",
+                   @"name":self.addTitleField.text,
+                   @"price":self.addPriceField.text,
+                   @"purchase_date":self.addDateField.text
+                   };
+        [manager POST:url parameters:params
+              success:^(NSURLSessionDataTask *task, id responseObject)
+         {
+             [self dismissViewControllerAnimated:YES completion:nil];
+         } failure:^(NSURLSessionDataTask *task, NSError *error)
+         {
+             NSLog(@"Error: %@", error);
+         }
+         ];
+    }
 }
- 
+
 - (IBAction)add_save:(id)sender {
     if([_addTitleField.text length] == 0  || [_addPriceField.text length] == 0)  {
-        NSLog(@"%@", _addPriceField.text);
-        NSLog(@"%@", _addTitleField.text);
-        NSLog(@"date %@", _addDateField.text);
+        NSLog(@"%@", self.addPriceField.text);
+        NSLog(@"%@", self.addTitleField.text);
+        NSLog(@"date %@", self.addDateField.text);
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"未入力項目あり" preferredStyle:UIAlertControllerStyleAlert];
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self alertButton];
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
-}   else {
+    }
+    else {
         [self add];
     }
 }
 - (void)alertButton {
-    
 }
 
 //キーボードが出た時画面を上にずらす
--(void) keyboardWillShow:(NSNotification *) notification{
+-(void) keyboardWillShow:(NSNotification *) notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
-    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
-    self.view.transform = transform;
-    } completion:NULL];
+        CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
+        self.view.transform = transform;
+    }completion:NULL];
 }
 
--(void) keyboardWillHide:(NSNotification *)notification{
+-(void)keyboardWillHide:(NSNotification *)notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         self.view.transform = CGAffineTransformIdentity;

@@ -29,7 +29,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)account_edit  {
+- (void)account_edit {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
@@ -47,9 +47,11 @@
               NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
               [defaults setObject:@"textMailAdress" forKey:@"mail_address"];
               [defaults setObject:@"textPassword" forKey:@"password"];
-          }failure:^(NSURLSessionDataTask *task, NSError *error) {
+          }
+          failure:^(NSURLSessionDataTask *task, NSError *error) {
               NSLog(@"Error : %@", error);
-          }];
+          }
+     ];
 }
 
 - (IBAction)Account_save:(id)sender {
@@ -60,18 +62,17 @@
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
         
-    } else if([self.adressField.text length] == 0 || [self.passField.text length] == 0 || [self.confirmPassField.text length] == 0) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"入力されていない項目があります" preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                [self alertbutton];
-            }]];
-            [self presentViewController:alertController animated:YES completion:nil];
-            
-        }
+    }
+    else if([self.adressField.text length] == 0 || [self.passField.text length] == 0 || [self.confirmPassField.text length] == 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"入力されていない項目があります" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self alertbutton];
+        }]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
     else {
         [self account_edit];
-        [self dismissViewControllerAnimated:YES completion:nil];
-        //    [self dismissViewControllerAnimated:YES completion:nil];
+        
     }
 }
 
@@ -79,11 +80,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)alertbutton{
-    
+-(void)alertbutton {
 }
 
--(void) keyboardWillShow:(NSNotification *) notification{
+-(void) keyboardWillShow:(NSNotification *) notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
@@ -92,7 +92,7 @@
 }
 
 //消えた時に画面の位置を戻す
--(void) keyboardWillHide:(NSNotification *)notification{
+-(void) keyboardWillHide:(NSNotification *)notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         self.view.transform = CGAffineTransformIdentity;
@@ -108,9 +108,11 @@
 - (IBAction)mail_return:(id)sender {
     [sender resignFirstResponder];
 }
+
 - (IBAction)pass_return:(id)sender {
     [sender resignFirstResponder];
 }
+
 - (IBAction)confpass_return:(id)sender {
     [sender resignFirstResponder];
 }

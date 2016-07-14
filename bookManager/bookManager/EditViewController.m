@@ -64,7 +64,7 @@
                                                                             action:nil];
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
     self.bookDateField.inputAccessoryView = keyboardDoneButtonView;
-    [self.view addSubview:_bookDateField];
+    [self.view addSubview:self.bookDateField];
     self.bookTitleField.clearButtonMode = UITextFieldViewModeAlways;
     self.bookPriceField.clearButtonMode = UITextFieldViewModeAlways;
 }
@@ -81,12 +81,11 @@
     UIDatePicker *picker = (UIDatePicker *)sender;
     self.bookDateField.text = [dateFormatter stringFromDate:picker.date];
     editPurchaseDate=picker.date;
-    NSLog(@"edit_date %@",editPurchaseDate);
 }
 
 #pragma mark datepickerの完了ボタンが押された場合
 - (void)pickerDoneClicked {
-    [_bookDateField resignFirstResponder];
+    [self.bookDateField resignFirstResponder];
 }
 
 //戻るボタン
@@ -122,18 +121,18 @@
 
 //キーボードを閉じる処理
 - (IBAction)edittitle_return:(id)sender {
-        [sender resignFirstResponder];
+    [sender resignFirstResponder];
 }
 
 - (IBAction)editprice_return:(id)sender {
-        [sender resignFirstResponder];
+    [sender resignFirstResponder];
 }
 
 //書籍編集のメソッド
 - (void)edit_book {
-    editBookTitle=_bookTitleField.text;
-    editPrice=_bookPriceField.text;
-
+    editBookTitle=self.bookTitleField.text;
+    editPrice=self.bookPriceField.text;
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
@@ -147,20 +146,20 @@
                @"price":editPrice,
                @"purchase_date":editPurchaseDate
                };
-
+    
     NSLog(@"parms %@", params);
     [manager POST:url parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject)
      {[self.navigationController popViewControllerAnimated:YES];
-
-        }failure:^(NSURLSessionDataTask *task, NSError *error)
+         
+     }failure:^(NSURLSessionDataTask *task, NSError *error)
      {
          NSLog(@"Error: %@", error);
      }];
 }
 
 - (IBAction)edit_save:(id)sender {
-     [self edit_book];
+    [self edit_book];
 }
 
 //キーボードが出てきた時に画面をずらすメソッド

@@ -14,7 +14,6 @@
     NSString *editBookDate;
     NSString *editPrice;
     NSDate *editPurchaseDate;
-    
 }
 //テキストフィールドの初期値
 @property (nonatomic, copy) NSString *selectedTitle;

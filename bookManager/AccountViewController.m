@@ -11,8 +11,8 @@
 #import <AFNetworking/AFNetworking.h>
 
 @interface AccountViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *account_adress;
-@property (weak, nonatomic) IBOutlet UITextField *account_pass;
+@property (weak, nonatomic) IBOutlet UITextField *accountAdress;
+@property (weak, nonatomic) IBOutlet UITextField *accountPass;
 
 @end
 
@@ -20,8 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _account_adress.placeholder =@"メースアドレスを入力してください";
-    _account_pass.placeholder =@"パスワードを入力してください";
+    _accountAdress.placeholder =@"メースアドレスを入力してください";
+    _accountPass.placeholder =@"パスワードを入力してください";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,8 +35,8 @@
     
     NSString *url = @"http://app.com/account/login";
     NSDictionary *params = [[NSDictionary alloc] init];
-    params = @{@"mail_address" : _account_adress.text,
-               @"password" : _account_pass.text,
+    params = @{@"mail_address" : _accountAdress.text,
+               @"password" : _accountPass.text,
                };
     NSLog(@"%@", params);
     
@@ -50,7 +50,7 @@
           } failure:^(NSURLSessionDataTask *task, NSError *error) {
               NSLog(@"Error : %@", error);
               
-              UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"メールアドレスかパスワードどちらかが間違っています" preferredStyle:UIAlertControllerStyleAlert];
+              UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"メールアドレスかパスワードが間違っています" preferredStyle:UIAlertControllerStyleAlert];
               
               [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                   [self alertbutton];
@@ -71,7 +71,7 @@
 
 //モーダル閉じる
 - (IBAction)login_save:(id)sender {
-    if ([_account_adress.text length] == 0  || [_account_pass.text length] == 0  )
+    if ([_accountAdress.text length] == 0  || [_accountPass.text length] == 0  )
         {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"項目に誤りがあります" preferredStyle:UIAlertControllerStyleAlert];

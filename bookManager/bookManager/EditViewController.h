@@ -9,16 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface EditViewController : UIViewController<UITextFieldDelegate>{
-    NSString *editBook_title;
-    NSString *editImage_url;
+    NSString *editBookTitle;
+    NSString *editImageUrl;
     NSString *editBookDate;
     NSString *editPrice;
     NSDate *editPurchaseDate;
     
 }
 //テキストフィールドの初期値
-@property (nonatomic, copy) NSString *selected_title;
-@property (nonatomic, copy) NSString *selected_price;
-@property (nonatomic, copy) NSString *selected_date;
-@property (nonatomic, copy) NSString *selected_id;
+@property (nonatomic, copy) NSString *selectedTitle;
+@property (nonatomic, copy) NSString *selectedPrice;
+@property (nonatomic, copy) NSString *selectedDate;
+@property (nonatomic, copy) NSString *selectedId;
 @end

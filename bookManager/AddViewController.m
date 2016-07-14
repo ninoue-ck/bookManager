@@ -13,15 +13,15 @@
 @interface AddViewController ()
 <UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate>
 {
-    NSString *add_image;
-    NSString *add_title;
-    NSString *add_price;
-    NSDate *add_date;
+    NSString *addImage;
+    NSString *addTitle;
+    NSString *addPrice;
+    NSDate *addDate;
 }
-@property (weak, nonatomic) IBOutlet UIImageView *add_image_field;
-@property (weak, nonatomic) IBOutlet UITextField *add_title_field;
-@property (weak, nonatomic) IBOutlet UITextField *add_price_field;
-@property (weak, nonatomic) IBOutlet UITextField *add_date_field;
+@property (weak, nonatomic) IBOutlet UIImageView *addImageField;
+@property (weak, nonatomic) IBOutlet UITextField *addTitleField;
+@property (weak, nonatomic) IBOutlet UITextField *addPriceField;
+@property (weak, nonatomic) IBOutlet UITextField *addDateField;
 
 @end
 
@@ -33,8 +33,8 @@
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
-    _add_date_field.inputView = datePicker;
-    self.add_date_field.delegate = self;
+    _addDateField.inputView = datePicker;
+    self.addDateField.delegate = self;
     UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
     keyboardDoneButtonView.barStyle  = UIBarStyleBlack;
     keyboardDoneButtonView.translucent = YES;
@@ -53,13 +53,13 @@
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
     
     // Viewの配置
-    _add_date_field.inputAccessoryView = keyboardDoneButtonView;
+    _addDateField.inputAccessoryView = keyboardDoneButtonView;
     
-    [self.view addSubview:_add_date_field];
-    _add_price_field.placeholder =@"金額";
-    _add_title_field.placeholder =@"書籍名";
-    _add_title_field.clearButtonMode = UITextFieldViewModeAlways;
-    _add_price_field.clearButtonMode = UITextFieldViewModeAlways;
+    [self.view addSubview:_addDateField];
+    _addPriceField.placeholder =@"金額";
+    _addTitleField.placeholder =@"書籍名";
+    _addTitleField.clearButtonMode = UITextFieldViewModeAlways;
+    _addPriceField.clearButtonMode = UITextFieldViewModeAlways;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,15 +71,15 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy/MM/dd";
     UIDatePicker *picker = (UIDatePicker *)sender;
-    _add_date_field.text = [dateFormatter stringFromDate:picker.date];
-    add_date=picker.date;
-    NSLog(@"add_date %@",add_date);
+    _addDateField.text = [dateFormatter stringFromDate:picker.date];
+    addDate=picker.date;
+    NSLog(@"add_date %@",addDate);
 }
 
 #pragma mark datepickerの完了ボタンが押された場合
 - (void)pickerDoneClicked {
-    [_add_date_field resignFirstResponder];
-    _add_date_field = nil;
+    [_addDateField resignFirstResponder];
+    _addDateField = nil;
 }
 
 - (IBAction)add_close:(id)sender {
@@ -110,17 +110,16 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
-    self.add_image_field.image = image;
+    self.addImageField.image = image;
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
 //書籍追加時のメソッ
 - (void)add {
-    add_title=_add_title_field.text;
-    add_price=_add_price_field.text;
-//    if([_add_title_field.text length] == 0  || [_add_price_field.text length] == 0 || [_add_date_field.text length] == 0)  {
- if (add_title !=nil && add_price !=nil && add_date!=nil) {
+    addTitle=_addTitleField.text;
+    addPrice=_addPriceField.text;
+ if (addTitle !=nil && addPrice !=nil && addDate!=nil) {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
@@ -130,10 +129,9 @@
     
     params = @{
                @"image_url":@"hoge",
-               @"name":_add_title_field.text,
-               @"price":_add_price_field.text,
-               //@"purchase_date":add_date
-               @"purchase_date":_add_date_field.text
+               @"name":_addTitleField.text,
+               @"price":_addPriceField.text,
+               @"purchase_date":_addDateField.text
                };
  
     [manager POST:url parameters:params
@@ -148,10 +146,10 @@
 }
  
 - (IBAction)add_save:(id)sender {
-    if([_add_title_field.text length] == 0  || [_add_price_field.text length] == 0)  {
-        NSLog(@"%@", _add_price_field.text);
-        NSLog(@"%@", _add_title_field.text);
-        NSLog(@"date %@", _add_date_field.text);
+    if([_addTitleField.text length] == 0  || [_addPriceField.text length] == 0)  {
+        NSLog(@"%@", _addPriceField.text);
+        NSLog(@"%@", _addTitleField.text);
+        NSLog(@"date %@", _addDateField.text);
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"未入力項目あり" preferredStyle:UIAlertControllerStyleAlert];
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {

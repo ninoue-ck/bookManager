@@ -17,25 +17,25 @@
 
 @interface EditViewController ()
 
-@property (strong, nonatomic) IBOutlet UIImageView *book_image;
-@property (weak, nonatomic) IBOutlet UITextField *book_title_field;
-@property (weak, nonatomic) IBOutlet UITextField *book_price_field;
-@property (weak, nonatomic) IBOutlet UITextField *book_date_field;
+@property (strong, nonatomic) IBOutlet UIImageView *bookImage;
+@property (weak, nonatomic) IBOutlet UITextField *bookTitleField;
+@property (weak, nonatomic) IBOutlet UITextField *bookPriceField;
+@property (weak, nonatomic) IBOutlet UITextField *bookDateField;
 @end
 
 @implementation EditViewController
 
-@synthesize selected_title;
-@synthesize selected_price;
-@synthesize selected_date;
-@synthesize selected_id;
+@synthesize selectedTitle;
+@synthesize selectedPrice;
+@synthesize selectedDate;
+@synthesize selectedId;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     //一覧画面から受け取ったデータ
-    _book_title_field.text = selected_title;
-    _book_price_field.text = [NSString stringWithFormat:@"%@", selected_price];
-    _book_date_field.text = selected_date;
+    _bookTitleField.text = selectedTitle;
+    _bookPriceField.text = [NSString stringWithFormat:@"%@", selectedPrice];
+    _bookDateField.text = selectedDate;
     
     //日付のフィールドがクリックされるとピッカーになる処理
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
@@ -43,9 +43,9 @@
     
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     
-    _book_date_field.inputView = datePicker;
+    _bookDateField.inputView = datePicker;
     
-    self.book_date_field.delegate = self;
+    self.bookDateField.delegate = self;
     
     UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
     keyboardDoneButtonView.barStyle  = UIBarStyleBlack;
@@ -64,10 +64,10 @@
                                                                             target:nil
                                                                             action:nil];
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
-    _book_date_field.inputAccessoryView = keyboardDoneButtonView;
-    [self.view addSubview:_book_date_field];
-    _book_title_field.clearButtonMode = UITextFieldViewModeAlways;
-    _book_price_field.clearButtonMode = UITextFieldViewModeAlways;
+    _bookDateField.inputAccessoryView = keyboardDoneButtonView;
+    [self.view addSubview:_bookDateField];
+    _bookTitleField.clearButtonMode = UITextFieldViewModeAlways;
+    _bookPriceField.clearButtonMode = UITextFieldViewModeAlways;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,14 +80,14 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy/MM/dd";
     UIDatePicker *picker = (UIDatePicker *)sender;
-    _book_date_field.text = [dateFormatter stringFromDate:picker.date];
+    _bookDateField.text = [dateFormatter stringFromDate:picker.date];
     editPurchaseDate=picker.date;
     NSLog(@"edit_date %@",editPurchaseDate);
 }
 
 #pragma mark datepickerの完了ボタンが押された場合
 - (void)pickerDoneClicked {
-    [_book_date_field resignFirstResponder];
+    [_bookDateField resignFirstResponder];
 }
 
 //戻るボタン
@@ -119,7 +119,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
-    self.book_image.image = image;
+    self.bookImage.image = image;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -134,8 +134,8 @@
 
 //書籍編集のメソッド
 - (void)edit_book {
-    editBook_title=_book_title_field.text;
-    editPrice=_book_price_field.text;
+    editBookTitle=_bookTitleField.text;
+    editPrice=_bookPriceField.text;
 
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -144,8 +144,8 @@
     NSString *url = @"http://app.com/book/update";
     NSDictionary *params = [[NSDictionary alloc] init];
     params = @{
-               @"id" :selected_id,
-               @"name":editBook_title,
+               @"id" :selectedId,
+               @"name":editBookTitle,
                @"image_url":@"hoge",
                @"price":editPrice,
                @"purchase_date":editPurchaseDate

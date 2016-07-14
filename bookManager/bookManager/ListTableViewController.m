@@ -22,11 +22,11 @@
 @property (strong, nonatomic) UIActivityIndicatorView *indicator;
 @property (readwrite) NSInteger page;
 
-@property (strong, nonatomic) NSMutableArray *title_list;
-@property (strong, nonatomic) NSMutableArray *price_list;
-@property (strong, nonatomic) NSMutableArray *date_list;
-@property (strong, nonatomic) NSMutableArray *id_list;
-@property (strong, nonatomic) NSString *set_date; //時間を書式変更したもの
+@property (strong, nonatomic) NSMutableArray *titleList;
+@property (strong, nonatomic) NSMutableArray *priceList;
+@property (strong, nonatomic) NSMutableArray *dateList;
+@property (strong, nonatomic) NSMutableArray *idList;
+@property (strong, nonatomic) NSString *setDate; //時間を書式変更したもの
 
 @end
 
@@ -51,7 +51,7 @@ int add_number = 0;
 
 - (void)viewWillAppear:(BOOL)animated {
     [self GetJson];
-    NSLog(@"grt json %@",_title_list);
+    NSLog(@"get json %@",_titleList);
     
 }
 
@@ -71,11 +71,11 @@ int add_number = 0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(_page*ONCE_READ_COUNT+1 <= self.title_list.count){
+    if(_page*ONCE_READ_COUNT+1 <= self.titleList.count){
     return _page*ONCE_READ_COUNT+1;
     }
     else{
-        return self.title_list.count;
+        return self.titleList.count;
     }
 }
 
@@ -85,19 +85,19 @@ int add_number = 0;
     ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     //最終セルの設定 http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22
-    if((indexPath.row == _page*ONCE_READ_COUNT) || (indexPath.row == self.title_list.count) )
+    if((indexPath.row == _page*ONCE_READ_COUNT) || (indexPath.row == self.titleList.count) )
     {
         NSString *identifier = @"ReadMoreCell" ;
         Read_More_Cell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         [cell.Read_Button addTarget:self action:@selector(read_more_button:event:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
   }
-    cell.title_label.text = [self.title_list objectAtIndex:indexPath.row];
-    cell.price_label.text = [NSString stringWithFormat:@"%@円", self.price_list [indexPath.row]];
-    cell.bookimage_view.image=[ UIImage imageNamed:@"book_sample.jpg" ];
+    cell.titleLabel.text = [self.titleList objectAtIndex:indexPath.row];
+    cell.priceLabel.text = [NSString stringWithFormat:@"%@円", self.priceList [indexPath.row]];
+    cell.bookimageView.image=[ UIImage imageNamed:@"book_sample.jpg" ];
 
     //　時間の書式変更「http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22」
-    NSString *gmt = self.date_list[indexPath.row];
+    NSString *gmt = self.dateList[indexPath.row];
    
     NSDateFormatter *DF = [[NSDateFormatter alloc] init];
     [DF setDateFormat:@"EEE, dd MM yyy HH:mm:ss Z"];
@@ -107,14 +107,14 @@ int add_number = 0;
     //NSStringに
     NSDateFormatter *outFmt = [[NSDateFormatter alloc] init];
     [outFmt setDateFormat:@"yyyy/MM/dd"];
-    _set_date = [outFmt stringFromDate:date];
+    _setDate = [outFmt stringFromDate:date];
     
-    cell.date_label.text = _set_date;
+    cell.dateLabel.text = _setDate;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    cell.title_label.adjustsFontSizeToFitWidth = YES;
-    cell.price_label.adjustsFontSizeToFitWidth = YES;
-    cell.date_label.adjustsFontSizeToFitWidth = YES;
+    cell.titleLabel.adjustsFontSizeToFitWidth = YES;
+    cell.priceLabel.adjustsFontSizeToFitWidth = YES;
+    cell.dateLabel.adjustsFontSizeToFitWidth = YES;
     return cell;
 }
 
@@ -130,10 +130,10 @@ int add_number = 0;
     if ([segue.identifier isEqualToString:@"List_to_Edit"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EditViewController *editViewController = (EditViewController *)segue.destinationViewController;
-        editViewController.selected_title = [self.title_list objectAtIndex:indexPath.row];
-        editViewController.selected_price = [self.price_list objectAtIndex:indexPath.row];
-        editViewController.selected_date = _set_date;
-        editViewController.selected_id = [self.id_list objectAtIndex:indexPath.row];
+        editViewController.selectedTitle = [self.titleList objectAtIndex:indexPath.row];
+        editViewController.selectedPrice = [self.priceList objectAtIndex:indexPath.row];
+        editViewController.selectedDate = _setDate;
+        editViewController.selectedId = [self.idList objectAtIndex:indexPath.row];
     }
 }
 
@@ -148,7 +148,7 @@ int add_number = 0;
             return;
         }
     
-        if (self.title_list.count > _page*ONCE_READ_COUNT)  {
+        if (self.titleList.count > _page*ONCE_READ_COUNT)  {
             [self startIndicator];
             [self performSelector:@selector(reloadMoreData) withObject:nil afterDelay:0.1f];
         }
@@ -192,26 +192,26 @@ int add_number = 0;
             //通信に成功した場合の処理
               NSArray *API_Array = [responseObject objectForKey:@"result"];
           
-              NSMutableArray *ID_Array = [NSMutableArray array];
-              NSMutableArray *Image_Array = [NSMutableArray array];
-              NSMutableArray *Title_Array = [NSMutableArray array];
-              NSMutableArray *Price_Array = [NSMutableArray array];
-              NSMutableArray *Date_Array = [NSMutableArray array];
+              NSMutableArray *IDArray = [NSMutableArray array];
+              NSMutableArray *ImageArray = [NSMutableArray array];
+              NSMutableArray *TitleArray = [NSMutableArray array];
+              NSMutableArray *PriceArray = [NSMutableArray array];
+              NSMutableArray *DateArray = [NSMutableArray array];
           
           //取得したAPIをそれぞれの配列に格納
           // NSLog(@"%@",API_Array);
           for(int i = 0; i < API_Array.count; i++) {
-              [ID_Array addObject:[API_Array[i] objectForKey:@"id"]];
-              [Image_Array addObject:[API_Array[i] objectForKey:@"image_url"]];
-              [Title_Array addObject:[API_Array[i] objectForKey:@"name"]];
-              [Price_Array addObject:[API_Array[i] objectForKey:@"price"]];
-              [Date_Array addObject:[API_Array[i] objectForKey:@"purchase_date"]];
+              [IDArray addObject:[API_Array[i] objectForKey:@"id"]];
+              [ImageArray addObject:[API_Array[i] objectForKey:@"image_url"]];
+              [TitleArray addObject:[API_Array[i] objectForKey:@"name"]];
+              [PriceArray addObject:[API_Array[i] objectForKey:@"price"]];
+              [DateArray addObject:[API_Array[i] objectForKey:@"purchase_date"]];
 
           }
-            self.title_list = Title_Array;
-            self.price_list = Price_Array;
-            self.date_list = Date_Array;
-            self.id_list = ID_Array;
+            self.titleList = TitleArray;
+            self.priceList = PriceArray;
+            self.dateList = DateArray;
+            self.idList = IDArray;
           [self.tableView reloadData];
       } failure:^(NSURLSessionDataTask *operation, NSError *error) {
           NSLog(@"failed: %@", error);

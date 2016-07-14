@@ -53,10 +53,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="bookimage_view" destination="nwZ-hf-F7C" id="XvU-eF-Jgk"/>
-                <outlet property="date_label" destination="YM1-h7-WFG" id="dlK-Bm-vkt"/>
-                <outlet property="price_label" destination="5O9-df-z5K" id="aWl-QX-jPf"/>
-                <outlet property="title_label" destination="eYh-ZL-rdB" id="zKT-g8-6Zo"/>
+                <outlet property="bookimageView" destination="nwZ-hf-F7C" id="fYa-Zk-KI9"/>
+                <outlet property="dateLabel" destination="YM1-h7-WFG" id="KZg-68-jNS"/>
+                <outlet property="priceLabel" destination="5O9-df-z5K" id="Hql-sj-wDg"/>
+                <outlet property="titleLabel" destination="eYh-ZL-rdB" id="g5y-Fv-lpg"/>
             </connections>
             <point key="canvasLocation" x="486" y="334"/>
         </tableViewCell>

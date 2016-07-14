@@ -108,10 +108,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="add_date_field" destination="CYL-Gl-jl5" id="Amv-JN-igC"/>
-                        <outlet property="add_image_field" destination="N5F-E3-AQK" id="vrA-A9-Qqd"/>
-                        <outlet property="add_price_field" destination="btZ-m0-3EK" id="C3s-dm-XF8"/>
-                        <outlet property="add_title_field" destination="2H8-E8-RHW" id="xhw-Yz-21N"/>
+                        <outlet property="addDateField" destination="CYL-Gl-jl5" id="39g-Ck-fry"/>
+                        <outlet property="addImageField" destination="N5F-E3-AQK" id="Zw1-g8-NRT"/>
+                        <outlet property="addPriceField" destination="btZ-m0-3EK" id="CGA-pk-TE9"/>
+                        <outlet property="addTitleField" destination="2H8-E8-RHW" id="TFh-3f-0db"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYD-Qa-Irx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,11 +184,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pef-EA-4KW">
-                                <rect key="frame" x="60" y="428" width="480" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rp8-x2-du5">
                                 <rect key="frame" x="60" y="363" width="480" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -211,6 +206,11 @@
                                 <connections>
                                     <action selector="edittitle_return:" destination="FiB-Ja-5KV" eventType="editingDidEndOnExit" id="Tuc-ab-rsD"/>
                                 </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pef-EA-4KW">
+                                <rect key="frame" x="60" y="426" width="480" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -249,10 +249,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="book_date_field" destination="Pef-EA-4KW" id="NUD-5I-YWh"/>
-                        <outlet property="book_image" destination="5ro-zc-Csp" id="ddl-yR-Gwk"/>
-                        <outlet property="book_price_field" destination="rp8-x2-du5" id="t3O-fE-QVt"/>
-                        <outlet property="book_title_field" destination="qe7-Qf-xaN" id="wZG-Nf-BpS"/>
+                        <outlet property="bookDateField" destination="Pef-EA-4KW" id="b2B-fy-hru"/>
+                        <outlet property="bookImage" destination="5ro-zc-Csp" id="6yb-5x-A5v"/>
+                        <outlet property="bookPriceField" destination="rp8-x2-du5" id="pU3-OD-beC"/>
+                        <outlet property="bookTitleField" destination="qe7-Qf-xaN" id="Lvb-EC-hWX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrD-Um-1o4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,9 +416,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="adress_field" destination="cf1-vl-5zr" id="Yvf-Dn-i7q"/>
-                        <outlet property="confirm_pass_field" destination="BcH-EQ-gcN" id="b3s-qV-37s"/>
-                        <outlet property="pass_field" destination="Cls-Tj-t8F" id="Qqm-gg-Nbi"/>
+                        <outlet property="adressField" destination="cf1-vl-5zr" id="5C2-lU-uu6"/>
+                        <outlet property="confirmPassField" destination="BcH-EQ-gcN" id="Hus-Nq-OyS"/>
+                        <outlet property="passField" destination="Cls-Tj-t8F" id="Slh-Op-Hrg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkT-Rp-knq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -480,14 +480,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="ログイン画面" id="1A9-yk-AEa" userLabel="アカウント登録"/>
                     <connections>
-                        <outlet property="account_adress" destination="N1M-5l-MB8" id="Hji-1R-nh0"/>
-                        <outlet property="account_pass" destination="HTX-T8-HPf" id="Gdl-oF-S2m"/>
+                        <outlet property="accountAdress" destination="N1M-5l-MB8" id="m1R-bI-0z9"/>
+                        <outlet property="accountPass" destination="HTX-T8-HPf" id="Eg2-2P-oPB"/>
                         <segue destination="9Rc-mh-hUQ" kind="modal" identifier="regist-to-tab" id="HiD-Ay-Obl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxV-4t-WKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="872" y="1019"/>
+            <point key="canvasLocation" x="848" y="749"/>
         </scene>
         <!--設定-->
         <scene sceneID="o7K-nn-yH7">

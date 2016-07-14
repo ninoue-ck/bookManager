@@ -10,9 +10,9 @@
 #import <AFNetworking/AFNetworking.h>
 
 @interface AccountSettingViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *adress_field;
-@property (weak, nonatomic) IBOutlet UITextField *pass_field;
-@property (weak, nonatomic) IBOutlet UITextField *confirm_pass_field;
+@property (weak, nonatomic) IBOutlet UITextField *adressField;
+@property (weak, nonatomic) IBOutlet UITextField *passField;
+@property (weak, nonatomic) IBOutlet UITextField *confirmPassField;
 
 @end
 
@@ -20,9 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _adress_field.placeholder =@"メールアドレスを入力してください";
-    _pass_field.placeholder =@"パスワードを入力してください";
-    _confirm_pass_field.placeholder =@"もう一度パスワードを入力してください";
+    _adressField.placeholder =@"メールアドレスを入力してください";
+    _passField.placeholder =@"パスワードを入力してください";
+    _confirmPassField.placeholder =@"もう一度パスワードを入力してください";
     // Do any additional setup after loading the view.
 }
 
@@ -38,8 +38,8 @@
     
     NSString *url = @"http://app.com/account/register";
     NSDictionary *params = [[NSDictionary alloc] init];
-    params = @{@"mail_address" : _adress_field.text,
-               @"password" : _pass_field.text
+    params = @{@"mail_address" : _adressField.text,
+               @"password" : _passField.text
                };
     NSLog(@"%@", params);
     
@@ -55,15 +55,15 @@
 }
 
 - (IBAction)Account_save:(id)sender {
-    if (![_pass_field.text isEqualToString:_confirm_pass_field.text ]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"パスワードが一位しません" preferredStyle:UIAlertControllerStyleAlert];
+    if (![_passField.text isEqualToString:_confirmPassField.text ]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"パスワードが一致しません" preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self alertbutton];
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
         
     } else if
-        ([_adress_field.text length] == 0 || [_pass_field.text length] == 0 || [_confirm_pass_field.text length] == 0) {
+        ([_adressField.text length] == 0 || [_passField.text length] == 0 || [_confirmPassField.text length] == 0) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"入力されていない項目があります" preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self alertbutton];

@@ -29,26 +29,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //ぴっかーを出す
-//    add_title_field.delegate=self;
-//    add_price_field.delegate=self;
-    //ぴっかーを出す
-    // DatePickerの設定
+    // 日付フィールドがクリックされるとピッカーを出す処理
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
-    // DatePickerを編集したら、updateTextFieldを呼び出す
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
-    // textFieldの入力をdatePickerに設定
     _add_date_field.inputView = datePicker;
-    // Delegationの設定
     self.add_date_field.delegate = self;
-    // DoneボタンとそのViewの作成
     UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
     keyboardDoneButtonView.barStyle  = UIBarStyleBlack;
     keyboardDoneButtonView.translucent = YES;
     keyboardDoneButtonView.tintColor = nil;
     [keyboardDoneButtonView sizeToFit];
-    // 完了ボタンとSpacerの配置
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"完了"
                                                                    style:UIBarButtonItemStyleDone
                                                                   target:self
@@ -124,7 +115,6 @@
     
 }
 
-
 //書籍追加時のメソッ
 - (void)add {
     add_title=_add_title_field.text;
@@ -138,16 +128,6 @@
     NSString *url = @"http://app.com/book/regist";
     NSDictionary *params = [[NSDictionary alloc] init];
     
-/*    params = @{
-               @"image_url":@"hoge",
-               @"name":add_title,
-               @"price":add_price,
-               //@"purchase_date":add_date
-               @"purchase_date":add_date
-               };
-    
-     NSLog(@"add parms %@",params);
-*/
     params = @{
                @"image_url":@"hoge",
                @"name":_add_title_field.text,
@@ -156,8 +136,6 @@
                @"purchase_date":_add_date_field.text
                };
  
-// NSLog(@"parms %@",params);
-//    NSLog(@"%@",_add_price_field.text);
     [manager POST:url parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject)
      {
@@ -182,8 +160,6 @@
         [self presentViewController:alertController animated:YES completion:nil];
 }else{
     [self add];
-//    [self dismissViewControllerAnimated:YES completion:nil];
-
     }
 }
 - (void)alertButton {
@@ -199,7 +175,6 @@
     } completion:NULL];
 }
 
-//消えた時戻す
 -(void) keyboardWillHide:(NSNotification *)notification{
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{

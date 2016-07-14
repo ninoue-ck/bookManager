@@ -117,8 +117,9 @@ int add_number = 0;
     cell.date_label.adjustsFontSizeToFitWidth = YES;
     return cell;
 }
-//テーブルのセルから移動
 
+
+//テーブルのセルから移動
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"List_to_Edit" sender:self];
@@ -143,8 +144,6 @@ int add_number = 0;
 
 //もっと読みこむボタンのイベント
 - (void)read_more_button:(UIButton *)sender event:(UIEvent *)event {
-
-    
         if([_indicator isAnimating]) {
             return;
         }
@@ -181,9 +180,7 @@ int add_number = 0;
     
 }
 
-
 - (void)GetJson {
-
     NSString *url = @"http://app.com/book/get";
     NSDictionary *params = [[NSDictionary alloc] init];
     params = @{@"page":@"0-100"};
@@ -211,7 +208,6 @@ int add_number = 0;
               [Date_Array addObject:[API_Array[i] objectForKey:@"purchase_date"]];
 
           }
-          
             self.title_list = Title_Array;
             self.price_list = Price_Array;
             self.date_list = Date_Array;

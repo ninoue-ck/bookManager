@@ -22,13 +22,10 @@
     [super viewDidLoad];
     _account_adress.placeholder =@"メースアドレスを入力してください";
     _account_pass.placeholder =@"パスワードを入力してください";
-
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)accountLogin {
@@ -73,7 +70,6 @@
 }
 
 //モーダル閉じる
-
 - (IBAction)login_save:(id)sender {
     if ([_account_adress.text length] == 0  || [_account_pass.text length] == 0  )
         {
@@ -91,6 +87,7 @@
     }
 }
 
+//キーボードをずらすメソッド
 -(void) keyboardWillShow:(NSNotification *) notification{
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
@@ -99,7 +96,6 @@
     } completion:NULL];
 }
 
-//消えた時戻す
 -(void) keyboardWillHide:(NSNotification *)notification{
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
@@ -123,17 +119,5 @@
 - (IBAction)confpass:(id)sender {
         [sender resignFirstResponder];
 }
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

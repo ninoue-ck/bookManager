@@ -14,5 +14,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *date_label;
 @property (weak, nonatomic) IBOutlet UIImageView *bookimage_view;
 
-
 @end

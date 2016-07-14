@@ -9,8 +9,6 @@
 #import "AccountSettingViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
-
-
 @interface AccountSettingViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *adress_field;
 @property (weak, nonatomic) IBOutlet UITextField *pass_field;
@@ -80,26 +78,13 @@
     }
 }
 
-
 - (IBAction)close_button:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-
-
 -(void)alertbutton{
     
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 -(void) keyboardWillShow:(NSNotification *) notification{
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -109,7 +94,7 @@
     } completion:NULL];
 }
 
-//消えた時戻す
+//消えた時に画面の位置を戻す
 -(void) keyboardWillHide:(NSNotification *)notification{
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{

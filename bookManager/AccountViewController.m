@@ -9,6 +9,7 @@
 
 #import "AccountViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import"AppDelegate.h"
 
 @interface AccountViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountAdress;
@@ -63,9 +64,10 @@
 }
 
 - (void)tolisttableView {
+    //タブをルートにして遷移するメソッド
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UITabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-    [self presentViewController:vc animated:YES completion:nil];
+    [UIApplication sharedApplication].keyWindow.rootViewController = vc;
 }
 
 //モーダル閉じる

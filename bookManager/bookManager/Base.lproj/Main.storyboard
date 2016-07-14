@@ -482,7 +482,7 @@
                     <connections>
                         <outlet property="accountAdress" destination="N1M-5l-MB8" id="m1R-bI-0z9"/>
                         <outlet property="accountPass" destination="HTX-T8-HPf" id="Eg2-2P-oPB"/>
-                        <segue destination="9Rc-mh-hUQ" kind="modal" identifier="regist-to-tab" id="HiD-Ay-Obl"/>
+                        <segue destination="9Rc-mh-hUQ" kind="push" identifier="regist-to-tab" id="HiD-Ay-Obl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxV-4t-WKr" userLabel="First Responder" sceneMemberID="firstResponder"/>

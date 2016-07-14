@@ -14,10 +14,10 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (weak, nonatomic) IBOutlet UILabel *title_label;
-@property (weak, nonatomic) IBOutlet UILabel *price_label;
-@property (weak, nonatomic) IBOutlet UILabel *date_label;
-@property (weak, nonatomic) IBOutlet UIImageView *bookimage_view;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *bookimageView;
 
 @end
 

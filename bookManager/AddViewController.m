@@ -33,7 +33,7 @@
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
-    _addDateField.inputView = datePicker;
+    self.addDateField.inputView = datePicker;
     self.addDateField.delegate = self;
     UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
     keyboardDoneButtonView.barStyle  = UIBarStyleBlack;
@@ -53,13 +53,13 @@
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
     
     // Viewの配置
-    _addDateField.inputAccessoryView = keyboardDoneButtonView;
+    self.addDateField.inputAccessoryView = keyboardDoneButtonView;
     
-    [self.view addSubview:_addDateField];
-    _addPriceField.placeholder =@"金額";
-    _addTitleField.placeholder =@"書籍名";
-    _addTitleField.clearButtonMode = UITextFieldViewModeAlways;
-    _addPriceField.clearButtonMode = UITextFieldViewModeAlways;
+    [self.view addSubview:self.addDateField];
+    self.addPriceField.placeholder =@"金額";
+    self.addTitleField.placeholder =@"書籍名";
+    self.addTitleField.clearButtonMode = UITextFieldViewModeAlways;
+    self.addPriceField.clearButtonMode = UITextFieldViewModeAlways;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,15 +71,15 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy/MM/dd";
     UIDatePicker *picker = (UIDatePicker *)sender;
-    _addDateField.text = [dateFormatter stringFromDate:picker.date];
+    self.addDateField.text = [dateFormatter stringFromDate:picker.date];
     addDate=picker.date;
     NSLog(@"add_date %@",addDate);
 }
 
 #pragma mark datepickerの完了ボタンが押された場合
 - (void)pickerDoneClicked {
-    [_addDateField resignFirstResponder];
-    _addDateField = nil;
+    [self.addDateField resignFirstResponder];
+    self.addDateField = nil;
 }
 
 - (IBAction)add_close:(id)sender {

@@ -20,8 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _accountAdress.placeholder =@"メースアドレスを入力してください";
-    _accountPass.placeholder =@"パスワードを入力してください";
+    self.accountAdress.placeholder =@"メースアドレスを入力してください";
+    self.accountPass.placeholder =@"パスワードを入力してください";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,8 +35,8 @@
     
     NSString *url = @"http://app.com/account/login";
     NSDictionary *params = [[NSDictionary alloc] init];
-    params = @{@"mail_address" : _accountAdress.text,
-               @"password" : _accountPass.text,
+    params = @{@"mail_address" : self.accountAdress.text,
+               @"password" : self.accountPass.text,
                };
     NSLog(@"%@", params);
     

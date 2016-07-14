@@ -20,15 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _adressField.placeholder =@"メールアドレスを入力してください";
-    _passField.placeholder =@"パスワードを入力してください";
-    _confirmPassField.placeholder =@"もう一度パスワードを入力してください";
-    // Do any additional setup after loading the view.
+    self.adressField.placeholder =@"メールアドレスを入力してください";
+    self.passField.placeholder =@"パスワードを入力してください";
+    self.confirmPassField.placeholder =@"もう一度パスワードを入力してください";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)Account_edit  {
@@ -55,7 +53,7 @@
 }
 
 - (IBAction)Account_save:(id)sender {
-    if (![_passField.text isEqualToString:_confirmPassField.text ]) {
+    if (![self.passField.text isEqualToString:self.confirmPassField.text ]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"パスワードが一致しません" preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self alertbutton];
@@ -63,7 +61,7 @@
         [self presentViewController:alertController animated:YES completion:nil];
         
     } else if
-        ([_adressField.text length] == 0 || [_passField.text length] == 0 || [_confirmPassField.text length] == 0) {
+        ([self.adressField.text length] == 0 || [self.passField.text length] == 0 || [self.confirmPassField.text length] == 0) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"入力されていない項目があります" preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self alertbutton];
@@ -117,6 +115,4 @@
 - (IBAction)confpass_return:(id)sender {
     [sender resignFirstResponder];
 }
-
-
 @end

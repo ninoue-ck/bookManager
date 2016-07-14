@@ -33,9 +33,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //一覧画面から受け取ったデータ
-    _bookTitleField.text = selectedTitle;
-    _bookPriceField.text = [NSString stringWithFormat:@"%@", selectedPrice];
-    _bookDateField.text = selectedDate;
+    self.bookTitleField.text = selectedTitle;
+    self.bookPriceField.text = [NSString stringWithFormat:@"%@", selectedPrice];
+    self.bookDateField.text = selectedDate;
     
     //日付のフィールドがクリックされるとピッカーになる処理
     UIDatePicker *datePicker = [[UIDatePicker alloc]init];
@@ -43,8 +43,7 @@
     
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
     
-    _bookDateField.inputView = datePicker;
-    
+    self.bookDateField.inputView = datePicker;
     self.bookDateField.delegate = self;
     
     UIToolbar *keyboardDoneButtonView = [[UIToolbar alloc] init];
@@ -64,10 +63,10 @@
                                                                             target:nil
                                                                             action:nil];
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
-    _bookDateField.inputAccessoryView = keyboardDoneButtonView;
+    self.bookDateField.inputAccessoryView = keyboardDoneButtonView;
     [self.view addSubview:_bookDateField];
-    _bookTitleField.clearButtonMode = UITextFieldViewModeAlways;
-    _bookPriceField.clearButtonMode = UITextFieldViewModeAlways;
+    self.bookTitleField.clearButtonMode = UITextFieldViewModeAlways;
+    self.bookPriceField.clearButtonMode = UITextFieldViewModeAlways;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +79,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy/MM/dd";
     UIDatePicker *picker = (UIDatePicker *)sender;
-    _bookDateField.text = [dateFormatter stringFromDate:picker.date];
+    self.bookDateField.text = [dateFormatter stringFromDate:picker.date];
     editPurchaseDate=picker.date;
     NSLog(@"edit_date %@",editPurchaseDate);
 }

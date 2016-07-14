@@ -41,8 +41,8 @@ int add_number = 0;
     [self.tableView registerNib:[UINib nibWithNibName:@"ListTableCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"Read_More_Cell" bundle:nil] forCellReuseIdentifier:@"ReadMoreCell"];
 
-    _page = 1;
-    _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.page = 1;
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.indicator setColor:[UIColor darkGrayColor]];
     [self.indicator setHidesWhenStopped:YES];
     [self.indicator stopAnimating];
@@ -58,7 +58,6 @@ int add_number = 0;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,8 +70,8 @@ int add_number = 0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(_page*ONCE_READ_COUNT+1 <= self.titleList.count){
-    return _page*ONCE_READ_COUNT+1;
+    if(self.page*ONCE_READ_COUNT+1 <= self.titleList.count){
+    return self.page*ONCE_READ_COUNT+1;
     }
     else{
         return self.titleList.count;
@@ -132,7 +131,7 @@ int add_number = 0;
         EditViewController *editViewController = (EditViewController *)segue.destinationViewController;
         editViewController.selectedTitle = [self.titleList objectAtIndex:indexPath.row];
         editViewController.selectedPrice = [self.priceList objectAtIndex:indexPath.row];
-        editViewController.selectedDate = _setDate;
+        editViewController.selectedDate = self.setDate;
         editViewController.selectedId = [self.idList objectAtIndex:indexPath.row];
     }
 }

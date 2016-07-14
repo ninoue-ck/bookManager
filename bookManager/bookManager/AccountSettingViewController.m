@@ -60,8 +60,7 @@
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
         
-    } else if
-        ([self.adressField.text length] == 0 || [self.passField.text length] == 0 || [self.confirmPassField.text length] == 0) {
+    } else if([self.adressField.text length] == 0 || [self.passField.text length] == 0 || [self.confirmPassField.text length] == 0) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"入力されていない項目があります" preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 [self alertbutton];

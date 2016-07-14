@@ -55,37 +55,32 @@ int add_number = 0;
     
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 125;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(self.page*ONCE_READ_COUNT+1 <= self.titleList.count){
     return self.page*ONCE_READ_COUNT+1;
     }
-    else{
+    else {
         return self.titleList.count;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = @"ListCell" ;
     ListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     //最終セルの設定 http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22
-    if((indexPath.row == _page*ONCE_READ_COUNT) || (indexPath.row == self.titleList.count) )
-    {
+    if((indexPath.row == _page*ONCE_READ_COUNT) || (indexPath.row == self.titleList.count)) {
         NSString *identifier = @"ReadMoreCell" ;
         Read_More_Cell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         [cell.Read_Button addTarget:self action:@selector(read_more_button:event:) forControlEvents:UIControlEventTouchUpInside];
@@ -97,20 +92,16 @@ int add_number = 0;
 
     //　時間の書式変更「http://qiita.com/yuto_aka_ike/items/6e2785499e5897725e22」
     NSString *gmt = self.dateList[indexPath.row];
-   
     NSDateFormatter *DF = [[NSDateFormatter alloc] init];
     [DF setDateFormat:@"EEE, dd MM yyy HH:mm:ss Z"];
     [DF setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"JP"]];
     NSDate *date = [DF dateFromString:gmt];
-    
     //NSStringに
     NSDateFormatter *outFmt = [[NSDateFormatter alloc] init];
     [outFmt setDateFormat:@"yyyy/MM/dd"];
     _setDate = [outFmt stringFromDate:date];
-    
     cell.dateLabel.text = _setDate;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
     cell.titleLabel.adjustsFontSizeToFitWidth = YES;
     cell.priceLabel.adjustsFontSizeToFitWidth = YES;
     cell.dateLabel.adjustsFontSizeToFitWidth = YES;
@@ -119,8 +110,7 @@ int add_number = 0;
 
 
 //テーブルのセルから移動
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"List_to_Edit" sender:self];
 }
 
@@ -154,8 +144,7 @@ int add_number = 0;
 }
 
 //次のワンスリードカウントを読みこむメソッド
-- (void)reloadMoreData
-{
+- (void)reloadMoreData {
     _page++;
     [self.tableView reloadData];
     [self endIndicator];
@@ -171,8 +160,7 @@ int add_number = 0;
     [self.tableView setTableFooterView:_indicator];
 }
 
-- (void)endIndicator
-{
+- (void)endIndicator {
     [_indicator stopAnimating];
     [_indicator removeFromSuperview];
     [self.tableView setTableFooterView:nil];
@@ -217,9 +205,7 @@ int add_number = 0;
       }];
 }
 
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 

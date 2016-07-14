@@ -11,8 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 
 @interface AddViewController ()
-<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate>
-{
+<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate> {
     NSString *addImage;
     NSString *addTitle;
     NSString *addPrice;
@@ -51,7 +50,6 @@
                                                                             target:nil
                                                                             action:nil];
     [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
-    
     // Viewの配置
     self.addDateField.inputAccessoryView = keyboardDoneButtonView;
     
@@ -97,7 +95,7 @@
 //画像添付の処理
 - (IBAction)image_send:(id)sender {
     if([UIImagePickerController
-        isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
+        isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
         imagePicker.delegate = self;
         imagePicker.allowsEditing = YES;
@@ -107,8 +105,7 @@
 }
 
 //画像の反映
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
     self.addImageField.image = image;
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -156,8 +153,8 @@
             [self alertButton];
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
-}else{
-    [self add];
+}   else {
+        [self add];
     }
 }
 - (void)alertButton {

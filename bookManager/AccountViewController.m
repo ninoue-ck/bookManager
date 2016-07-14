@@ -60,7 +60,6 @@
           }];
 }
 -(void)alertbutton{
-    
 }
 
 - (void)tolisttableView {
@@ -71,18 +70,14 @@
 
 //モーダル閉じる
 - (IBAction)login_save:(id)sender {
-    if ([_accountAdress.text length] == 0  || [_accountPass.text length] == 0  )
-        {
+    if ([_accountAdress.text length] == 0  || [_accountPass.text length] == 0  ) {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"項目に誤りがあります" preferredStyle:UIAlertControllerStyleAlert];
-        
         [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [self alertbutton];
         }]];
-        
         [self presentViewController:alertController animated:YES completion:nil];
-        
-    } else {
+} else {
         [self accountLogin];
     }
 }

@@ -104,7 +104,6 @@
 }
 //画像の処理
 - (IBAction)send_editimage:(id)sender {
-    
     if([UIImagePickerController
         isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -115,8 +114,7 @@
 }
 
 //画像の反映
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
     self.bookImage.image = image;
     [self dismissViewControllerAnimated:YES completion:nil];

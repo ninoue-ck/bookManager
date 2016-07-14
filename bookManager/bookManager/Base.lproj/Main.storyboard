@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ILj-Xk-fN5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qyr-oE-qNu">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -327,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ct-eI-JK3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2762" y="734"/>
+            <point key="canvasLocation" x="3574" y="734"/>
         </scene>
         <!--アカウント設定-->
         <scene sceneID="YEk-2z-nRF">
@@ -423,12 +423,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkT-Rp-knq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3462" y="1587"/>
+            <point key="canvasLocation" x="4274" y="1587"/>
         </scene>
-        <!--アカウント登録-->
+        <!--ログイン画面-->
         <scene sceneID="ck1-yB-3bM">
             <objects>
-                <viewController storyboardIdentifier="AccountViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ILj-Xk-fN5" customClass="AccountViewController" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="ILj-Xk-fN5" customClass="AccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dWP-Ar-2zN"/>
                         <viewControllerLayoutGuide type="bottom" id="z9p-jB-JSk"/>
@@ -437,7 +437,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1M-5l-MB8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1M-5l-MB8">
                                 <rect key="frame" x="70" y="150" width="460" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0kr-zZ-v2G"/>
@@ -448,12 +448,6 @@
                                     <action selector="adres_return:" destination="ILj-Xk-fN5" eventType="editingDidEndOnExit" id="ExW-jB-cjb"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログイン画面" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYR-S6-lLo">
-                                <rect key="frame" x="225" y="70" width="150" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fm-6N-cf3">
                                 <rect key="frame" x="254" y="410" width="92" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -462,7 +456,7 @@
                                     <action selector="login_save:" destination="ILj-Xk-fN5" eventType="touchUpInside" id="0Ka-Zz-yef"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTX-T8-HPf">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTX-T8-HPf">
                                 <rect key="frame" x="70" y="230" width="460" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wro-TF-Eck"/>
@@ -480,14 +474,11 @@
                             <constraint firstItem="N1M-5l-MB8" firstAttribute="leading" secondItem="L80-WZ-pnZ" secondAttribute="leadingMargin" constant="50" id="4mW-VY-oiN"/>
                             <constraint firstItem="HTX-T8-HPf" firstAttribute="leading" secondItem="L80-WZ-pnZ" secondAttribute="leadingMargin" constant="50" id="V2l-kG-5db"/>
                             <constraint firstItem="HTX-T8-HPf" firstAttribute="top" secondItem="N1M-5l-MB8" secondAttribute="bottom" constant="30" id="XiV-y2-et5"/>
-                            <constraint firstItem="oYR-S6-lLo" firstAttribute="centerX" secondItem="L80-WZ-pnZ" secondAttribute="centerX" id="Z5B-8N-P1K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N1M-5l-MB8" secondAttribute="trailing" constant="50" id="g3z-TH-vPV"/>
-                            <constraint firstItem="N1M-5l-MB8" firstAttribute="top" secondItem="oYR-S6-lLo" secondAttribute="bottom" constant="50" id="g9p-aE-S2P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HTX-T8-HPf" secondAttribute="trailing" constant="50" id="pK5-7u-62z"/>
-                            <constraint firstItem="oYR-S6-lLo" firstAttribute="top" secondItem="L80-WZ-pnZ" secondAttribute="topMargin" constant="70" id="re3-Fk-8Lf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="アカウント登録" id="1A9-yk-AEa" userLabel="アカウント登録"/>
+                    <navigationItem key="navigationItem" title="ログイン画面" id="1A9-yk-AEa" userLabel="アカウント登録"/>
                     <connections>
                         <outlet property="account_adress" destination="N1M-5l-MB8" id="Hji-1R-nh0"/>
                         <outlet property="account_pass" destination="HTX-T8-HPf" id="Gdl-oF-S2m"/>
@@ -496,7 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxV-4t-WKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60" y="1019"/>
+            <point key="canvasLocation" x="872" y="1019"/>
         </scene>
         <!--設定-->
         <scene sceneID="o7K-nn-yH7">
@@ -515,7 +506,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGS-DI-MQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831" y="1019"/>
+            <point key="canvasLocation" x="1643" y="1019"/>
         </scene>
         <!--設定-->
         <scene sceneID="Iv4-oP-j9W">
@@ -536,7 +527,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vzn-oc-LOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950" y="734"/>
+            <point key="canvasLocation" x="2762" y="734"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bzd-8f-bjE">
@@ -572,7 +563,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JGc-L0-DYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3445" y="734"/>
+            <point key="canvasLocation" x="4257" y="734"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6dp-j7-QOH">
+            <objects>
+                <navigationController storyboardIdentifier="AccountViewController" automaticallyAdjustsScrollViewInsets="NO" id="Qyr-oE-qNu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4tB-TG-EBR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ILj-Xk-fN5" kind="relationship" relationship="rootViewController" id="ngD-kr-M4c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fqq-DZ-lSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="60" y="1019"/>
         </scene>
     </scenes>
     <resources>

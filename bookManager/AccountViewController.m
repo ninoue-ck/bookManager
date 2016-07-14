@@ -68,6 +68,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UITabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    NSLog(@"クラス %@", [delegate.window.rootViewController class]);
 }
 
 //モーダル閉じる

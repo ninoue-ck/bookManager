@@ -103,7 +103,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="保存" id="Jez-Db-j26">
                             <connections>
-                                <action selector="add_save:" destination="NEp-FO-SVb" id="1j1-RE-Jra"/>
+                                <action selector="addBooksSave:" destination="NEp-FO-SVb" id="7aI-tE-N3q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -112,8 +112,8 @@
     
 }
 
-//書籍追加時のメソッ
-- (void)add {
+//書籍追加時のAPI通信メソッド
+- (void)addBooks {
     addTitle=self.addTitleField.text;
     addPrice=self.addPriceField.text;
     if (addTitle !=nil && addPrice !=nil && addDate!=nil) {
@@ -126,21 +126,19 @@
                    @"image_url":@"hoge",
                    @"name":self.addTitleField.text,
                    @"price":self.addPriceField.text,
-                   @"purchase_date":self.addDateField.text
-                   };
+                   @"purchase_date":self.addDateField.text };
         [manager POST:url parameters:params
-              success:^(NSURLSessionDataTask *task, id responseObject)
-         {
+              success:^(NSURLSessionDataTask *task, id responseObject) {
              [self dismissViewControllerAnimated:YES completion:nil];
-         } failure:^(NSURLSessionDataTask *task, NSError *error)
-         {
+         } failure:^(NSURLSessionDataTask *task, NSError *error) {
              NSLog(@"Error: %@", error);
          }
          ];
     }
 }
 
-- (IBAction)add_save:(id)sender {
+//書籍追加のメソッド
+- (IBAction)addBooksSave:(id)sender {
     if([_addTitleField.text length] == 0  || [_addPriceField.text length] == 0)  {
         NSLog(@"%@", self.addPriceField.text);
         NSLog(@"%@", self.addTitleField.text);
@@ -148,27 +146,24 @@
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"未入力項目あり" preferredStyle:UIAlertControllerStyleAlert];
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self alertButton];
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
     }
     else {
-        [self add];
+        [self addBooks];
     }
-}
-- (void)alertButton {
 }
 
 //キーボードが出た時画面を上にずらす
--(void) keyboardWillShow:(NSNotification *) notification {
+- (void)showKeyboard:(NSNotification *) notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    [UIView animateWithDuration:duration animations:^{
+    [UIView animateWithDuration:duration animations:^ {
         CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
         self.view.transform = transform;
-    }completion:NULL];
+    } completion:NULL];
 }
 
--(void)keyboardWillHide:(NSNotification *)notification {
+- (void)hideKeyboard:(NSNotification *)notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         self.view.transform = CGAffineTransformIdentity;
@@ -177,7 +172,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyboard:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
 @end

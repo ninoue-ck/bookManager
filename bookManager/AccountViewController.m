@@ -39,46 +39,29 @@
     params = @{@"mail_address" : self.accountAdress.text,
                @"password" : self.accountPass.text,
                };
-    NSLog(@"%@", params);
-    
+
     [manager POST:url
        parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject) {
-              NSLog(@"%@", responseObject);
-              
-              [self tolisttableView];
-              
+              [self toListTableView];
           } failure:^(NSURLSessionDataTask *task, NSError *error) {
-              NSLog(@"Error : %@", error);
-              
-              UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"メールアドレスかパスワードが間違っています" preferredStyle:UIAlertControllerStyleAlert];
-              
-              [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                  [self alertbutton];
-              }]];
-              
-              [self presentViewController:alertController animated:YES completion:nil];
+              [self showAlertController];
           }];
 }
--(void)alertbutton {
-}
 
-- (void)tolisttableView {
+- (void)toListTableView {
     //タブをルートにして遷移するメソッド
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UITabBarController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     [UIApplication sharedApplication].keyWindow.rootViewController = vc;
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSLog(@"クラス %@", [delegate.window.rootViewController class]);
 }
 
 //モーダル閉じる
-- (IBAction)login_save:(id)sender {
+- (IBAction)loginSave:(id)sender {
     if ([self.accountAdress.text length] == 0  || [self.accountPass.text length] == 0  ) {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"項目に誤りがあります" preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self alertbutton];
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
     }
@@ -88,7 +71,7 @@
 }
 
 //キーボードをずらすメソッド
--(void) keyboardWillShow:(NSNotification *) notification {
+- (void)showKeyboard:(NSNotification *) notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^ {
         CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
@@ -96,7 +79,7 @@
     } completion:NULL];
 }
 
--(void) keyboardWillHide:(NSNotification *)notification {
+- (void)hideKeyboard:(NSNotification *)notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         self.view.transform = CGAffineTransformIdentity;
@@ -105,8 +88,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showKeyboard:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
 //キーボードを閉じるメソッド
 - (IBAction)adres_return:(id)sender {
@@ -118,6 +101,13 @@
 
 - (IBAction)confpass:(id)sender {
     [sender resignFirstResponder];
+}
+
+- (void) showAlertController {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"項目に誤りがあります" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

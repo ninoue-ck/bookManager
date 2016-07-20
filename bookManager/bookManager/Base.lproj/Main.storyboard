@@ -453,7 +453,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="ログイン"/>
                                 <connections>
-                                    <action selector="login_save:" destination="ILj-Xk-fN5" eventType="touchUpInside" id="0Ka-Zz-yef"/>
+                                    <action selector="loginSave:" destination="ILj-Xk-fN5" eventType="touchUpInside" id="eJb-gJ-fNz"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTX-T8-HPf">

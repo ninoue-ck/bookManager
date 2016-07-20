@@ -95,12 +95,12 @@
 - (IBAction)returnMail:(id)sender {
     [sender resignFirstResponder];
 }
-- (IBAction)returnPass:(id)sender{
+- (IBAction)returnPass:(id)sender {
     [sender resignFirstResponder];
 }
 
 
-- (void) showAlertController {
+- (void)showAlertController {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"項目に誤りがあります" preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:[UIAlertAction actionWithTitle:@"確認" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
     }]];

@@ -78,7 +78,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void) keyboardWillShow:(NSNotification *) notification {
+- (void)keyboardWillShow:(NSNotification *) notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
@@ -87,7 +87,7 @@
 }
 
 //消えた時に画面の位置を戻す
--(void) keyboardWillHide:(NSNotification *)notification {
+- (void)keyboardWillHide:(NSNotification *)notification {
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         self.view.transform = CGAffineTransformIdentity;

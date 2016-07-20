@@ -151,7 +151,6 @@
     [manager POST:url parameters:params
           success:^(NSURLSessionDataTask *task, id responseObject)
      {[self.navigationController popViewControllerAnimated:YES];
-         
      }failure:^(NSURLSessionDataTask *task, NSError *error)
      {
          NSLog(@"Error: %@", error);
@@ -163,7 +162,7 @@
 }
 
 //キーボードが出てきた時に画面をずらすメソッド
--(void) keyboardWillShow:(NSNotification *) notification{
+- (void)keyboardWillShow:(NSNotification *) notification{
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -70);
@@ -171,7 +170,7 @@
     } completion:NULL];
 }
 
--(void) keyboardWillHide:(NSNotification *)notification{
+- (void)keyboardWillHide:(NSNotification *)notification{
     NSTimeInterval duration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         self.view.transform = CGAffineTransformIdentity;

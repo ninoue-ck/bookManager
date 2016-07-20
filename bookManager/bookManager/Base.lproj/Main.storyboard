@@ -101,11 +101,7 @@
                                 <action selector="add_close:" destination="NEp-FO-SVb" id="QU4-Yf-cyN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="Jez-Db-j26">
-                            <connections>
-                                <action selector="addBooksSave:" destination="NEp-FO-SVb" id="7aI-tE-N3q"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="Jez-Db-j26"/>
                     </navigationItem>
                     <connections>
                         <outlet property="addDateField" destination="CYL-Gl-jl5" id="39g-Ck-fry"/>
@@ -411,7 +407,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="保存" id="bIc-wJ-XUu">
                             <connections>
-                                <action selector="Account_save:" destination="BFk-FA-3TW" id="HCV-ZZ-13B"/>
+                                <action selector="saveAccount:" destination="BFk-FA-3TW" id="4MD-2t-jfq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

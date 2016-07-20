@@ -54,33 +54,28 @@
      ];
 }
 
-- (IBAction)Account_save:(id)sender {
+- (IBAction)saveAccount:(id)sender {
     if (![self.passField.text isEqualToString:self.confirmPassField.text ]) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"パスワードが一致しません" preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self alertbutton];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@""
+                                                                                 message:@"パスワードが一致しません" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"再入力"
+                                                            style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
-        
-    }
-    else if([self.adressField.text length] == 0 || [self.passField.text length] == 0 || [self.confirmPassField.text length] == 0) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"入力されていない項目があります" preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"再入力" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            [self alertbutton];
+    }else if([self.adressField.text length] == 0 || [self.passField.text length] == 0 || [self.confirmPassField.text length] == 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@""
+                                                                                 message:@"入力されていない項目があります" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"再入力"
+                                                            style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
-    }
-    else {
+    }else {
         [self account_edit];
-        
     }
 }
 
 - (IBAction)close_button:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void)alertbutton {
 }
 
 -(void) keyboardWillShow:(NSNotification *) notification {

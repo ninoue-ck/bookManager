@@ -80,7 +80,7 @@
     if ((indexPath.row == _page*ONCE_READ_COUNT) || (indexPath.row == self.titleList.count)) {
         NSString *identifier = @"ReadMoreCell" ;
         Read_More_Cell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        [cell.Read_Button addTarget:self action:@selector(read_more_button:event:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.Read_Button addTarget:self action:@selector(readMoreButton:event:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     cell.titleLabel.text = [self.titleList objectAtIndex:indexPath.row];
@@ -128,7 +128,7 @@
 }
 
 //もっと読みこむボタンのイベント
-- (void)read_more_button:(UIButton *)sender event:(UIEvent *)event {
+- (void)readMoreButton:(UIButton *)sender event:(UIEvent *)event {
     if([self.indicator isAnimating]) {
         return;
     }

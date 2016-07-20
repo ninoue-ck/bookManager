@@ -129,7 +129,7 @@
 }
 
 //書籍編集のメソッド
-- (void)edit_book {
+- (void)editBook {
     editBookTitle=self.bookTitleField.text;
     editPrice=self.bookPriceField.text;
     
@@ -158,8 +158,8 @@
      }];
 }
 
-- (IBAction)edit_save:(id)sender {
-    [self edit_book];
+- (IBAction)editSave:(id)sender {
+    [self editBook];
 }
 
 //キーボードが出てきた時に画面をずらすメソッド

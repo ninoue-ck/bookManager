@@ -240,7 +240,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="保存" id="U5Z-VN-nhN">
                             <connections>
-                                <action selector="edit_save:" destination="FiB-Ja-5KV" id="xDZ-3x-2rK"/>
+                                <action selector="editSave:" destination="FiB-Ja-5KV" id="0D0-c1-nKf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -39,7 +39,7 @@
 //初回起動ならアカウント設定
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    if  ([self isFirstRun ]) {
+    if  ([self isFirstRun ]){
         // 初回起動時の処理
         // Storyboard を呼ぶ
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];

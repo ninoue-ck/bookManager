@@ -29,7 +29,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)account_edit {
+- (void)editAccount {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
@@ -70,7 +70,7 @@
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
     }else {
-        [self account_edit];
+        [self editAccount];
     }
 }
 
@@ -100,15 +100,15 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 //キーボードを閉じる処理
-- (IBAction)mail_return:(id)sender {
+- (IBAction)returnMail:(id)sender {
     [sender resignFirstResponder];
 }
 
-- (IBAction)pass_return:(id)sender {
+- (IBAction)returnPass:(id)sender {
     [sender resignFirstResponder];
 }
 
-- (IBAction)confpass_return:(id)sender {
+- (IBAction)returnConfPass:(id)sender {
     [sender resignFirstResponder];
 }
 @end

@@ -80,20 +80,21 @@
     self.addDateField = nil;
 }
 
-- (IBAction)add_close:(id)sender {
+- (IBAction)addClose:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //リターンでキーボードを閉じる
-- (IBAction)return_title:(id)sender {
+- (IBAction)returnTitle:(id)sender {
     [sender resignFirstResponder];
 }
-- (IBAction)return_price:(id)sender {
+- (IBAction)returnPrice:(id)sender{
     [sender resignFirstResponder];
 }
 
+
 //画像添付の処理
-- (IBAction)image_send:(id)sender {
+- (IBAction)sendImage:(id)sender {
     if([UIImagePickerController
         isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -139,7 +140,7 @@
 
 //書籍追加のメソッド
 - (IBAction)addBooksSave:(id)sender {
-    if([_addTitleField.text length] == 0  || [_addPriceField.text length] == 0)  {
+    if([self.addTitleField.text length] == 0  || [self.addPriceField.text length] == 0)  {
         NSLog(@"%@", self.addPriceField.text);
         NSLog(@"%@", self.addTitleField.text);
         NSLog(@"date %@", self.addDateField.text);

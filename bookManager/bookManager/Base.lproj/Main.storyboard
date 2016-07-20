@@ -22,7 +22,7 @@
                                 <rect key="frame" x="310" y="154" width="60" height="30"/>
                                 <state key="normal" title="画像添付"/>
                                 <connections>
-                                    <action selector="image_send:" destination="NEp-FO-SVb" eventType="touchUpInside" id="hc6-tr-Z2I"/>
+                                    <action selector="sendImage:" destination="NEp-FO-SVb" eventType="touchUpInside" id="0jY-6g-al5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="購入日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTW-Al-a4y">
@@ -43,20 +43,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btZ-m0-3EK">
-                                <rect key="frame" x="60" y="356" width="480" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="return_price:" destination="NEp-FO-SVb" eventType="editingDidEndOnExit" id="qUH-NE-0E6"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2H8-E8-RHW">
                                 <rect key="frame" x="60" y="283" width="480" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="return_title:" destination="NEp-FO-SVb" eventType="editingDidEndOnExit" id="lSz-Z5-0vV"/>
+                                    <action selector="returnTitle:" destination="NEp-FO-SVb" eventType="editingDidEndOnExit" id="BOZ-Fy-9Lx"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CYL-Gl-jl5">
@@ -71,6 +63,14 @@
                                     <constraint firstAttribute="width" constant="150" id="OQb-gg-uh1"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btZ-m0-3EK">
+                                <rect key="frame" x="60" y="356" width="480" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="returnPrice:" destination="NEp-FO-SVb" eventType="editingDidEndOnExit" id="gpf-V4-zKW"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -98,10 +98,14 @@
                     <navigationItem key="navigationItem" title="書籍追加" id="uAf-tW-pzQ">
                         <barButtonItem key="leftBarButtonItem" title="閉じる" id="Emh-wq-wIC">
                             <connections>
-                                <action selector="add_close:" destination="NEp-FO-SVb" id="QU4-Yf-cyN"/>
+                                <action selector="addClose:" destination="NEp-FO-SVb" id="n8A-F4-zdt"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="保存" id="Jez-Db-j26"/>
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="Jez-Db-j26">
+                            <connections>
+                                <action selector="addBooksSave:" destination="NEp-FO-SVb" id="t5Q-Wq-nkB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addDateField" destination="CYL-Gl-jl5" id="39g-Ck-fry"/>
@@ -185,14 +189,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="editprice_return:" destination="FiB-Ja-5KV" eventType="editingDidEndOnExit" id="roR-n1-tH0"/>
+                                    <action selector="returnPrice:" destination="FiB-Ja-5KV" eventType="editingDidEnd" id="BI4-vg-WRC"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhR-l4-57D">
                                 <rect key="frame" x="293" y="184" width="60" height="30"/>
                                 <state key="normal" title="画像添付"/>
                                 <connections>
-                                    <action selector="send_editimage:" destination="FiB-Ja-5KV" eventType="touchUpInside" id="05o-eW-mNq"/>
+                                    <action selector="sendImage:" destination="FiB-Ja-5KV" eventType="touchUpInside" id="CcW-97-C6T"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qe7-Qf-xaN">
@@ -200,7 +204,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="edittitle_return:" destination="FiB-Ja-5KV" eventType="editingDidEndOnExit" id="Tuc-ab-rsD"/>
+                                    <action selector="returnTitle:" destination="FiB-Ja-5KV" eventType="editingDidEnd" id="5Zr-df-hvJ"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pef-EA-4KW">
@@ -235,7 +239,7 @@
                     <navigationItem key="navigationItem" title="書籍編集" id="Lgo-Sg-50t">
                         <barButtonItem key="leftBarButtonItem" title="戻る" id="Drc-Ld-dST">
                             <connections>
-                                <action selector="edit_back:" destination="FiB-Ja-5KV" id="W1A-n6-j5B"/>
+                                <action selector="backEdit:" destination="FiB-Ja-5KV" id="mGZ-79-4hJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="保存" id="U5Z-VN-nhN">
@@ -441,7 +445,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="adres_return:" destination="ILj-Xk-fN5" eventType="editingDidEndOnExit" id="ExW-jB-cjb"/>
+                                    <action selector="returnMail:" destination="ILj-Xk-fN5" eventType="editingDidEndOnExit" id="4QI-fa-va8"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fm-6N-cf3">
@@ -460,7 +464,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="pass_return:" destination="ILj-Xk-fN5" eventType="editingDidEndOnExit" id="hgt-1o-26P"/>
+                                    <action selector="returnPass:" destination="ILj-Xk-fN5" eventType="editingDidEndOnExit" id="YKK-um-Ggg"/>
                                 </connections>
                             </textField>
                         </subviews>

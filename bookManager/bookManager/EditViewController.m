@@ -89,20 +89,20 @@
 }
 
 //戻るボタン
-- (IBAction)edit_back:(id)sender {
+- (IBAction)backEdit:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 // リターンでキーボードを閉じる
-- (IBAction)title_return:(id)sender {
+- (IBAction)returnTitle:(id)sender {
     [sender resignFirstResponder];
 }
 
-- (IBAction)price_return:(id)sender {
+- (IBAction)returnPrice:(id)sender {
     [sender resignFirstResponder];
 }
 //画像の処理
-- (IBAction)send_editimage:(id)sender {
+- (IBAction)sendImage:(id)sender {
     if([UIImagePickerController
         isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];

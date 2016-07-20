@@ -92,16 +92,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
 //キーボードを閉じるメソッド
-- (IBAction)adres_return:(id)sender {
+- (IBAction)returnMail:(id)sender {
     [sender resignFirstResponder];
 }
-- (IBAction)pass_return:(id)sender {
+- (IBAction)returnPass:(id)sender{
     [sender resignFirstResponder];
 }
 
-- (IBAction)confpass:(id)sender {
-    [sender resignFirstResponder];
-}
 
 - (void) showAlertController {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"項目に誤りがあります" preferredStyle:UIAlertControllerStyleAlert];
